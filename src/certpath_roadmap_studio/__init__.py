@@ -21,6 +21,12 @@ from .catalog import (
     CertificationCatalog,
     CertificationResource,
 )
+from .lifecycle import (
+    CPEActivity,
+    CertLifecycleStatus,
+    ExpiryStatus,
+    calculate_lifecycle_status,
+)
 
 # Graph & DAG Engine
 from .dag_engine import DAGEngine
@@ -66,6 +72,10 @@ __all__ = [
     "Certification",
     "CertificationResource",
     "CertificationCatalog",
+    "ExpiryStatus",
+    "CPEActivity",
+    "CertLifecycleStatus",
+    "calculate_lifecycle_status",
     # Graph Engine
     "DAGEngine",
     # Planner & Roles

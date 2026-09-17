@@ -1,4 +1,4 @@
-"""Google Material 3 Studio UI Web Server for CertPath Roadmap Studio.
+"""CertPath Roadmap Studio Web Server (Design influenced by Material 3).
 
 Provides a multi-threaded HTTP server with REST endpoints for certification catalog search,
 DAG dependency resolution, topological prerequisite chains, personalized career roadmap planning,
@@ -42,7 +42,7 @@ EMBEDDED_STUDIO_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google CertPath Studio (Embedded Fallback)</title>
+  <title>CertPath Roadmap Studio (Embedded Fallback)</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafd; color: #202124; padding: 32px; }
     .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 800px; margin: 0 auto; }
@@ -53,7 +53,7 @@ EMBEDDED_STUDIO_HTML = """<!DOCTYPE html>
 </head>
 <body>
   <div class="card">
-    <h1>Google CertPath Studio</h1>
+    <h1>CertPath Roadmap Studio</h1>
     <p>Studio UI server is active and serving REST endpoints.</p>
     <div class="api-list">
       Available REST Endpoints:<br>
@@ -525,7 +525,7 @@ def run_server(
     server = create_server(host=host, port=port, public_dir=public_dir)
     url = f"http://{host}:{port}"
     print(f"============================================================")
-    print(f"  Google CertPath Studio UI Server Active")
+    print(f"  CertPath Roadmap Studio UI Server Active")
     print(f"  URL: {url}")
     print(f"  Interactive Roadmap DAG & Career Planner Ready")
     print(f"  Press Ctrl+C to stop.")
@@ -547,7 +547,7 @@ def run_server(
 
 def main() -> None:
     """CLI entrypoint for standalone UI server."""
-    parser = argparse.ArgumentParser(description="Google CertPath Studio UI & REST Server")
+    parser = argparse.ArgumentParser(description="CertPath Roadmap Studio UI & REST Server")
     parser.add_argument("--host", default="127.0.0.1", help="Host interface to bind (default: 127.0.0.1)")
     parser.add_argument("--port", "-p", type=int, default=8080, help="Port to listen on (default: 8080)")
     parser.add_argument("--open", "-o", action="store_true", help="Automatically open studio in default browser")

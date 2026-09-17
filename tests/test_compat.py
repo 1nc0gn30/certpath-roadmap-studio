@@ -76,7 +76,7 @@ def test_ensure_directory(tmp_path: Path):
 def test_read_and_atomic_write_text(tmp_path: Path):
     """Verify resilient reading and atomic writing of text files."""
     file_path = tmp_path / "sample.txt"
-    content = "Hello, Google CertPath Studio! 🚀"
+    content = "Hello, CertPath Roadmap Studio! 🚀"
 
     bytes_written = atomic_write_text(file_path, content)
     assert bytes_written > 0

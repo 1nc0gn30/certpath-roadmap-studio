@@ -1,6 +1,6 @@
 # 🗺️ CertPath Roadmap Studio
 
-> **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Google Material 3 Interactive Canvas UI. Built with **100% pure Python standard library** (zero runtime dependencies).
+> **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Interactive Canvas UI (design influenced by Material 3). Built with **100% pure Python standard library** (zero runtime dependencies).
 
 [![CI](https://github.com/1nc0gn30/certpath-roadmap-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/1nc0gn30/certpath-roadmap-studio/actions/workflows/ci.yml)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -17,7 +17,7 @@
 - **🚀 Personalized Career Roadmapping**: Multi-stage learning paths for 8+ career roles (`cloud_security_architect`, `ai_ml_engineer`, `fullstack_devops_lead`, `penetration_tester`, `data_platform_architect`, `soc_analyst`, `cloud_solutions_architect`, `devops_platform_engineer`).
 - **🧠 Skill Gap Analyzer**: Computes match percentage between user-acquired competencies and target certifications or career archetypes with bridge credential recommendations.
 - **📊 Universal Matrix Exporters**: Real-time export to valid **Mermaid flowcharts (`flowchart LR`/`TD`)**, **Markdown study guides with milestone checklists**, **ASCII prerequisite trees**, and **Schema.org JSON-LD**.
-- **🌐 Google Material 3 Light Mode Web UI**: Crisp Google Sans typography, Google Blue `#1a73e8` accents, interactive SVG DAG roadmap canvas, career path wizard, and dark mode toggle.
+- **🌐 Interactive Web UI (Design influenced by Material 3)**: Crisp typography, subtle elevation cards, interactive SVG DAG roadmap canvas, career path wizard, and dark mode toggle.
 - **🤖 FastMCP Model Context Protocol Server**: Direct stdio JSON-RPC 2.0 integration for Claude Desktop, Cursor, and Cline.
 - **🛡️ 100% Pure Python Standard Library**: Zero third-party runtime dependencies. Compatible with Python 3.9–3.13 across Linux, macOS, Windows, and Termux.
 

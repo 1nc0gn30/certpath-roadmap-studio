@@ -317,6 +317,53 @@ class MCPServer:
             handler=self._tool_diagnostics,
         )
 
+        # 9. certpath_simulate_velocity
+        self.register_tool(
+            name="certpath_simulate_velocity",
+            description=(
+                "Simulate roadmap completion timeline with cognitive fatigue / burnout analysis, "
+                "exam retake risk, and Monte Carlo stochastic probability distributions (P50, P80, P95)."
+            ),
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "Target career role ID or certification ID (e.g. 'cloud_security_architect' or 'cloud-aws-pro').",
+                    },
+                    "weekly_hours": {
+                        "type": "number",
+                        "default": 10.0,
+                        "description": "Study hours available per week (e.g. 5, 10, 20).",
+                    },
+                    "experience_level": {
+                        "type": "string",
+                        "enum": ["beginner", "intermediate", "advanced", "expert"],
+                        "default": "intermediate",
+                        "description": "Baseline learner experience level affecting velocity multiplier and pass rate.",
+                    },
+                    "current_certs": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Certifications already acquired to skip.",
+                    },
+                    "trials": {
+                        "type": "integer",
+                        "default": 500,
+                        "description": "Number of stochastic Monte Carlo trials (50 to 5000).",
+                    },
+                    "format": {
+                        "type": "string",
+                        "enum": ["markdown", "json"],
+                        "default": "markdown",
+                        "description": "Output formatting representation.",
+                    },
+                },
+                "required": ["target"],
+            },
+            handler=self._tool_simulate_velocity,
+        )
+
     # -------------------------------------------------------------------------
     # Tool Handler Implementations
     # -------------------------------------------------------------------------
@@ -729,6 +776,77 @@ class MCPServer:
         }
 
         return json.dumps(diag, indent=2)
+
+    def _tool_simulate_velocity(self, args: Dict[str, Any]) -> str:
+        """Handler for certpath_simulate_velocity."""
+        from .velocity_simulator import simulate_velocity
+
+        target = args.get("target")
+        if not target:
+            return "Error: Parameter 'target' (role ID or certification ID) is required."
+
+        weekly_hours = float(args.get("weekly_hours", 10.0))
+        experience_level = str(args.get("experience_level", "intermediate"))
+        current_certs = args.get("current_certs") or []
+        trials = int(args.get("trials", 500))
+        output_format = str(args.get("format", "markdown")).lower()
+
+        try:
+            plan = self.planner.generate_roadmap(
+                target_role_or_cert=target,
+                current_certs=current_certs,
+                weekly_hours=int(weekly_hours),
+            )
+            report = simulate_velocity(
+                plan_or_certs=plan,
+                weekly_hours=weekly_hours,
+                experience_level=experience_level,
+                simulation_trials=trials,
+            )
+        except Exception as e:
+            return f"Error simulating learning velocity for target '{target}': {e}"
+
+        if output_format == "json":
+            return json.dumps(report.to_dict(), indent=2)
+
+        mc = report.monte_carlo
+        lines: List[str] = [
+            f"### 🚀 Learning Velocity & Monte Carlo Schedule Simulation: {report.target_name}",
+            "",
+            f"- **Learner Experience Tier:** `{report.experience_level.title()}` (speed multiplier: `{report.learning_speed_multiplier:.2f}x`)",
+            f"- **Weekly Study Commitment:** `{report.weekly_hours:.0f} hours/week`",
+            f"- **Effort Projection:** `{report.total_nominal_hours} nominal hours` -> `{report.total_adjusted_hours:.1f} adjusted hours`",
+            f"- **Cognitive Fatigue Index:** `{report.fatigue_index:.1f}/100`",
+            f"- **Pacing Advisory:** *{report.pacing_recommendation}*",
+            "",
+            "#### 🎲 Monte Carlo Probabilistic Completion Milestones (500 Stochastic Trials):",
+            f"- **P50 (Median):** `{mc.weeks_p50:.1f} weeks` (~{mc.weeks_p50 / 4.33:.1f} months) — Expected Date: **{mc.completion_date_p50}** | Cost: **${mc.cost_p50:.2f}**",
+            f"- **P80 (Realistic):** `{mc.weeks_p80:.1f} weeks` (~{mc.weeks_p80 / 4.33:.1f} months) — Expected Date: **{mc.completion_date_p80}** | Cost: **${mc.cost_p80:.2f}**",
+            f"- **P95 (Conservative):** `{mc.weeks_p95:.1f} weeks` (~{mc.weeks_p95 / 4.33:.1f} months) — Expected Date: **{mc.completion_date_p95}** | Cost: **${mc.cost_p95:.2f}**",
+            f"- **Retake Probability:** P50: `{mc.retakes_p50:.1f}` retakes | P95: `{mc.retakes_p95:.1f}` retakes",
+            "",
+        ]
+
+        if report.fatigue_warnings:
+            lines.append("#### ⚠️ Cognitive Fatigue & Burnout Risk Alerts:")
+            for w in report.fatigue_warnings:
+                lines.append(f"- **[{w.risk_level}] {w.title}** (Burnout Score: `{w.burnout_score:.2f}`): {w.recommendation}")
+            lines.append("")
+
+        lines.append("#### 📅 Milestone Study Sequence:")
+        lines.append("| # | Certification | Level | Hours | Est. Weeks | Completion Date | Pass Prob |")
+        lines.append("| -: | :--- | :--- | -: | -: | :--- | -: |")
+        for m in report.milestones:
+            lines.append(
+                f"| {m.index} | **{m.title}** | `{m.level}` | {m.adjusted_hours:.0f}h | {m.estimated_weeks:.1f}w | {m.completion_date_iso} | {m.pass_probability * 100:.0f}% |"
+            )
+
+        lines.append("")
+        lines.append("```text")
+        lines.append(report.ascii_burndown_chart)
+        lines.append("```")
+
+        return "\n".join(lines)
 
     # -------------------------------------------------------------------------
     # JSON-RPC 2.0 Protocol Dispatcher

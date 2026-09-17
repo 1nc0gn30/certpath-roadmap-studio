@@ -50,6 +50,18 @@ from .matrix_exporter import (
     export_mermaid,
 )
 
+# Learning Velocity & Monte Carlo Simulator
+from .velocity_simulator import (
+    ExperienceLevel,
+    FatigueWarning,
+    MilestoneTimelineItem,
+    MonteCarloSummary,
+    VelocitySimulationReport,
+    calculate_pacing_sensitivity,
+    generate_ascii_burndown,
+    simulate_velocity,
+)
+
 # Protocol & CLI (conditional for concurrent subagent initialization)
 try:
     from .mcp_server import MCPServer
@@ -91,6 +103,15 @@ __all__ = [
     "export_markdown",
     "export_ascii_tree",
     "export_json_ld",
+    # Velocity & Monte Carlo Simulator
+    "ExperienceLevel",
+    "FatigueWarning",
+    "MilestoneTimelineItem",
+    "MonteCarloSummary",
+    "VelocitySimulationReport",
+    "calculate_pacing_sensitivity",
+    "generate_ascii_burndown",
+    "simulate_velocity",
     # Server & CLI
     "MCPServer",
     "cli_main",

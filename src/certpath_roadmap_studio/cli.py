@@ -365,6 +365,82 @@ def cmd_compare(args: argparse.Namespace, catalog: CertificationCatalog, dag: DA
     return 0
 
 
+def cmd_simulate(args: argparse.Namespace, planner: RoadmapPlanner) -> int:
+    """Handle 'simulate' / 'velocity' subcommand with Monte Carlo and burnout modeling."""
+    from .velocity_simulator import simulate_velocity
+
+    target_identifier = getattr(args, "role", None) or getattr(args, "target", None) or "cloud_security_architect"
+    current_certs: List[str] = []
+    if getattr(args, "current", None):
+        for c_item in args.current:
+            current_certs.extend([x.strip() for x in c_item.split(",") if x.strip()])
+
+    hours = float(getattr(args, "hours", 10.0))
+    exp_lvl = str(getattr(args, "experience", "intermediate"))
+    trials = int(getattr(args, "trials", 500))
+
+    try:
+        plan = planner.generate_roadmap(
+            target_role_or_cert=target_identifier,
+            current_certs=current_certs,
+            weekly_hours=int(hours),
+        )
+        report = simulate_velocity(
+            plan_or_certs=plan,
+            weekly_hours=hours,
+            experience_level=exp_lvl,
+            simulation_trials=trials,
+        )
+    except Exception as err:
+        print(Term.red(f"Error simulating velocity: {err}"), file=sys.stderr)
+        return 1
+
+    if getattr(args, "json", False):
+        print(json.dumps(report.to_dict(), indent=2))
+        return 0
+
+    mc = report.monte_carlo
+    color_risk = Term.red if report.fatigue_index >= 70 else (Term.yellow if report.fatigue_index >= 45 else Term.green)
+
+    print(Term.bold(f"\n🚀 Learning Velocity & Monte Carlo Schedule Simulation: {report.target_name}"))
+    print(Term.dim(f"   Learner Tier: {report.experience_level.title()} ({report.learning_speed_multiplier:.2f}x speed) | Study Pace: {report.weekly_hours:.0f} hrs/week"))
+    print(Term.dim(f"   Effort: {report.total_nominal_hours}h nominal -> {report.total_adjusted_hours:.1f}h adjusted | Cognitive Fatigue Index: ") + color_risk(f"{report.fatigue_index:.1f}/100\n"))
+
+    print(Term.bold("🎲 Monte Carlo Probabilistic Completion Milestones (500 Stochastic Trials):"))
+    mc_rows = [
+        ["P50 (Median)", f"{mc.weeks_p50:.1f} weeks (~{mc.weeks_p50/4.33:.1f} mo)", mc.completion_date_p50, f"${mc.cost_p50:,.2f}", f"{mc.retakes_p50:.1f}"],
+        ["P80 (Realistic)", f"{mc.weeks_p80:.1f} weeks (~{mc.weeks_p80/4.33:.1f} mo)", mc.completion_date_p80, f"${mc.cost_p80:,.2f}", "-"],
+        ["P95 (Conservative)", f"{mc.weeks_p95:.1f} weeks (~{mc.weeks_p95/4.33:.1f} mo)", mc.completion_date_p95, f"${mc.cost_p95:,.2f}", f"{mc.retakes_p95:.1f}"],
+    ]
+    print(format_table(["Confidence Tier", "Timeline Duration", "Target Date", "Est. Budget", "Retakes"], mc_rows))
+    print()
+
+    if report.fatigue_warnings:
+        print(Term.yellow("⚠️ Cognitive Fatigue & Burnout Alerts:"))
+        for w in report.fatigue_warnings:
+            print(f"  {Term.red(f'[{w.risk_level}]')} {Term.bold(w.title)}: {w.recommendation}")
+        print()
+
+    print(Term.bold("📅 Milestone Study Timeline Sequence:"))
+    m_rows = []
+    for m in report.milestones:
+        m_rows.append([
+            str(m.index),
+            m.title,
+            m.level,
+            f"{m.adjusted_hours:.0f}h",
+            f"{m.estimated_weeks:.1f}w",
+            m.completion_date_iso,
+            f"{m.pass_probability*100:.0f}%",
+        ])
+    print(format_table(["#", "Certification", "Level", "Hours", "Weeks", "Target Date", "Pass Prob"], m_rows))
+    print()
+
+    print(Term.cyan(report.ascii_burndown_chart))
+    print()
+    return 0
+
+
 def cmd_mermaid(args: argparse.Namespace, catalog: CertificationCatalog, dag: DAGEngine) -> int:
     """Output Mermaid flowchart syntax."""
     target_str = args.target
@@ -699,6 +775,17 @@ def cmd_test() -> int:
         assert call_res is not None and not call_res["result"].get("isError"), "MCP stats tool call failed"
     test("MCP Server Protocol Handshake & Tool Dispatch", t_mcp)
 
+    # 8. Learning Velocity & Monte Carlo Simulator
+    def t_velocity():
+        from .velocity_simulator import simulate_velocity
+        plan = planner.generate_roadmap("cloud_security_architect", weekly_hours=12)
+        report = simulate_velocity(plan, weekly_hours=12, simulation_trials=100)
+        assert report.total_nominal_hours > 0
+        assert report.monte_carlo.weeks_p50 > 0
+        assert len(report.milestones) > 0
+        assert len(report.ascii_burndown_chart) > 20
+    test("Learning Velocity & Monte Carlo Simulation Engine", t_velocity)
+
     duration = time.time() - start_time
     print(Term.bold(f"\nResults: {Term.green(str(passed) + ' passed')}, {Term.red(str(failed) + ' failed')} in {duration:.3f}s\n"))
     return 0 if failed == 0 else 1
@@ -796,7 +883,17 @@ def build_parser() -> argparse.ArgumentParser:
     p_diag = subparsers.add_parser("diagnostics", aliases=["doctor", "platform"], parents=[common_parser], help="Run diagnostics report")
     p_diag.add_argument("--json", action="store_true", help="Output JSON format")
 
-    # 13. test
+    # 13. simulate / velocity
+    p_sim = subparsers.add_parser("simulate", aliases=["velocity"], parents=[common_parser], help="Simulate learning velocity & Monte Carlo timeline")
+    p_sim.add_argument("--role", "-r", help="Target career role archetype ID")
+    p_sim.add_argument("--target", "-t", help="Target certification ID")
+    p_sim.add_argument("--current", "-c", action="append", help="Completed cert IDs (comma-separated or multiple)")
+    p_sim.add_argument("--hours", "-w", type=float, default=10.0, help="Study hours per week (default: 10)")
+    p_sim.add_argument("--experience", "-e", choices=["beginner", "intermediate", "advanced", "expert"], default="intermediate", help="Learner tier (default: intermediate)")
+    p_sim.add_argument("--trials", type=int, default=500, help="Monte Carlo trial count (default: 500)")
+    p_sim.add_argument("--json", action="store_true", help="Output JSON format")
+
+    # 14. test
     subparsers.add_parser("test", parents=[common_parser], help="Run internal self-verification test suite")
 
     return parser
@@ -844,6 +941,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         return cmd_roles(args, planner)
     elif args.command == "stats":
         return cmd_stats(args, catalog, dag)
+    elif args.command in ("simulate", "velocity"):
+        return cmd_simulate(args, planner)
     elif args.command in ("diagnostics", "doctor", "platform"):
         return cmd_diagnostics(args, catalog, dag, planner)
 

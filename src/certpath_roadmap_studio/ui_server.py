@@ -398,6 +398,22 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
             })
             return
 
+        # 13. REST API: /api/simulate-velocity
+        if path == "/api/simulate-velocity":
+            target = query_params.get("target", query_params.get("role", ["cloud_security_architect"]))[0]
+            hours = float(query_params.get("hours", query_params.get("weekly_hours", [10.0]))[0])
+            exp_lvl = query_params.get("experience_level", query_params.get("level", ["intermediate"]))[0]
+            trials = int(query_params.get("trials", [300])[0])
+
+            try:
+                from .velocity_simulator import simulate_velocity
+                plan = planner.generate_roadmap(target_role_or_cert=target, weekly_hours=int(hours))
+                report = simulate_velocity(plan, weekly_hours=hours, experience_level=exp_lvl, simulation_trials=trials)
+                self._send_json(report.to_dict())
+            except Exception as e:
+                self._send_error(f"Error simulating velocity: {e}")
+            return
+
         # 13. Static file handling from public directory
         pub_dir = self._get_public_dir()
         clean_rel_path = path.lstrip("/")
@@ -488,6 +504,22 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
             if limit:
                 results = results[:limit]
             self._send_json([c.to_dict(camel_case=True) for c in results])
+            return
+
+        if path == "/api/simulate-velocity":
+            target = body.get("target") or body.get("role") or "cloud_security_architect"
+            hours = float(body.get("weekly_hours") or body.get("hours") or 10.0)
+            exp_lvl = str(body.get("experience_level") or "intermediate")
+            current = body.get("current_certs") or body.get("current") or []
+            trials = int(body.get("trials") or 300)
+
+            try:
+                from .velocity_simulator import simulate_velocity
+                plan = planner.generate_roadmap(target_role_or_cert=target, current_certs=current, weekly_hours=int(hours))
+                report = simulate_velocity(plan, weekly_hours=hours, experience_level=exp_lvl, simulation_trials=trials)
+                self._send_json(report.to_dict())
+            except Exception as e:
+                self._send_error(f"Error simulating velocity: {e}")
             return
 
         self._send_error(f"POST endpoint '{path}' not found", status=HTTPStatus.NOT_FOUND)

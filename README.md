@@ -12,7 +12,7 @@
 
 ## 🌟 Highlights
 
-- **🎯 137+ Certification Graph**: Comprehensive graph spanning AWS, Azure, Google Cloud, CompTIA, Cisco, ISC2, Offensive Security, Linux Foundation, HashiCorp, Kubernetes, Docker, Python, and AI/ML ecosystems.
+- **🎯 137+ Tracked Certifications**: Comprehensive certification graph spanning AWS, Azure, Google Cloud, CompTIA, Cisco, ISC2, Offensive Security, Linux Foundation, HashiCorp, Kubernetes, Docker, Python, and AI/ML ecosystems.
 - **⚡ Directed Acyclic Graph (DAG) Solver**: Recursive prerequisite resolution in topological order, downstream unlock calculations, critical path duration analysis, and difficulty scoring.
 - **🚀 Personalized Career Roadmapping**: Multi-stage learning paths for 8+ career roles (`cloud_security_architect`, `ai_ml_engineer`, `fullstack_devops_lead`, `penetration_tester`, `data_platform_architect`, `soc_analyst`, `cloud_solutions_architect`, `devops_platform_engineer`).
 - **🧠 Skill Gap Analyzer**: Computes match percentage between user-acquired competencies and target certifications or career archetypes with bridge credential recommendations.
@@ -85,7 +85,7 @@ Open [http://localhost:8080](http://localhost:8080) to explore the visual DAG ro
 
 ---
 
-## 💻 CLI Usage
+## 💻 CLI Command Guide
 
 ```bash
 # Search certifications by keyword, category, or level
@@ -95,7 +95,7 @@ python3 -m certpath_roadmap_studio.cli search "Kubernetes" --level Advanced
 python3 -m certpath_roadmap_studio.cli prereqs cloud-cks
 
 # View certifications unlocked by a foundational credential
-python3 -m certpath_roadmap_studio.cli unlocked comptia-security-plus
+python3 -m certpath_roadmap_studio.cli unlocked soft-comptia-sec-plus
 
 # Generate a personalized career roadmap for a target role
 python3 -m certpath_roadmap_studio.cli plan --role cloud_security_architect --hours 15 --format text
@@ -119,6 +119,25 @@ python3 -m certpath_roadmap_studio.cli doctor
 
 ---
 
+## 🌐 REST API Endpoints
+
+When running `python3 -m certpath_roadmap_studio.cli serve` or `ui_server.py`, the embedded HTTP server exposes full REST API endpoints:
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/catalog` | Filter and list certifications (`?q=`, `?category=`, `?provider=`, `?level=`, `?limit=`) |
+| `GET` | `/api/cert/<id>` | Retrieve full certification details with resolved prerequisites and difficulty score |
+| `GET` | `/api/prereqs/<id>` | Return complete prerequisite dependency chain in topological order |
+| `GET` | `/api/unlocked/<id>` | Return all downstream certifications unlocked directly or transitively |
+| `GET`/`POST` | `/api/plan` | Generate personalized career roadmap (`?role=`, `?target=`, `?hours=`, `?current=`) |
+| `GET`/`POST` | `/api/compare` | Compare 2+ certifications side-by-side (`?ids=id1,id2`) |
+| `GET` | `/api/roles` | List all built-in career role templates |
+| `GET` | `/api/mermaid` | Generate live Mermaid flowchart syntax for a role or target cert |
+| `GET` | `/api/stats` | Telemetry, category distribution, and DAG validation metrics |
+| `GET` | `/api/diagnostics` | System health check and toolchain diagnostics |
+
+---
+
 ## 🤖 MCP Server Setup
 
 Add **CertPath Roadmap Studio** to your AI client configuration:
@@ -134,7 +153,32 @@ Add **CertPath Roadmap Studio** to your AI client configuration:
         "certpath_roadmap_studio.cli",
         "mcp"
       ],
-      "cwd": "/absolute/path/to/certpath-roadmap-studio"
+      "cwd": "/path/to/certpath-roadmap-studio"
+    }
+  }
+}
+```
+
+### Cursor (`.cursor/mcp.json`)
+```json
+{
+  "mcpServers": {
+    "certpath-roadmap": {
+      "command": "python3",
+      "args": ["-m", "certpath_roadmap_studio.cli", "mcp"],
+      "cwd": "/path/to/certpath-roadmap-studio"
+    }
+  }
+}
+```
+
+### Cline (`cline_mcp_settings.json`)
+```json
+{
+  "mcpServers": {
+    "certpath-roadmap": {
+      "command": "python3",
+      "args": ["-m", "certpath_roadmap_studio.cli", "mcp"]
     }
   }
 }
@@ -158,7 +202,7 @@ Add **CertPath Roadmap Studio** to your AI client configuration:
 ## 🧪 Running Tests
 
 ```bash
-pytest tests/ -v
+pytest -v
 ```
 
 87/87 tests passing with 100% standard library compliance across Linux, macOS, and Windows.

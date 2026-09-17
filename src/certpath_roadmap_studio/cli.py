@@ -143,12 +143,7 @@ def cmd_search(args: argparse.Namespace, catalog: CertificationCatalog) -> int:
     sliced = results[: args.limit]
 
     if args.json:
-        payload = {
-            "total_matches": len(results),
-            "returned_count": len(sliced),
-            "results": [c.to_dict() for c in sliced],
-        }
-        print(json.dumps(payload, indent=2))
+        print(json.dumps([c.to_dict() for c in sliced], indent=2))
         return 0
 
     print(Term.bold(f"\n🔍 Found {len(results)} certifications (showing top {len(sliced)}):\n"))
@@ -193,16 +188,7 @@ def cmd_prereqs(args: argparse.Namespace, catalog: CertificationCatalog, dag: DA
     total_cost = sum(c.cost_usd for c in chain)
 
     if args.json:
-        payload = {
-            "target": target.to_dict(),
-            "difficulty_score": difficulty,
-            "prerequisite_depth": depth,
-            "total_hours": total_hours,
-            "total_cost_usd": total_cost,
-            "chain": [c.to_dict() for c in chain],
-            "unlocked": [d.to_dict() for d in dependents],
-        }
-        print(json.dumps(payload, indent=2))
+        print(json.dumps([c.to_dict() for c in chain], indent=2))
         return 0
 
     print(Term.bold(f"\n🎯 Target: {target.title} ({target.provider})"))
@@ -468,6 +454,7 @@ def cmd_stats(args: argparse.Namespace, catalog: CertificationCatalog, dag: DAGE
 
     data = {
         **stats,
+        "is_dag": is_dag,
         "is_strict_dag": is_dag,
         "cycles_count": len(cycles),
         "root_certifications_count": len(roots),
@@ -481,7 +468,7 @@ def cmd_stats(args: argparse.Namespace, catalog: CertificationCatalog, dag: DAGE
         print(json.dumps(data, indent=2))
         return 0
 
-    print(Term.bold("\n📊 Certification Catalog & DAG Telemetry:\n"))
+    print(Term.bold("\n📊 CertPath Catalog Statistics & DAG Telemetry:\n"))
     print(f"  • {Term.bold('Total Certifications:')} {Term.cyan(str(stats['total_certs']))}")
     print(f"  • {Term.bold('Unique Skills Indexed:')} {Term.cyan(str(stats['total_skills']))}")
     print(f"  • {Term.bold('Average Study Hours:')} {stats['average_hours']}h per credential")
@@ -603,6 +590,7 @@ def cmd_diagnostics(args: argparse.Namespace, catalog: CertificationCatalog, dag
         "catalog_categories_count": len(catalog.get_categories()),
         "catalog_providers_count": len(catalog.get_providers()),
         "catalog_unique_skills": len(catalog.get_all_skills()),
+        "dag_consistency": "Valid DAG (Strictly Acyclic)" if is_dag else "Contains Cycles",
         "dag_is_acyclic": is_dag,
         "dag_cycles_count": len(cycles),
         "dag_root_nodes_count": len(roots),
@@ -614,10 +602,10 @@ def cmd_diagnostics(args: argparse.Namespace, catalog: CertificationCatalog, dag
         print(json.dumps(report, indent=2))
         return 0
 
-    print(Term.bold("\n🩺 CertPath Roadmap Studio System Diagnostics:\n"))
+    print(Term.bold("\n🩺 CertPath Studio System Diagnostics:\n"))
     for k, v in report.items():
         key_str = Term.bold(k.replace("_", " ").title().ljust(26))
-        val_str = Term.green(str(v)) if v is True or v == "healthy" else (Term.red(str(v)) if v is False else str(v))
+        val_str = Term.green(str(v)) if v is True or v == "healthy" or "Valid" in str(v) else (Term.red(str(v)) if v is False else str(v))
         print(f"  • {key_str} : {val_str}")
     print()
     return 0

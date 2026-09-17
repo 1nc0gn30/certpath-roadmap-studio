@@ -441,6 +441,104 @@ def cmd_simulate(args: argparse.Namespace, planner: RoadmapPlanner) -> int:
     return 0
 
 
+def cmd_roi(args: argparse.Namespace, catalog: CertificationCatalog, planner: RoadmapPlanner) -> int:
+    """Analyze certification financial ROI, salary impact, and portfolio market value."""
+    from .roi_calculator import (
+        calculate_cert_roi,
+        evaluate_portfolio,
+        format_portfolio_scorecard,
+        format_roi_scorecard,
+    )
+
+    # 1. Single certification ROI mode
+    if getattr(args, "cert", None):
+        cid = args.cert.strip()
+        cert = catalog.get(cid) or (catalog.search(query=cid) or [None])[0]
+        if not cert:
+            print(Term.red(f"Error: Certification '{cid}' not found in catalog."), file=sys.stderr)
+            return 1
+
+        analysis = calculate_cert_roi(cert)
+        if getattr(args, "json", False):
+            print(json.dumps(analysis.to_dict(), indent=2))
+            return 0
+
+        print()
+        print(Term.cyan(format_roi_scorecard(analysis)))
+        print()
+        return 0
+
+    # 2. Portfolio / Role valuation mode
+    cert_ids: List[str] = []
+    if getattr(args, "portfolio", None):
+        for item in args.portfolio:
+            cert_ids.extend([x.strip() for x in item.split(",") if x.strip()])
+    elif getattr(args, "role", None):
+        role_plan = planner.generate_roadmap(args.role)
+        cert_ids = [c.id for c in role_plan.all_certifications]
+    else:
+        # Default to cloud_solutions_architect role
+        role_plan = planner.generate_roadmap("cloud_solutions_architect")
+        cert_ids = [c.id for c in role_plan.all_certifications]
+
+    val = evaluate_portfolio(cert_ids, catalog=catalog)
+    if getattr(args, "json", False):
+        print(json.dumps(val.to_dict(), indent=2))
+        return 0
+
+    print()
+    print(Term.cyan(format_portfolio_scorecard(val)))
+    print()
+    return 0
+
+
+def cmd_overlap(args: argparse.Namespace, catalog: CertificationCatalog) -> int:
+    """Quantify knowledge transfer and skill overlap between two certifications."""
+    from .roi_calculator import calculate_skill_overlap
+
+    cid_a = args.cert_a.strip()
+    cid_b = args.cert_b.strip()
+
+    c_a = catalog.get(cid_a) or (catalog.search(query=cid_a) or [None])[0]
+    c_b = catalog.get(cid_b) or (catalog.search(query=cid_b) or [None])[0]
+
+    if not c_a:
+        print(Term.red(f"Error: First certification '{cid_a}' not found."), file=sys.stderr)
+        return 1
+    if not c_b:
+        print(Term.red(f"Error: Second certification '{cid_b}' not found."), file=sys.stderr)
+        return 1
+
+    overlap = calculate_skill_overlap(c_a, c_b)
+    if getattr(args, "json", False):
+        print(json.dumps(overlap.to_dict(), indent=2))
+        return 0
+
+    print(Term.bold(f"\n🔀 Skill & Competency Overlap: {c_a.title} ⟷ {c_b.title}"))
+    print(f"  • {Term.bold('Competency Overlap Index:')} {Term.cyan(f'{overlap.overlap_ratio * 100:.1f}%')}")
+    print(f"  • {Term.bold('Synergy Discount:')}        {Term.green(f'{overlap.synergy_discount_pct:.1f}%')} off study duration")
+    print(f"  • {Term.bold('Study Hours Saved:')}        {Term.green(f'{overlap.study_hours_saved} hours')} saved on {c_b.title}\n")
+
+    if overlap.shared_skills:
+        print(Term.bold(f"🤝 Shared Competencies ({len(overlap.shared_skills)}):"))
+        for s in overlap.shared_skills[:8]:
+            print(f"  {Term.green('✓')} {s}")
+        if len(overlap.shared_skills) > 8:
+            print(f"  {Term.dim(f'...and {len(overlap.shared_skills) - 8} more')}")
+        print()
+
+    print(Term.bold(f"🎯 Distinct Skills in {c_a.title}:"))
+    for s in overlap.unique_to_a[:4]:
+        print(f"  • {s}")
+    print()
+
+    print(Term.bold(f"🎯 Distinct Skills in {c_b.title}:"))
+    for s in overlap.unique_to_b[:4]:
+        print(f"  • {s}")
+    print()
+    return 0
+
+
 def cmd_mermaid(args: argparse.Namespace, catalog: CertificationCatalog, dag: DAGEngine) -> int:
     """Output Mermaid flowchart syntax."""
     target_str = args.target
@@ -786,6 +884,20 @@ def cmd_test() -> int:
         assert len(report.ascii_burndown_chart) > 20
     test("Learning Velocity & Monte Carlo Simulation Engine", t_velocity)
 
+    # 9. ROI & Skill Overlap Matrix Engine
+    def t_roi():
+        from .roi_calculator import calculate_cert_roi, calculate_skill_overlap, evaluate_portfolio
+        cert_aws = catalog.get("cloud-aws-saa") or catalog.get_all()[0]
+        roi = calculate_cert_roi(cert_aws)
+        assert roi.annual_salary_premium_usd > 0
+        assert roi.payback_period_months > 0
+        cert_sec = catalog.get("sec-aws-sec-spec") or catalog.get_all()[1]
+        ov = calculate_skill_overlap(cert_aws, cert_sec)
+        assert ov.overlap_ratio >= 0
+        val = evaluate_portfolio([cert_aws.id, cert_sec.id], catalog=catalog)
+        assert val.composite_marketability_index > 0
+    test("ROI & Skill Overlap Matrix Engine", t_roi)
+
     duration = time.time() - start_time
     print(Term.bold(f"\nResults: {Term.green(str(passed) + ' passed')}, {Term.red(str(failed) + ' failed')} in {duration:.3f}s\n"))
     return 0 if failed == 0 else 1
@@ -896,6 +1008,19 @@ def build_parser() -> argparse.ArgumentParser:
     # 14. test
     subparsers.add_parser("test", parents=[common_parser], help="Run internal self-verification test suite")
 
+    # 15. roi
+    p_roi = subparsers.add_parser("roi", parents=[common_parser], help="Analyze certification financial ROI, salary impact, and portfolio valuation")
+    p_roi.add_argument("--cert", "-c", help="Target certification ID for single credential ROI")
+    p_roi.add_argument("--role", "-r", help="Target career role archetype for portfolio valuation")
+    p_roi.add_argument("--portfolio", "-p", action="append", help="List of cert IDs for portfolio valuation (comma-separated)")
+    p_roi.add_argument("--json", action="store_true", help="Output JSON format")
+
+    # 16. overlap
+    p_overlap = subparsers.add_parser("overlap", parents=[common_parser], help="Calculate knowledge transfer and skill overlap between two certifications")
+    p_overlap.add_argument("cert_a", help="First certification ID")
+    p_overlap.add_argument("cert_b", help="Second certification ID")
+    p_overlap.add_argument("--json", action="store_true", help="Output JSON format")
+
     return parser
 
 
@@ -943,6 +1068,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         return cmd_stats(args, catalog, dag)
     elif args.command in ("simulate", "velocity"):
         return cmd_simulate(args, planner)
+    elif args.command == "roi":
+        return cmd_roi(args, catalog, planner)
+    elif args.command == "overlap":
+        return cmd_overlap(args, catalog)
     elif args.command in ("diagnostics", "doctor", "platform"):
         return cmd_diagnostics(args, catalog, dag, planner)
 

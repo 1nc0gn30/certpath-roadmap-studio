@@ -185,3 +185,46 @@ def test_cors_options_preflight(test_server: Tuple[str, int]):
     assert status in (200, 204)
     assert headers.get("Access-Control-Allow-Origin") == "*"
     assert "GET" in headers.get("Access-Control-Allow-Methods", "")
+
+
+def test_api_roi_overlap_valuation(test_server: Tuple[str, int]):
+    """Verify /api/roi, /api/overlap, and /api/valuation GET and POST endpoints."""
+    base_url, _ = test_server
+
+    # GET /api/roi
+    status, _, content = make_request(f"{base_url}/api/roi?cert_id=cert-entry-1")
+    assert status == 200
+    roi_data = json.loads(content.decode("utf-8"))
+    assert roi_data["cert_id"] == "cert-entry-1"
+    assert "annual_salary_premium_usd" in roi_data
+
+    # POST /api/roi
+    status, _, content = make_request(f"{base_url}/api/roi", method="POST", data={"cert_id": "cert-entry-1"})
+    assert status == 200
+    roi_post = json.loads(content.decode("utf-8"))
+    assert roi_post["cert_id"] == "cert-entry-1"
+
+    # GET /api/overlap
+    status, _, content = make_request(f"{base_url}/api/overlap?cert_a=cert-entry-1&cert_b=cert-inter-1")
+    assert status == 200
+    ov_data = json.loads(content.decode("utf-8"))
+    assert "overlap_ratio" in ov_data
+
+    # POST /api/overlap
+    status, _, content = make_request(f"{base_url}/api/overlap", method="POST", data={"cert_a": "cert-entry-1", "cert_b": "cert-inter-1"})
+    assert status == 200
+    ov_post = json.loads(content.decode("utf-8"))
+    assert "overlap_ratio" in ov_post
+
+    # GET /api/valuation
+    status, _, content = make_request(f"{base_url}/api/valuation?certs=cert-entry-1,cert-inter-1")
+    assert status == 200
+    val_data = json.loads(content.decode("utf-8"))
+    assert val_data["total_credentials"] == 2
+
+    # POST /api/valuation
+    status, _, content = make_request(f"{base_url}/api/valuation", method="POST", data={"cert_ids": ["cert-entry-1", "cert-inter-1"]})
+    assert status == 200
+    val_post = json.loads(content.decode("utf-8"))
+    assert val_post["total_credentials"] == 2
+

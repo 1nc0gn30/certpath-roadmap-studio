@@ -414,7 +414,54 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
                 self._send_error(f"Error simulating velocity: {e}")
             return
 
-        # 13. Static file handling from public directory
+        # 14. REST API: /api/roi
+        if path == "/api/roi":
+            cid = query_params.get("cert_id", query_params.get("cert", query_params.get("id", [None])))[0]
+            if not cid:
+                self._send_error("Parameter 'cert_id' is required")
+                return
+            cert = cat.get(cid) or (cat.search(query=cid) or [None])[0]
+            if not cert:
+                self._send_error(f"Certification '{cid}' not found", status=HTTPStatus.NOT_FOUND)
+                return
+            from .roi_calculator import calculate_cert_roi
+            self._send_json(calculate_cert_roi(cert).to_dict())
+            return
+
+        # 15. REST API: /api/overlap
+        if path == "/api/overlap":
+            cid_a = query_params.get("cert_a", [None])[0]
+            cid_b = query_params.get("cert_b", [None])[0]
+            if not cid_a or not cid_b:
+                self._send_error("Parameters 'cert_a' and 'cert_b' are both required")
+                return
+            c_a = cat.get(cid_a) or (cat.search(query=cid_a) or [None])[0]
+            c_b = cat.get(cid_b) or (cat.search(query=cid_b) or [None])[0]
+            if not c_a or not c_b:
+                self._send_error("One or both certifications not found in catalog", status=HTTPStatus.NOT_FOUND)
+                return
+            from .roi_calculator import calculate_skill_overlap
+            self._send_json(calculate_skill_overlap(c_a, c_b).to_dict())
+            return
+
+        # 16. REST API: /api/valuation
+        if path == "/api/valuation":
+            certs_raw = query_params.get("certs", query_params.get("ids", [""]))[0]
+            role = query_params.get("role", [None])[0]
+            if certs_raw:
+                cert_ids = [x.strip() for x in certs_raw.split(",") if x.strip()]
+            elif role:
+                plan = planner.generate_roadmap(role)
+                cert_ids = [c.id for c in plan.all_certifications]
+            else:
+                plan = planner.generate_roadmap("cloud_solutions_architect")
+                cert_ids = [c.id for c in plan.all_certifications]
+
+            from .roi_calculator import evaluate_portfolio
+            self._send_json(evaluate_portfolio(cert_ids, catalog=cat).to_dict())
+            return
+
+        # 17. Static file handling from public directory
         pub_dir = self._get_public_dir()
         clean_rel_path = path.lstrip("/")
         target_file = pub_dir / clean_rel_path
@@ -520,6 +567,48 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
                 self._send_json(report.to_dict())
             except Exception as e:
                 self._send_error(f"Error simulating velocity: {e}")
+            return
+
+        if path == "/api/roi":
+            cid = body.get("cert_id") or body.get("cert") or body.get("id")
+            if not cid:
+                self._send_error("Body must contain 'cert_id'")
+                return
+            cert = cat.get(cid) or (cat.search(query=cid) or [None])[0]
+            if not cert:
+                self._send_error(f"Certification '{cid}' not found", status=HTTPStatus.NOT_FOUND)
+                return
+            from .roi_calculator import calculate_cert_roi
+            self._send_json(calculate_cert_roi(cert).to_dict())
+            return
+
+        if path == "/api/overlap":
+            cid_a = body.get("cert_a") or body.get("cert_a_id")
+            cid_b = body.get("cert_b") or body.get("cert_b_id")
+            if not cid_a or not cid_b:
+                self._send_error("Body must contain 'cert_a' and 'cert_b'")
+                return
+            c_a = cat.get(cid_a) or (cat.search(query=cid_a) or [None])[0]
+            c_b = cat.get(cid_b) or (cat.search(query=cid_b) or [None])[0]
+            if not c_a or not c_b:
+                self._send_error("One or both certifications not found in catalog", status=HTTPStatus.NOT_FOUND)
+                return
+            from .roi_calculator import calculate_skill_overlap
+            self._send_json(calculate_skill_overlap(c_a, c_b).to_dict())
+            return
+
+        if path == "/api/valuation":
+            cert_ids = body.get("cert_ids") or body.get("certs") or []
+            role = body.get("role")
+            if role and not cert_ids:
+                plan = planner.generate_roadmap(role)
+                cert_ids = [c.id for c in plan.all_certifications]
+            elif not cert_ids:
+                plan = planner.generate_roadmap("cloud_solutions_architect")
+                cert_ids = [c.id for c in plan.all_certifications]
+
+            from .roi_calculator import evaluate_portfolio
+            self._send_json(evaluate_portfolio(cert_ids, catalog=cat).to_dict())
             return
 
         self._send_error(f"POST endpoint '{path}' not found", status=HTTPStatus.NOT_FOUND)

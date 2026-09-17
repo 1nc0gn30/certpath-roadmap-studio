@@ -23,7 +23,11 @@ keywords = [
     "fastmcp",
     "mermaid",
     "material-3",
-    "zero-dependencies"
+    "zero-dependencies",
+    "certification-roi",
+    "salary-calculator",
+    "skill-matrix",
+    "career-valuation",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

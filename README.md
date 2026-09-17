@@ -112,6 +112,18 @@ python3 -m certpath_roadmap_studio.cli mermaid cloud_security_architect
 # Output ASCII prerequisite tree
 python3 -m certpath_roadmap_studio.cli tree cyber-cissp
 
+# Calculate financial ROI and payback horizon for a certification
+python3 -m certpath_roadmap_studio.cli roi --cert cloud-aws-saa
+
+# Evaluate market power and earning potential for a portfolio or role
+python3 -m certpath_roadmap_studio.cli roi --role cloud_security_architect
+
+# Quantify skill overlap and study hours saved between two credentials
+python3 -m certpath_roadmap_studio.cli overlap cloud-aws-saa sec-aws-sec-spec
+
+# Simulate learning velocity & Monte Carlo timeline with burnout alerts
+python3 -m certpath_roadmap_studio.cli simulate --role devops_engineer --hours 12 --experience intermediate
+
 # View catalog telemetry and DAG diagnostics
 python3 -m certpath_roadmap_studio.cli stats
 python3 -m certpath_roadmap_studio.cli doctor
@@ -132,6 +144,10 @@ When running `python3 -m certpath_roadmap_studio.cli serve` or `ui_server.py`, t
 | `GET`/`POST` | `/api/plan` | Generate personalized career roadmap (`?role=`, `?target=`, `?hours=`, `?current=`) |
 | `GET`/`POST` | `/api/compare` | Compare 2+ certifications side-by-side (`?ids=id1,id2`) |
 | `GET` | `/api/roles` | List all built-in career role templates |
+| `GET`/`POST` | `/api/simulate-velocity` | Monte Carlo timeline simulation & cognitive fatigue modeling |
+| `GET`/`POST` | `/api/roi` | Certification ROI, salary premium, payback horizon, and 5-year net return |
+| `GET`/`POST` | `/api/overlap` | Skill overlap index, shared competencies, and synergistic study hours saved |
+| `GET`/`POST` | `/api/valuation` | Credential portfolio market valuation, diversification (HHI), and salary ceiling |
 | `GET` | `/api/mermaid` | Generate live Mermaid flowchart syntax for a role or target cert |
 | `GET` | `/api/stats` | Telemetry, category distribution, and DAG validation metrics |
 | `GET` | `/api/diagnostics` | System health check and toolchain diagnostics |
@@ -196,6 +212,10 @@ Add **CertPath Roadmap Studio** to your AI client configuration:
 | `certpath_roles` | List all built-in career role templates. |
 | `certpath_catalog_stats` | Retrieve catalog telemetry, domain distribution, and DAG validation metrics. |
 | `certpath_diagnostics` | Check toolchain health, filesystem integrity, and OS compatibility. |
+| `certpath_simulate_velocity` | Monte Carlo timeline simulation (P50, P80, P95) with burnout & cognitive fatigue risk analysis. |
+| `certpath_calculate_roi` | Financial ROI, annual salary premium, payback horizon, and 5-year net return. |
+| `certpath_skill_overlap` | Quantify knowledge transfer, shared skills, and study hours saved between certifications. |
+| `certpath_portfolio_valuation` | Aggregate market power score, vendor diversification (HHI), and salary range. |
 
 ---
 

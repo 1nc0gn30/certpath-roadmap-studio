@@ -62,6 +62,18 @@ from .velocity_simulator import (
     simulate_velocity,
 )
 
+# ROI, Compensation & Skill Overlap Matrix Engine
+from .roi_calculator import (
+    CertROIAnalysis,
+    PortfolioValuation,
+    SkillOverlapResult,
+    calculate_cert_roi,
+    calculate_skill_overlap,
+    evaluate_portfolio,
+    format_portfolio_scorecard,
+    format_roi_scorecard,
+)
+
 # Protocol & CLI (conditional for concurrent subagent initialization)
 try:
     from .mcp_server import MCPServer
@@ -112,6 +124,15 @@ __all__ = [
     "calculate_pacing_sensitivity",
     "generate_ascii_burndown",
     "simulate_velocity",
+    # ROI & Skill Overlap Engine
+    "CertROIAnalysis",
+    "PortfolioValuation",
+    "SkillOverlapResult",
+    "calculate_cert_roi",
+    "calculate_skill_overlap",
+    "evaluate_portfolio",
+    "format_roi_scorecard",
+    "format_portfolio_scorecard",
     # Server & CLI
     "MCPServer",
     "cli_main",

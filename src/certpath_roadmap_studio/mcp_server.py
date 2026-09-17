@@ -364,6 +364,89 @@ class MCPServer:
             handler=self._tool_simulate_velocity,
         )
 
+        # 10. certpath_calculate_roi
+        self.register_tool(
+            name="certpath_calculate_roi",
+            description=(
+                "Calculate financial return on investment (ROI), salary premium, payback horizon (in months), "
+                "hourly study value, and 5-year net earnings for any certification."
+            ),
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "cert_id": {
+                        "type": "string",
+                        "description": "Certification ID or exam code (e.g. 'cloud-aws-saa' or 'sec-comptia-secplus').",
+                    },
+                    "format": {
+                        "type": "string",
+                        "enum": ["markdown", "json"],
+                        "default": "markdown",
+                        "description": "Output formatting representation.",
+                    },
+                },
+                "required": ["cert_id"],
+            },
+            handler=self._tool_calculate_roi,
+        )
+
+        # 11. certpath_skill_overlap
+        self.register_tool(
+            name="certpath_skill_overlap",
+            description=(
+                "Quantify knowledge and skill overlap between two certifications. Computes Jaccard competency overlap, "
+                "shared concepts, and study-hours saved via synergistic learning."
+            ),
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "cert_a_id": {
+                        "type": "string",
+                        "description": "First certification ID (e.g. 'cloud-aws-saa').",
+                    },
+                    "cert_b_id": {
+                        "type": "string",
+                        "description": "Second certification ID (e.g. 'sec-aws-sec-spec' or 'devops-hashicorp-terraform').",
+                    },
+                    "format": {
+                        "type": "string",
+                        "enum": ["markdown", "json"],
+                        "default": "markdown",
+                        "description": "Output formatting representation.",
+                    },
+                },
+                "required": ["cert_a_id", "cert_b_id"],
+            },
+            handler=self._tool_skill_overlap,
+        )
+
+        # 12. certpath_portfolio_valuation
+        self.register_tool(
+            name="certpath_portfolio_valuation",
+            description=(
+                "Evaluate comprehensive market value, vendor diversification score (HHI), multi-cloud quotient, "
+                "security index, and expected salary range for a portfolio of credentials."
+            ),
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "cert_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "List of certification IDs in the portfolio.",
+                    },
+                    "format": {
+                        "type": "string",
+                        "enum": ["markdown", "json"],
+                        "default": "markdown",
+                        "description": "Output formatting representation.",
+                    },
+                },
+                "required": ["cert_ids"],
+            },
+            handler=self._tool_portfolio_valuation,
+        )
+
     # -------------------------------------------------------------------------
     # Tool Handler Implementations
     # -------------------------------------------------------------------------
@@ -846,6 +929,124 @@ class MCPServer:
         lines.append(report.ascii_burndown_chart)
         lines.append("```")
 
+        return "\n".join(lines)
+
+    def _tool_calculate_roi(self, args: Dict[str, Any]) -> str:
+        """Handler for certpath_calculate_roi."""
+        from .roi_calculator import calculate_cert_roi, format_roi_scorecard
+
+        cert_id = args.get("cert_id", "").strip()
+        if not cert_id:
+            return "Error: Parameter 'cert_id' is required."
+
+        cert = self.catalog.get(cert_id)
+        if not cert:
+            # Fallback search by title or exam code
+            matches = self.catalog.search(query=cert_id)
+            if matches:
+                cert = matches[0]
+
+        if not cert:
+            return f"Error: Certification '{cert_id}' not found in catalog."
+
+        analysis = calculate_cert_roi(cert)
+        out_fmt = str(args.get("format", "markdown")).lower()
+
+        if out_fmt == "json":
+            return json.dumps(analysis.to_dict(), indent=2)
+
+        return (
+            f"### 💰 Certification ROI & Value Analysis: {analysis.title}\n\n"
+            f"- **Provider / Level:** `{analysis.provider}` ({analysis.level})\n"
+            f"- **Exam Cost:** `${analysis.exam_cost_usd:.2f}`\n"
+            f"- **Study Commitment:** `{analysis.estimated_study_hours}` hours\n"
+            f"- **Projected Annual Salary Premium:** `${analysis.annual_salary_premium_usd:,.2f}/year`\n"
+            f"- **Payback Horizon:** `{analysis.payback_period_months:.1f} months`\n"
+            f"- **Study Hourly Return:** `${analysis.hourly_study_value_usd:.2f}/hour`\n"
+            f"- **5-Year Net ROI:** `${analysis.five_year_net_gain_usd:,.2f}` (`{analysis.five_year_roi_pct:,.0f}%`)\n"
+            f"- **Market Demand Rating:** **{analysis.market_demand_rating}**\n\n"
+            f"```text\n{format_roi_scorecard(analysis)}\n```"
+        )
+
+    def _tool_skill_overlap(self, args: Dict[str, Any]) -> str:
+        """Handler for certpath_skill_overlap."""
+        from .roi_calculator import calculate_skill_overlap
+
+        cert_a_id = args.get("cert_a_id", "").strip()
+        cert_b_id = args.get("cert_b_id", "").strip()
+        if not cert_a_id or not cert_b_id:
+            return "Error: Parameters 'cert_a_id' and 'cert_b_id' are both required."
+
+        cert_a = self.catalog.get(cert_a_id) or (self.catalog.search(query=cert_a_id) or [None])[0]
+        cert_b = self.catalog.get(cert_b_id) or (self.catalog.search(query=cert_b_id) or [None])[0]
+
+        if not cert_a:
+            return f"Error: Certification '{cert_a_id}' not found in catalog."
+        if not cert_b:
+            return f"Error: Certification '{cert_b_id}' not found in catalog."
+
+        overlap = calculate_skill_overlap(cert_a, cert_b)
+        out_fmt = str(args.get("format", "markdown")).lower()
+
+        if out_fmt == "json":
+            return json.dumps(overlap.to_dict(), indent=2)
+
+        lines = [
+            f"### 🔀 Skill & Competency Overlap: {cert_a.title} ⟷ {cert_b.title}",
+            "",
+            f"- **Competency Overlap Index:** `{overlap.overlap_ratio * 100:.1f}%`",
+            f"- **Synergistic Study Discount:** `{overlap.synergy_discount_pct:.1f}%`",
+            f"- **Study Hours Saved on '{cert_b.title}':** `{overlap.study_hours_saved} hours`",
+            "",
+            f"#### 🤝 Shared Competencies & Knowledge Domains ({len(overlap.shared_skills)}):",
+        ]
+        for s in overlap.shared_skills[:10]:
+            lines.append(f"- `{s}`")
+        if len(overlap.shared_skills) > 10:
+            lines.append(f"- *...and {len(overlap.shared_skills) - 10} more*")
+
+        lines.append("")
+        lines.append(f"#### 🎯 Unique to {cert_a.title} ({len(overlap.unique_to_a)}):")
+        for s in overlap.unique_to_a[:6]:
+            lines.append(f"- {s}")
+
+        lines.append("")
+        lines.append(f"#### 🎯 Unique to {cert_b.title} ({len(overlap.unique_to_b)}):")
+        for s in overlap.unique_to_b[:6]:
+            lines.append(f"- {s}")
+
+        return "\n".join(lines)
+
+    def _tool_portfolio_valuation(self, args: Dict[str, Any]) -> str:
+        """Handler for certpath_portfolio_valuation."""
+        from .roi_calculator import evaluate_portfolio, format_portfolio_scorecard
+
+        cert_ids = args.get("cert_ids", [])
+        if not isinstance(cert_ids, list) or not cert_ids:
+            return "Error: Parameter 'cert_ids' must be a non-empty list of certification IDs."
+
+        val = evaluate_portfolio(cert_ids, catalog=self.catalog)
+        out_fmt = str(args.get("format", "markdown")).lower()
+
+        if out_fmt == "json":
+            return json.dumps(val.to_dict(), indent=2)
+
+        min_sal, max_sal = val.estimated_salary_range_usd
+        lines = [
+            f"### 🏛️ Credential Portfolio Valuation & Market Power Scorecard",
+            "",
+            f"- **Evaluated Credentials:** `{val.total_credentials}` credentials",
+            f"- **Total Direct Exam Investment:** `${val.total_investment_cost_usd:,.2f}`",
+            f"- **Total Cumulative Study Hours:** `{val.total_study_hours_invested}` hours",
+            f"- **Projected Cumulative Earning Premium:** `${val.total_annual_salary_potential_usd:,.2f}/year`",
+            f"- **Estimated Market Salary Range:** **${min_sal:,} - ${max_sal:,} USD**",
+            f"- **Composite Marketability Index:** `{val.composite_marketability_index:.1f}/100`",
+            f"- **Vendor Diversification Score:** `{val.vendor_diversification_score:.1f}/100`",
+            f"- **Multi-Cloud Readiness Quotient:** `{val.multi_cloud_score:.1f}/100`",
+            f"- **Security Posture Quotient:** `{val.security_quotient:.1f}/100`",
+            "",
+            f"```text\n{format_portfolio_scorecard(val)}\n```",
+        ]
         return "\n".join(lines)
 
     # -------------------------------------------------------------------------

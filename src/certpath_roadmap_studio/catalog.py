@@ -588,6 +588,11 @@ class CertificationCatalog:
         """Look up certification by unique ID."""
         return self._certs.get(str(cert_id).strip())
 
+    def get(self, cert_id: str, default: Optional[Certification] = None) -> Optional[Certification]:
+        """Look up certification by unique ID (dict-like accessor)."""
+        res = self._certs.get(str(cert_id).strip())
+        return res if res is not None else default
+
     def get_all(self) -> List[Certification]:
         """Return all certifications in catalog."""
         return list(self._certs.values())

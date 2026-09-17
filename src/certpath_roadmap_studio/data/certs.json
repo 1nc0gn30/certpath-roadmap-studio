@@ -1,0 +1,5901 @@
+[
+  {
+    "id": "web-html-css",
+    "title": "Responsive Web Design",
+    "provider": "freeCodeCamp",
+    "level": "Entry",
+    "category": "Web Development",
+    "description": "Build accessible, responsive sites with modern HTML and CSS.",
+    "skillsGained": [
+      "HTML5",
+      "CSS3",
+      "Flexbox",
+      "Grid"
+    ],
+    "prerequisites": [],
+    "link": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+    "color": "#f97316",
+    "nextSteps": [
+      "web-js-algorithms"
+    ],
+    "interests": [
+      "design",
+      "ui",
+      "frontend",
+      "websites"
+    ],
+    "resources": [
+      {
+        "title": "Certification Curriculum",
+        "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+        "type": "Official"
+      },
+      {
+        "title": "MDN HTML Guide",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        "type": "Course"
+      },
+      {
+        "title": "Frontend Mentor Challenges",
+        "url": "https://www.frontendmentor.io/challenges",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-js-algorithms",
+    "title": "JavaScript Algorithms and Data Structures",
+    "provider": "freeCodeCamp",
+    "level": "Entry",
+    "category": "Web Development",
+    "description": "Develop core JavaScript and problem-solving fundamentals.",
+    "skillsGained": [
+      "JavaScript",
+      "ES6",
+      "Regex",
+      "Algorithms"
+    ],
+    "prerequisites": [
+      "web-html-css"
+    ],
+    "link": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/",
+    "color": "#eab308",
+    "nextSteps": [
+      "web-react-meta",
+      "web-fcc-frontend"
+    ],
+    "interests": [
+      "frontend",
+      "logic",
+      "coding",
+      "websites"
+    ],
+    "resources": [
+      {
+        "title": "Certification Curriculum",
+        "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/",
+        "type": "Official"
+      },
+      {
+        "title": "JavaScript.info",
+        "url": "https://javascript.info/",
+        "type": "Course"
+      },
+      {
+        "title": "Codewars JavaScript Kata",
+        "url": "https://www.codewars.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-fcc-frontend",
+    "title": "Front End Development Libraries",
+    "provider": "freeCodeCamp",
+    "level": "Intermediate",
+    "category": "Web Development",
+    "description": "Ship modern frontends with React and state management.",
+    "skillsGained": [
+      "React",
+      "Redux",
+      "Sass",
+      "UI Composition"
+    ],
+    "prerequisites": [
+      "web-js-algorithms"
+    ],
+    "link": "https://www.freecodecamp.org/learn/front-end-development-libraries/",
+    "color": "#1e293b",
+    "nextSteps": [
+      "web-fcc-backend"
+    ],
+    "interests": [
+      "frontend",
+      "react",
+      "ui",
+      "websites"
+    ],
+    "resources": [
+      {
+        "title": "Certification Curriculum",
+        "url": "https://www.freecodecamp.org/learn/front-end-development-libraries/",
+        "type": "Official"
+      },
+      {
+        "title": "React Docs",
+        "url": "https://react.dev/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Epic React Patterns",
+        "url": "https://www.epicreact.dev/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "web-react-meta",
+    "title": "Meta Front-End Developer Professional Certificate",
+    "provider": "Coursera / Meta",
+    "level": "Intermediate",
+    "category": "Web Development",
+    "description": "Job-oriented frontend training with React and testing.",
+    "skillsGained": [
+      "React",
+      "Testing",
+      "Version Control",
+      "Accessibility"
+    ],
+    "prerequisites": [
+      "web-js-algorithms"
+    ],
+    "link": "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "web-fullstack-open"
+    ],
+    "interests": [
+      "frontend",
+      "react",
+      "websites",
+      "product"
+    ],
+    "resources": [
+      {
+        "title": "Certificate Overview",
+        "url": "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+        "type": "Official"
+      },
+      {
+        "title": "WAI Accessibility Tutorials",
+        "url": "https://www.w3.org/WAI/tutorials/",
+        "type": "Course"
+      },
+      {
+        "title": "React Testing Library Docs",
+        "url": "https://testing-library.com/docs/react-testing-library/intro/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-fcc-backend",
+    "title": "Back End Development and APIs",
+    "provider": "freeCodeCamp",
+    "level": "Intermediate",
+    "category": "Web Development",
+    "description": "Learn Node.js and API development fundamentals.",
+    "skillsGained": [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "MongoDB"
+    ],
+    "prerequisites": [
+      "web-fcc-frontend"
+    ],
+    "link": "https://www.freecodecamp.org/learn/back-end-development-and-apis/",
+    "color": "#334155",
+    "nextSteps": [],
+    "interests": [
+      "backend",
+      "apis",
+      "websites",
+      "server"
+    ],
+    "resources": [
+      {
+        "title": "Certification Curriculum",
+        "url": "https://www.freecodecamp.org/learn/back-end-development-and-apis/",
+        "type": "Official"
+      },
+      {
+        "title": "Express Guide",
+        "url": "https://expressjs.com/en/guide/routing.html",
+        "type": "Course"
+      },
+      {
+        "title": "Postman API Fundamentals",
+        "url": "https://www.postman.com/api-platform/api-learning-center/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-fullstack-open",
+    "title": "Full Stack Open",
+    "provider": "University of Helsinki",
+    "level": "Intermediate",
+    "category": "Web Development",
+    "description": "Deep dive into production-grade full-stack JavaScript.",
+    "skillsGained": [
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Testing"
+    ],
+    "prerequisites": [
+      "web-react-meta"
+    ],
+    "link": "https://fullstackopen.com/en/",
+    "color": "#2563eb",
+    "nextSteps": [],
+    "interests": [
+      "fullstack",
+      "websites",
+      "engineering",
+      "product"
+    ],
+    "resources": [
+      {
+        "title": "Course Home",
+        "url": "https://fullstackopen.com/en/",
+        "type": "Official"
+      },
+      {
+        "title": "GraphQL Intro",
+        "url": "https://graphql.org/learn/",
+        "type": "Course"
+      },
+      {
+        "title": "Playwright Docs",
+        "url": "https://playwright.dev/docs/intro",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "soft-cs50",
+    "title": "CS50x: Introduction to Computer Science",
+    "provider": "Harvard / edX",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Foundational computer science concepts and problem solving.",
+    "skillsGained": [
+      "Algorithms",
+      "C",
+      "Python",
+      "SQL"
+    ],
+    "prerequisites": [],
+    "link": "https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "google-it-automation",
+      "soft-python-pcap"
+    ],
+    "interests": [
+      "coding",
+      "problem solving",
+      "engineering",
+      "software"
+    ],
+    "resources": [
+      {
+        "title": "Course Page",
+        "url": "https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science",
+        "type": "Official"
+      },
+      {
+        "title": "CS50 Notes",
+        "url": "https://cs50.harvard.edu/x/",
+        "type": "Course"
+      },
+      {
+        "title": "LeetCode",
+        "url": "https://leetcode.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "google-it-support",
+    "title": "Google IT Support",
+    "provider": "Google / Coursera",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "IT and systems basics useful for early technical careers.",
+    "skillsGained": [
+      "Troubleshooting",
+      "Linux",
+      "Networking",
+      "Security"
+    ],
+    "prerequisites": [],
+    "link": "https://grow.google/certificates/it-support/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "google-it-automation"
+    ],
+    "interests": [
+      "it",
+      "support",
+      "systems",
+      "operations"
+    ],
+    "resources": [
+      {
+        "title": "Program Details",
+        "url": "https://grow.google/certificates/it-support/",
+        "type": "Official"
+      },
+      {
+        "title": "CompTIA A+ Objectives",
+        "url": "https://www.comptia.org/certifications/a",
+        "type": "Exam Guide"
+      },
+      {
+        "title": "Linux Journey",
+        "url": "https://linuxjourney.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "google-it-automation",
+    "title": "Google IT Automation with Python",
+    "provider": "Google / Coursera",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Automate system and developer workflows with Python.",
+    "skillsGained": [
+      "Python",
+      "Git",
+      "Automation",
+      "Troubleshooting"
+    ],
+    "prerequisites": [
+      "google-it-support"
+    ],
+    "link": "https://grow.google/certificates/it-automation/",
+    "color": "#1d4ed8",
+    "nextSteps": [
+      "soft-python-pcap"
+    ],
+    "interests": [
+      "automation",
+      "python",
+      "scripting",
+      "operations"
+    ],
+    "resources": [
+      {
+        "title": "Program Details",
+        "url": "https://grow.google/certificates/it-automation/",
+        "type": "Official"
+      },
+      {
+        "title": "Python Docs",
+        "url": "https://docs.python.org/3/tutorial/",
+        "type": "Course"
+      },
+      {
+        "title": "Real Python",
+        "url": "https://realpython.com/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-python-pcap",
+    "title": "PCAP: Certified Associate in Python Programming",
+    "provider": "Python Institute",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Validate practical intermediate Python programming skills.",
+    "skillsGained": [
+      "OOP",
+      "Modules",
+      "Exceptions",
+      "Testing"
+    ],
+    "prerequisites": [
+      "google-it-automation"
+    ],
+    "link": "https://pythoninstitute.org/pcap",
+    "color": "#0f766e",
+    "nextSteps": [
+      "soft-java-oracle"
+    ],
+    "interests": [
+      "python",
+      "backend",
+      "automation",
+      "software"
+    ],
+    "resources": [
+      {
+        "title": "Exam Info",
+        "url": "https://pythoninstitute.org/pcap",
+        "type": "Official"
+      },
+      {
+        "title": "Pytest Docs",
+        "url": "https://docs.pytest.org/",
+        "type": "Course"
+      },
+      {
+        "title": "Exercism Python",
+        "url": "https://exercism.org/tracks/python",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "soft-java-oracle",
+    "title": "Oracle Certified Professional: Java Developer",
+    "provider": "Oracle",
+    "level": "Advanced",
+    "category": "Software Development",
+    "description": "Demonstrate advanced Java language and API proficiency.",
+    "skillsGained": [
+      "Java SE",
+      "Collections",
+      "Concurrency",
+      "JVM"
+    ],
+    "prerequisites": [
+      "soft-python-pcap"
+    ],
+    "link": "https://education.oracle.com/java-se-17-developer/pP_JAVA17OCP",
+    "color": "#7c2d12",
+    "nextSteps": [],
+    "interests": [
+      "java",
+      "backend",
+      "enterprise",
+      "software"
+    ],
+    "resources": [
+      {
+        "title": "Exam Page",
+        "url": "https://education.oracle.com/java-se-17-developer/pP_JAVA17OCP",
+        "type": "Official"
+      },
+      {
+        "title": "Java Tutorials",
+        "url": "https://dev.java/learn/",
+        "type": "Course"
+      },
+      {
+        "title": "Baeldung Java",
+        "url": "https://www.baeldung.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-python-for-all",
+    "title": "Python for Everybody",
+    "provider": "Coursera / University of Michigan",
+    "level": "Entry",
+    "category": "AI Development",
+    "description": "Entry point for Python programming and data handling.",
+    "skillsGained": [
+      "Python",
+      "Data Parsing",
+      "APIs",
+      "Scripting"
+    ],
+    "prerequisites": [],
+    "link": "https://www.coursera.org/specializations/python",
+    "color": "#2563eb",
+    "nextSteps": [
+      "ai-ml-specialization"
+    ],
+    "interests": [
+      "ai",
+      "ml",
+      "python",
+      "data"
+    ],
+    "resources": [
+      {
+        "title": "Specialization Page",
+        "url": "https://www.coursera.org/specializations/python",
+        "type": "Official"
+      },
+      {
+        "title": "NumPy Basics",
+        "url": "https://numpy.org/learn/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn Python",
+        "url": "https://www.kaggle.com/learn/python",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-ml-specialization",
+    "title": "Machine Learning Specialization",
+    "provider": "Coursera / DeepLearning.AI",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Core machine learning methods and practical modeling.",
+    "skillsGained": [
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Model Evaluation"
+    ],
+    "prerequisites": [
+      "ai-python-for-all"
+    ],
+    "link": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "color": "#0284c7",
+    "nextSteps": [
+      "ai-deep-learning",
+      "ai-tensorflow-dev"
+    ],
+    "interests": [
+      "ai",
+      "ml",
+      "models",
+      "data"
+    ],
+    "resources": [
+      {
+        "title": "Specialization Page",
+        "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+        "type": "Official"
+      },
+      {
+        "title": "Scikit-learn User Guide",
+        "url": "https://scikit-learn.org/stable/user_guide.html",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Micro-courses",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-deep-learning",
+    "title": "Deep Learning Specialization",
+    "provider": "Coursera / DeepLearning.AI",
+    "level": "Advanced",
+    "category": "AI Development",
+    "description": "Advanced neural network design and deep learning workflows.",
+    "skillsGained": [
+      "CNNs",
+      "Transformers",
+      "Optimization",
+      "Sequence Models"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization"
+    ],
+    "link": "https://www.coursera.org/specializations/deep-learning",
+    "color": "#dc2626",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "ai",
+      "deep learning",
+      "neural networks",
+      "research"
+    ],
+    "resources": [
+      {
+        "title": "Specialization Page",
+        "url": "https://www.coursera.org/specializations/deep-learning",
+        "type": "Official"
+      },
+      {
+        "title": "Papers with Code",
+        "url": "https://paperswithcode.com/",
+        "type": "Community"
+      },
+      {
+        "title": "Weights & Biases Reports",
+        "url": "https://wandb.ai/site/articles",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-tensorflow-dev",
+    "title": "TensorFlow Developer Certificate",
+    "provider": "TensorFlow",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Build and train production-ready deep learning models.",
+    "skillsGained": [
+      "TensorFlow",
+      "Computer Vision",
+      "NLP",
+      "Model Deployment"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization"
+    ],
+    "link": "https://www.tensorflow.org/certificate",
+    "color": "#f97316",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "tensorflow",
+      "ai",
+      "modeling",
+      "deployment"
+    ],
+    "resources": [
+      {
+        "title": "Certificate Details",
+        "url": "https://www.tensorflow.org/certificate",
+        "type": "Official"
+      },
+      {
+        "title": "TensorFlow Tutorials",
+        "url": "https://www.tensorflow.org/tutorials",
+        "type": "Course"
+      },
+      {
+        "title": "Hugging Face Courses",
+        "url": "https://huggingface.co/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-google-ml",
+    "title": "Professional Machine Learning Engineer",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "AI Development",
+    "description": "Design and productionize ML solutions in cloud environments.",
+    "skillsGained": [
+      "Vertex AI",
+      "MLOps",
+      "Model Serving",
+      "Monitoring"
+    ],
+    "prerequisites": [
+      "ai-deep-learning"
+    ],
+    "link": "https://cloud.google.com/learn/certification/machine-learning-engineer",
+    "color": "#1d4ed8",
+    "nextSteps": [],
+    "interests": [
+      "mlops",
+      "cloud ai",
+      "deployment",
+      "data"
+    ],
+    "resources": [
+      {
+        "title": "Certification Page",
+        "url": "https://cloud.google.com/learn/certification/machine-learning-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Vertex AI Docs",
+        "url": "https://cloud.google.com/vertex-ai/docs",
+        "type": "Course"
+      },
+      {
+        "title": "MLOps Whitepaper",
+        "url": "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+        "type": "Exam Guide"
+      }
+    ]
+  },
+  {
+    "id": "cyber-isc2-cc",
+    "title": "Certified in Cybersecurity (CC)",
+    "provider": "ISC2",
+    "level": "Entry",
+    "category": "Cyber Security",
+    "description": "Entry-level cybersecurity fundamentals and terminology.",
+    "skillsGained": [
+      "Security Principles",
+      "Access Control",
+      "Network Security"
+    ],
+    "prerequisites": [],
+    "link": "https://www.isc2.org/Certifications/CC",
+    "color": "#0f172a",
+    "nextSteps": [
+      "google-cybersecurity",
+      "cyber-sec-plus"
+    ],
+    "interests": [
+      "security",
+      "risk",
+      "defense",
+      "compliance"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://www.isc2.org/Certifications/CC",
+        "type": "Official"
+      },
+      {
+        "title": "NIST CSF 2.0",
+        "url": "https://www.nist.gov/cyberframework",
+        "type": "Course"
+      },
+      {
+        "title": "TryHackMe Intro to Cyber",
+        "url": "https://tryhackme.com/path/outline/presecurity",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "google-cybersecurity",
+    "title": "Google Cybersecurity Certificate",
+    "provider": "Google / Coursera",
+    "level": "Entry",
+    "category": "Cyber Security",
+    "description": "Hands-on intro to SOC workflows and incident analysis.",
+    "skillsGained": [
+      "Linux",
+      "SQL",
+      "SIEM",
+      "Incident Response"
+    ],
+    "prerequisites": [
+      "cyber-isc2-cc"
+    ],
+    "link": "https://grow.google/certificates/cybersecurity/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "cyber-sec-plus"
+    ],
+    "interests": [
+      "security",
+      "soc",
+      "incident response",
+      "defense"
+    ],
+    "resources": [
+      {
+        "title": "Program Details",
+        "url": "https://grow.google/certificates/cybersecurity/",
+        "type": "Official"
+      },
+      {
+        "title": "Splunk Fundamentals",
+        "url": "https://www.splunk.com/en_us/training/free-courses/overview.html",
+        "type": "Course"
+      },
+      {
+        "title": "Blue Team Labs",
+        "url": "https://blueteamlabs.online/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-sec-plus",
+    "title": "CompTIA Security+",
+    "provider": "CompTIA",
+    "level": "Entry",
+    "category": "Cyber Security",
+    "description": "Core practical security operations and architecture baseline.",
+    "skillsGained": [
+      "Threat Management",
+      "IAM",
+      "Network Security",
+      "Risk"
+    ],
+    "prerequisites": [
+      "google-cybersecurity"
+    ],
+    "link": "https://www.comptia.org/certifications/security",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "cyber-ejpt"
+    ],
+    "interests": [
+      "security",
+      "network",
+      "defense",
+      "operations"
+    ],
+    "resources": [
+      {
+        "title": "Exam Objectives",
+        "url": "https://www.comptia.org/certifications/security",
+        "type": "Official"
+      },
+      {
+        "title": "Professor Messer Security+",
+        "url": "https://www.professormesser.com/security-plus/sy0-701/sy0-701-training-course/",
+        "type": "Course"
+      },
+      {
+        "title": "CompTIA Practice Questions",
+        "url": "https://www.comptia.org/testing/testing-options/about-comptia-certification-exams/practice-tests",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-ejpt",
+    "title": "eJPT v2",
+    "provider": "INE",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Hands-on penetration testing with report-driven labs.",
+    "skillsGained": [
+      "Recon",
+      "Exploitation",
+      "Web Attacks",
+      "Reporting"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://ine.com/learning/certifications/ejpt-certification",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "cyber-htb-cpst",
+      "cyber-oscp"
+    ],
+    "interests": [
+      "offensive security",
+      "pentest",
+      "hacking",
+      "security"
+    ],
+    "resources": [
+      {
+        "title": "Certification Page",
+        "url": "https://ine.com/learning/certifications/ejpt-certification",
+        "type": "Official"
+      },
+      {
+        "title": "PortSwigger Web Academy",
+        "url": "https://portswigger.net/web-security",
+        "type": "Course"
+      },
+      {
+        "title": "Hack The Box Labs",
+        "url": "https://app.hackthebox.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-htb-cpst",
+    "title": "HTB Certified Penetration Testing Specialist",
+    "provider": "Hack The Box",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Advanced practical pentesting across enterprise environments.",
+    "skillsGained": [
+      "Active Directory",
+      "Privilege Escalation",
+      "Web Exploitation"
+    ],
+    "prerequisites": [
+      "cyber-ejpt"
+    ],
+    "link": "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist",
+    "color": "#84cc16",
+    "nextSteps": [
+      "cyber-oscp"
+    ],
+    "interests": [
+      "offensive security",
+      "pentest",
+      "red team"
+    ],
+    "resources": [
+      {
+        "title": "Certification Path",
+        "url": "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist",
+        "type": "Official"
+      },
+      {
+        "title": "GTFOBins",
+        "url": "https://gtfobins.github.io/",
+        "type": "Practice"
+      },
+      {
+        "title": "PayloadsAllTheThings",
+        "url": "https://swisskyrepo.github.io/PayloadsAllTheThings/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-oscp",
+    "title": "OSCP (PEN-200)",
+    "provider": "OffSec",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Industry-recognized offensive security benchmark exam.",
+    "skillsGained": [
+      "Manual Exploitation",
+      "AD Attacks",
+      "Pivoting",
+      "Reporting"
+    ],
+    "prerequisites": [
+      "cyber-htb-cpst"
+    ],
+    "link": "https://www.offsec.com/courses/pen-200/",
+    "color": "#111827",
+    "nextSteps": [
+      "cyber-cissp"
+    ],
+    "interests": [
+      "offensive security",
+      "red team",
+      "hacking"
+    ],
+    "resources": [
+      {
+        "title": "Course Details",
+        "url": "https://www.offsec.com/courses/pen-200/",
+        "type": "Official"
+      },
+      {
+        "title": "TJ Null Prep List",
+        "url": "https://www.netsecfocus.com/oscp/2020/06/30/The-Journey-to-Try-Harder-OSCP-Preparation-Guide-2020.html",
+        "type": "Community"
+      },
+      {
+        "title": "PG Practice",
+        "url": "https://www.offsec.com/labs/individual/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-cissp",
+    "title": "CISSP",
+    "provider": "ISC2",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Security leadership and architecture certification for senior roles.",
+    "skillsGained": [
+      "Risk Management",
+      "Security Architecture",
+      "Governance",
+      "Operations"
+    ],
+    "prerequisites": [
+      "cyber-oscp"
+    ],
+    "link": "https://www.isc2.org/Certifications/CISSP",
+    "color": "#334155",
+    "nextSteps": [],
+    "interests": [
+      "security leadership",
+      "governance",
+      "architecture",
+      "risk"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://www.isc2.org/Certifications/CISSP",
+        "type": "Official"
+      },
+      {
+        "title": "CISSP Exam Outline",
+        "url": "https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline",
+        "type": "Exam Guide"
+      },
+      {
+        "title": "Destination CISSP Mindmaps",
+        "url": "https://destcert.com/cissp-mindmaps/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-practitioner",
+    "title": "AWS Certified Cloud Practitioner",
+    "provider": "Amazon Web Services",
+    "level": "Entry",
+    "category": "Cloud Computing",
+    "description": "Cloud fundamentals and AWS core services overview.",
+    "skillsGained": [
+      "AWS Core Services",
+      "Billing",
+      "Security Basics",
+      "Cloud Concepts"
+    ],
+    "prerequisites": [],
+    "link": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+    "color": "#f59e0b",
+    "nextSteps": [
+      "cloud-aws-solutions-arch",
+      "cloud-aws-developer"
+    ],
+    "interests": [
+      "cloud",
+      "aws",
+      "infrastructure",
+      "devops"
+    ],
+    "resources": [
+      {
+        "title": "Certification Overview",
+        "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+        "type": "Official"
+      },
+      {
+        "title": "AWS Skill Builder",
+        "url": "https://skillbuilder.aws/",
+        "type": "Course"
+      },
+      {
+        "title": "Tutorial Dojo Practice Exams",
+        "url": "https://tutorialsdojo.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-solutions-arch",
+    "title": "AWS Certified Solutions Architect - Associate",
+    "provider": "Amazon Web Services",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Design secure and resilient cloud architectures on AWS.",
+    "skillsGained": [
+      "VPC Design",
+      "Compute",
+      "Storage",
+      "Reliability"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+    "color": "#d97706",
+    "nextSteps": [
+      "cloud-aws-pro"
+    ],
+    "interests": [
+      "cloud architecture",
+      "aws",
+      "infrastructure",
+      "devops"
+    ],
+    "resources": [
+      {
+        "title": "Certification Overview",
+        "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+        "type": "Official"
+      },
+      {
+        "title": "AWS Well-Architected",
+        "url": "https://aws.amazon.com/architecture/well-architected/",
+        "type": "Course"
+      },
+      {
+        "title": "AWS Workshops",
+        "url": "https://workshops.aws/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-developer",
+    "title": "AWS Certified Developer - Associate",
+    "provider": "Amazon Web Services",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Build and deploy cloud-native applications on AWS.",
+    "skillsGained": [
+      "Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "CI/CD"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-developer-associate/",
+    "color": "#b45309",
+    "nextSteps": [
+      "cloud-aws-pro"
+    ],
+    "interests": [
+      "cloud development",
+      "aws",
+      "serverless",
+      "backend"
+    ],
+    "resources": [
+      {
+        "title": "Certification Overview",
+        "url": "https://aws.amazon.com/certification/certified-developer-associate/",
+        "type": "Official"
+      },
+      {
+        "title": "AWS Serverless Land",
+        "url": "https://serverlessland.com/",
+        "type": "Course"
+      },
+      {
+        "title": "AWS Samples",
+        "url": "https://github.com/aws-samples",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-pro",
+    "title": "AWS Certified Solutions Architect - Professional",
+    "provider": "Amazon Web Services",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Advanced architecture design and migration strategy.",
+    "skillsGained": [
+      "Complex Migrations",
+      "Cost Optimization",
+      "Hybrid Architectures"
+    ],
+    "prerequisites": [
+      "cloud-aws-solutions-arch"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+    "color": "#7c2d12",
+    "nextSteps": [],
+    "interests": [
+      "cloud architecture",
+      "aws",
+      "enterprise",
+      "devops"
+    ],
+    "resources": [
+      {
+        "title": "Certification Overview",
+        "url": "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+        "type": "Official"
+      },
+      {
+        "title": "AWS Prescriptive Guidance",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-portfolio-assessment/what-is-mpa.html",
+        "type": "Course"
+      },
+      {
+        "title": "Architecture Blog",
+        "url": "https://aws.amazon.com/blogs/architecture/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cloud-azure-fundamentals",
+    "title": "Azure Fundamentals (AZ-900)",
+    "provider": "Microsoft",
+    "level": "Entry",
+    "category": "Cloud Computing",
+    "description": "Microsoft cloud fundamentals and service model basics.",
+    "skillsGained": [
+      "Azure Services",
+      "Governance",
+      "Security",
+      "Pricing"
+    ],
+    "prerequisites": [],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "cloud-azure-admin"
+    ],
+    "interests": [
+      "cloud",
+      "azure",
+      "infrastructure",
+      "enterprise"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+        "type": "Official"
+      },
+      {
+        "title": "MS Learn AZ-900 Path",
+        "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+        "type": "Course"
+      },
+      {
+        "title": "Azure Sandbox Labs",
+        "url": "https://learn.microsoft.com/en-us/training/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-azure-admin",
+    "title": "Azure Administrator Associate (AZ-104)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Operate and administer Azure infrastructure at scale.",
+    "skillsGained": [
+      "Identity",
+      "Compute",
+      "Networking",
+      "Monitoring"
+    ],
+    "prerequisites": [
+      "cloud-azure-fundamentals"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+    "color": "#1d4ed8",
+    "nextSteps": [],
+    "interests": [
+      "cloud operations",
+      "azure",
+      "infrastructure"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+        "type": "Official"
+      },
+      {
+        "title": "AZ-104 Study Path",
+        "url": "https://learn.microsoft.com/en-us/training/courses/az-104t00",
+        "type": "Course"
+      },
+      {
+        "title": "Azure Architecture Center",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-gcp-digital-leader",
+    "title": "Google Cloud Digital Leader",
+    "provider": "Google Cloud",
+    "level": "Entry",
+    "category": "Cloud Computing",
+    "description": "Business and technical cloud literacy for GCP.",
+    "skillsGained": [
+      "GCP Products",
+      "Cloud Strategy",
+      "Security",
+      "Data & AI Basics"
+    ],
+    "prerequisites": [],
+    "link": "https://cloud.google.com/learn/certification/cloud-digital-leader",
+    "color": "#2563eb",
+    "nextSteps": [
+      "cloud-gcp-ace"
+    ],
+    "interests": [
+      "cloud",
+      "gcp",
+      "architecture",
+      "strategy"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://cloud.google.com/learn/certification/cloud-digital-leader",
+        "type": "Official"
+      },
+      {
+        "title": "Google Cloud Skills Boost",
+        "url": "https://www.cloudskillsboost.google/",
+        "type": "Course"
+      },
+      {
+        "title": "GCP Case Studies",
+        "url": "https://cloud.google.com/customers",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-gcp-ace",
+    "title": "Associate Cloud Engineer",
+    "provider": "Google Cloud",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Deploy, operate, and secure workloads on Google Cloud.",
+    "skillsGained": [
+      "GCE",
+      "GKE",
+      "IAM",
+      "Networking"
+    ],
+    "prerequisites": [
+      "cloud-gcp-digital-leader"
+    ],
+    "link": "https://cloud.google.com/learn/certification/cloud-engineer",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "interests": [
+      "cloud engineering",
+      "gcp",
+      "devops",
+      "infrastructure"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://cloud.google.com/learn/certification/cloud-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Exam Guide",
+        "url": "https://cloud.google.com/learn/certification/cloud-engineer#exam-guide",
+        "type": "Exam Guide"
+      },
+      {
+        "title": "Qwiklabs Hands-on Labs",
+        "url": "https://www.cloudskillsboost.google/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-google-analytics",
+    "title": "Google Data Analytics",
+    "provider": "Google / Coursera",
+    "level": "Entry",
+    "category": "Data Science",
+    "description": "Practical analytics workflow from cleaning to communication.",
+    "skillsGained": [
+      "SQL",
+      "Spreadsheets",
+      "Data Cleaning",
+      "Visualization"
+    ],
+    "prerequisites": [],
+    "link": "https://grow.google/certificates/data-analytics/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "data-ibm-science",
+      "data-power-bi"
+    ],
+    "interests": [
+      "analytics",
+      "data",
+      "dashboards",
+      "business"
+    ],
+    "resources": [
+      {
+        "title": "Program Details",
+        "url": "https://grow.google/certificates/data-analytics/",
+        "type": "Official"
+      },
+      {
+        "title": "Google Sheets Training",
+        "url": "https://support.google.com/docs/topic/9054603",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle SQL Micro-course",
+        "url": "https://www.kaggle.com/learn/intro-to-sql",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-ibm-science",
+    "title": "IBM Data Science Professional Certificate",
+    "provider": "IBM / Coursera",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Data science pipeline from exploration to ML deployment.",
+    "skillsGained": [
+      "Python",
+      "Machine Learning",
+      "Data Viz",
+      "Jupyter"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://www.coursera.org/professional-certificates/ibm-data-science",
+    "color": "#1e3a8a",
+    "nextSteps": [
+      "data-databricks-de"
+    ],
+    "interests": [
+      "data science",
+      "python",
+      "ml",
+      "analytics"
+    ],
+    "resources": [
+      {
+        "title": "Program Details",
+        "url": "https://www.coursera.org/professional-certificates/ibm-data-science",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas User Guide",
+        "url": "https://pandas.pydata.org/docs/user_guide/index.html",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Notebooks",
+        "url": "https://www.kaggle.com/code",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-power-bi",
+    "title": "Power BI Data Analyst Associate (PL-300)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Model and visualize business data in Power BI.",
+    "skillsGained": [
+      "Power Query",
+      "DAX",
+      "Data Modeling",
+      "Dashboards"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/",
+    "color": "#f59e0b",
+    "nextSteps": [
+      "data-tableau-specialist"
+    ],
+    "interests": [
+      "dashboards",
+      "analytics",
+      "business intelligence",
+      "data"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/",
+        "type": "Official"
+      },
+      {
+        "title": "PL-300 Learning Path",
+        "url": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+        "type": "Course"
+      },
+      {
+        "title": "Power BI Community",
+        "url": "https://community.fabric.microsoft.com/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "data-tableau-specialist",
+    "title": "Tableau Desktop Specialist",
+    "provider": "Tableau",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Create data-driven dashboards and storytelling artifacts.",
+    "skillsGained": [
+      "Tableau",
+      "Calculated Fields",
+      "Dashboards",
+      "Visual Storytelling"
+    ],
+    "prerequisites": [
+      "data-power-bi"
+    ],
+    "link": "https://www.tableau.com/learn/certification/desktop-specialist",
+    "color": "#2563eb",
+    "nextSteps": [
+      "data-databricks-de"
+    ],
+    "interests": [
+      "dashboards",
+      "visualization",
+      "business intelligence",
+      "analytics"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://www.tableau.com/learn/certification/desktop-specialist",
+        "type": "Official"
+      },
+      {
+        "title": "Tableau Learning",
+        "url": "https://www.tableau.com/learn/training",
+        "type": "Course"
+      },
+      {
+        "title": "Workout Wednesday",
+        "url": "https://www.workout-wednesday.com/",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-databricks-de",
+    "title": "Databricks Certified Data Engineer Associate",
+    "provider": "Databricks",
+    "level": "Advanced",
+    "category": "Data Science",
+    "description": "Engineer reliable batch and streaming data pipelines.",
+    "skillsGained": [
+      "Spark",
+      "Delta Lake",
+      "Data Pipelines",
+      "DataOps"
+    ],
+    "prerequisites": [
+      "data-ibm-science"
+    ],
+    "link": "https://www.databricks.com/learn/certification/data-engineer-associate",
+    "color": "#dc2626",
+    "nextSteps": [],
+    "interests": [
+      "data engineering",
+      "big data",
+      "pipelines",
+      "spark"
+    ],
+    "resources": [
+      {
+        "title": "Certification Details",
+        "url": "https://www.databricks.com/learn/certification/data-engineer-associate",
+        "type": "Official"
+      },
+      {
+        "title": "Databricks Academy",
+        "url": "https://www.databricks.com/learn/training/home",
+        "type": "Course"
+      },
+      {
+        "title": "Delta Lake Docs",
+        "url": "https://docs.delta.io/latest/index.html",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-meta-backend",
+    "title": "Meta Back-End Developer Professional Certificate",
+    "provider": "Coursera / Meta",
+    "level": "Intermediate",
+    "category": "Web Development",
+    "description": "Professional backend path covering APIs, databases, and deployment.",
+    "skillsGained": [
+      "Node.js",
+      "Databases",
+      "APIs",
+      "Backend Architecture"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://www.coursera.org/professional-certificates/meta-back-end-developer",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "web-fullstack-open"
+    ],
+    "interests": [
+      "backend",
+      "apis",
+      "web development",
+      "fullstack"
+    ],
+    "resources": [
+      {
+        "title": "Meta Back-End Developer Official Page",
+        "url": "https://www.coursera.org/professional-certificates/meta-back-end-developer",
+        "type": "Official"
+      },
+      {
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/",
+        "type": "Course"
+      },
+      {
+        "title": "Frontend Mentor",
+        "url": "https://www.frontendmentor.io/challenges",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-google-ux",
+    "title": "Google UX Design Professional Certificate",
+    "provider": "Google / Coursera",
+    "level": "Entry",
+    "category": "Web Development",
+    "description": "UI/UX fundamentals and product design workflows for web experiences.",
+    "skillsGained": [
+      "UX Research",
+      "Wireframing",
+      "Prototyping",
+      "Usability Testing"
+    ],
+    "prerequisites": [],
+    "link": "https://grow.google/certificates/ux-design/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "web-html-css"
+    ],
+    "interests": [
+      "ux",
+      "design",
+      "frontend",
+      "product"
+    ],
+    "resources": [
+      {
+        "title": "Google UX Design Official Page",
+        "url": "https://grow.google/certificates/ux-design/",
+        "type": "Official"
+      },
+      {
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/",
+        "type": "Course"
+      },
+      {
+        "title": "Frontend Mentor",
+        "url": "https://www.frontendmentor.io/challenges",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-ciw-web-foundations",
+    "title": "CIW Web Foundations Associate",
+    "provider": "CIW (Legacy/Foundational)",
+    "level": "Entry",
+    "category": "Web Development",
+    "description": "Classic foundational web credential valued in legacy enterprise training tracks.",
+    "skillsGained": [
+      "Internet Fundamentals",
+      "Web Authoring Basics",
+      "Networking Basics"
+    ],
+    "prerequisites": [],
+    "link": "https://www.ciwcertified.com/",
+    "color": "#475569",
+    "nextSteps": [
+      "web-html-css"
+    ],
+    "interests": [
+      "web fundamentals",
+      "legacy certs",
+      "entry web"
+    ],
+    "resources": [
+      {
+        "title": "CIW Web Foundations Official Page",
+        "url": "https://www.ciwcertified.com/",
+        "type": "Official"
+      },
+      {
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/",
+        "type": "Course"
+      },
+      {
+        "title": "Frontend Mentor",
+        "url": "https://www.frontendmentor.io/challenges",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "web-zend-php",
+    "title": "Zend PHP Certification",
+    "provider": "Zend / Perforce (Legacy/Valuable)",
+    "level": "Advanced",
+    "category": "Web Development",
+    "description": "Recognized legacy PHP credential still valued in mature PHP stacks.",
+    "skillsGained": [
+      "PHP Internals",
+      "OOP in PHP",
+      "Security",
+      "Performance"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://www.zend.com/training/php-certification-exam",
+    "color": "#1e293b",
+    "nextSteps": [],
+    "interests": [
+      "php",
+      "backend",
+      "legacy systems",
+      "web engineering"
+    ],
+    "resources": [
+      {
+        "title": "Zend PHP Certification Official Page",
+        "url": "https://www.zend.com/training/php-certification-exam",
+        "type": "Official"
+      },
+      {
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/",
+        "type": "Course"
+      },
+      {
+        "title": "Frontend Mentor",
+        "url": "https://www.frontendmentor.io/challenges",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "soft-comptia-a-plus",
+    "title": "CompTIA A+",
+    "provider": "CompTIA",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Foundational computing and troubleshooting certification with broad industry recognition.",
+    "skillsGained": [
+      "Operating Systems",
+      "Hardware",
+      "Troubleshooting",
+      "Security Basics"
+    ],
+    "prerequisites": [],
+    "link": "https://www.comptia.org/certifications/a",
+    "color": "#dc2626",
+    "nextSteps": [
+      "soft-comptia-network-plus",
+      "google-it-support"
+    ],
+    "interests": [
+      "it foundations",
+      "support",
+      "entry tech"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA A+ Official Page",
+        "url": "https://www.comptia.org/certifications/a",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-comptia-network-plus",
+    "title": "CompTIA Network+",
+    "provider": "CompTIA",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Core networking and connectivity fundamentals for software and infrastructure teams.",
+    "skillsGained": [
+      "TCP/IP",
+      "Network Operations",
+      "Routing/Switching",
+      "Troubleshooting"
+    ],
+    "prerequisites": [
+      "soft-comptia-a-plus"
+    ],
+    "link": "https://www.comptia.org/certifications/network",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "cloud-aws-practitioner",
+      "cyber-sec-plus"
+    ],
+    "interests": [
+      "networking",
+      "infrastructure",
+      "systems"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA Network+ Official Page",
+        "url": "https://www.comptia.org/certifications/network",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-rhcsa",
+    "title": "Red Hat Certified System Administrator (RHCSA)",
+    "provider": "Red Hat",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "High-value Linux administration certification for engineering and platform roles.",
+    "skillsGained": [
+      "Linux Administration",
+      "Shell Scripting",
+      "System Services",
+      "Storage"
+    ],
+    "prerequisites": [
+      "soft-comptia-network-plus"
+    ],
+    "link": "https://www.redhat.com/en/services/certification/rhcsa",
+    "color": "#ef4444",
+    "nextSteps": [
+      "soft-rhce"
+    ],
+    "interests": [
+      "linux",
+      "platform engineering",
+      "systems"
+    ],
+    "resources": [
+      {
+        "title": "RHCSA Official Page",
+        "url": "https://www.redhat.com/en/services/certification/rhcsa",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-rhce",
+    "title": "Red Hat Certified Engineer (RHCE)",
+    "provider": "Red Hat",
+    "level": "Advanced",
+    "category": "Software Development",
+    "description": "Advanced Linux automation and enterprise engineering certification.",
+    "skillsGained": [
+      "Ansible",
+      "Linux Automation",
+      "Enterprise Networking",
+      "Security Hardening"
+    ],
+    "prerequisites": [
+      "soft-rhcsa"
+    ],
+    "link": "https://www.redhat.com/en/services/certification/rhce",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "cloud-cka"
+    ],
+    "interests": [
+      "linux",
+      "automation",
+      "devops",
+      "platform engineering"
+    ],
+    "resources": [
+      {
+        "title": "RHCE Official Page",
+        "url": "https://www.redhat.com/en/services/certification/rhce",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-lpic1",
+    "title": "LPIC-1 Linux Administrator",
+    "provider": "Linux Professional Institute",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Vendor-neutral Linux certification with strong legacy and modern relevance.",
+    "skillsGained": [
+      "Linux CLI",
+      "Filesystems",
+      "Networking",
+      "Process Management"
+    ],
+    "prerequisites": [
+      "soft-comptia-network-plus"
+    ],
+    "link": "https://www.lpi.org/our-certifications/lpic-1-overview/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "soft-rhcsa"
+    ],
+    "interests": [
+      "linux",
+      "operations",
+      "infra"
+    ],
+    "resources": [
+      {
+        "title": "LPIC-1 Official Page",
+        "url": "https://www.lpi.org/our-certifications/lpic-1-overview/",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "ai-azure-ai900",
+    "title": "Azure AI Fundamentals (AI-900)",
+    "provider": "Microsoft",
+    "level": "Entry",
+    "category": "AI Development",
+    "description": "Entry-level credential for AI workloads and responsible AI concepts in Azure.",
+    "skillsGained": [
+      "AI Concepts",
+      "NLP Basics",
+      "Computer Vision Basics",
+      "Responsible AI"
+    ],
+    "prerequisites": [],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+    "color": "#1d4ed8",
+    "nextSteps": [
+      "ai-azure-ai102",
+      "ai-ml-specialization"
+    ],
+    "interests": [
+      "ai fundamentals",
+      "cloud ai",
+      "ml"
+    ],
+    "resources": [
+      {
+        "title": "Azure AI-900 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-azure-ai102",
+    "title": "Azure AI Engineer Associate (AI-102)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Hands-on AI engineering credential for building and deploying Azure AI solutions.",
+    "skillsGained": [
+      "Azure AI Services",
+      "LLM Apps",
+      "Search/Indexing",
+      "MLOps"
+    ],
+    "prerequisites": [
+      "ai-azure-ai900"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "ai engineering",
+      "azure",
+      "deployment"
+    ],
+    "resources": [
+      {
+        "title": "Azure AI-102 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-aws-ml-specialty",
+    "title": "AWS Certified Machine Learning - Specialty",
+    "provider": "Amazon Web Services",
+    "level": "Advanced",
+    "category": "AI Development",
+    "description": "Advanced certification for designing and operating ML systems on AWS.",
+    "skillsGained": [
+      "SageMaker",
+      "Feature Engineering",
+      "Model Operations",
+      "Evaluation"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization",
+      "cloud-aws-developer"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
+    "color": "#f59e0b",
+    "nextSteps": [],
+    "interests": [
+      "mlops",
+      "aws ai",
+      "machine learning"
+    ],
+    "resources": [
+      {
+        "title": "AWS ML Specialty Official Page",
+        "url": "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-ibm-ai-engineer",
+    "title": "IBM AI Engineering Professional Certificate",
+    "provider": "IBM / Coursera",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Applied AI engineering path with deep learning and production model workflows.",
+    "skillsGained": [
+      "Deep Learning",
+      "PyTorch",
+      "Model Deployment",
+      "MLOps Basics"
+    ],
+    "prerequisites": [
+      "ai-python-for-all"
+    ],
+    "link": "https://www.coursera.org/professional-certificates/ai-engineer",
+    "color": "#1e3a8a",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "ai engineering",
+      "deep learning",
+      "ml"
+    ],
+    "resources": [
+      {
+        "title": "IBM AI Engineering Official Page",
+        "url": "https://www.coursera.org/professional-certificates/ai-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-databricks-ml",
+    "title": "Databricks Machine Learning Associate",
+    "provider": "Databricks",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Practical machine learning implementation and lifecycle skills on Databricks.",
+    "skillsGained": [
+      "MLflow",
+      "Model Training",
+      "Feature Engineering",
+      "Experiment Tracking"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization",
+      "data-databricks-de"
+    ],
+    "link": "https://www.databricks.com/learn/certification/machine-learning-associate",
+    "color": "#dc2626",
+    "nextSteps": [],
+    "interests": [
+      "ml engineering",
+      "databricks",
+      "data + ai"
+    ],
+    "resources": [
+      {
+        "title": "Databricks ML Associate Official Page",
+        "url": "https://www.databricks.com/learn/certification/machine-learning-associate",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-cysa-plus",
+    "title": "CompTIA CySA+",
+    "provider": "CompTIA",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Blue-team focused certification for threat detection and defensive operations.",
+    "skillsGained": [
+      "Threat Detection",
+      "SOC Operations",
+      "Incident Response",
+      "Vulnerability Management"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.comptia.org/certifications/cybersecurity-analyst",
+    "color": "#dc2626",
+    "nextSteps": [
+      "cyber-cissp"
+    ],
+    "interests": [
+      "blue team",
+      "soc",
+      "security operations"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA CySA+ Official Page",
+        "url": "https://www.comptia.org/certifications/cybersecurity-analyst",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-pentest-plus",
+    "title": "CompTIA PenTest+",
+    "provider": "CompTIA",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Offensive security cert focused on hands-on assessment and reporting.",
+    "skillsGained": [
+      "Pentesting",
+      "Vulnerability Analysis",
+      "Exploitation",
+      "Reporting"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.comptia.org/certifications/pentest",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "cyber-ejpt"
+    ],
+    "interests": [
+      "offensive security",
+      "pentest",
+      "red team"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA PenTest+ Official Page",
+        "url": "https://www.comptia.org/certifications/pentest",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-ceh",
+    "title": "Certified Ethical Hacker (CEH)",
+    "provider": "EC-Council",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Long-standing ethical hacking credential with broad global recognition.",
+    "skillsGained": [
+      "Reconnaissance",
+      "System Hacking",
+      "Web Security",
+      "Wireless Security"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/",
+    "color": "#0f172a",
+    "nextSteps": [
+      "cyber-oscp"
+    ],
+    "interests": [
+      "ethical hacking",
+      "pentesting",
+      "legacy + modern cert"
+    ],
+    "resources": [
+      {
+        "title": "CEH Official Page",
+        "url": "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-gsec",
+    "title": "GIAC Security Essentials (GSEC)",
+    "provider": "GIAC / SANS",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Respected practical security certification spanning operations and defense.",
+    "skillsGained": [
+      "Host Security",
+      "Network Security",
+      "Cryptography",
+      "Incident Handling"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.giac.org/certifications/security-essentials-gsec/",
+    "color": "#1e293b",
+    "nextSteps": [
+      "cyber-gpen",
+      "cyber-cissp"
+    ],
+    "interests": [
+      "security engineering",
+      "defensive security",
+      "sans"
+    ],
+    "resources": [
+      {
+        "title": "GSEC Official Page",
+        "url": "https://www.giac.org/certifications/security-essentials-gsec/",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-gpen",
+    "title": "GIAC Penetration Tester (GPEN)",
+    "provider": "GIAC / SANS",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "High-value offensive certification for real-world enterprise pentesting.",
+    "skillsGained": [
+      "Pentesting Methodology",
+      "Exploitation",
+      "Post-Exploitation",
+      "Reporting"
+    ],
+    "prerequisites": [
+      "cyber-gsec"
+    ],
+    "link": "https://www.giac.org/certifications/penetration-tester-gpen/",
+    "color": "#0f172a",
+    "nextSteps": [
+      "cyber-oscp"
+    ],
+    "interests": [
+      "offensive security",
+      "pentesting",
+      "sans"
+    ],
+    "resources": [
+      {
+        "title": "GPEN Official Page",
+        "url": "https://www.giac.org/certifications/penetration-tester-gpen/",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-cism",
+    "title": "CISM (Certified Information Security Manager)",
+    "provider": "ISACA",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Leadership-focused security management certification with strong enterprise value.",
+    "skillsGained": [
+      "Security Governance",
+      "Risk Management",
+      "Program Development",
+      "Incident Management"
+    ],
+    "prerequisites": [
+      "cyber-cissp"
+    ],
+    "link": "https://www.isaca.org/credentialing/cism",
+    "color": "#1e293b",
+    "nextSteps": [],
+    "interests": [
+      "security leadership",
+      "governance",
+      "risk"
+    ],
+    "resources": [
+      {
+        "title": "CISM Official Page",
+        "url": "https://www.isaca.org/credentialing/cism",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-ccsp",
+    "title": "CCSP (Certified Cloud Security Professional)",
+    "provider": "ISC2",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Top cloud security credential bridging architecture, compliance, and operations.",
+    "skillsGained": [
+      "Cloud Security Architecture",
+      "Cloud Governance",
+      "Compliance",
+      "Operations"
+    ],
+    "prerequisites": [
+      "cyber-cissp",
+      "cloud-aws-solutions-arch"
+    ],
+    "link": "https://www.isc2.org/Certifications/CCSP",
+    "color": "#334155",
+    "nextSteps": [],
+    "interests": [
+      "cloud security",
+      "security architecture",
+      "governance"
+    ],
+    "resources": [
+      {
+        "title": "CCSP Official Page",
+        "url": "https://www.isc2.org/Certifications/CCSP",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-sysops",
+    "title": "AWS Certified SysOps Administrator - Associate",
+    "provider": "Amazon Web Services",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Operations-heavy AWS certification focused on monitoring, reliability, and automation.",
+    "skillsGained": [
+      "Cloud Operations",
+      "Monitoring",
+      "Automation",
+      "Incident Response"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-sysops-admin-associate/",
+    "color": "#d97706",
+    "nextSteps": [
+      "cloud-aws-devops-pro"
+    ],
+    "interests": [
+      "aws operations",
+      "cloud ops",
+      "devops"
+    ],
+    "resources": [
+      {
+        "title": "AWS SysOps Official Page",
+        "url": "https://aws.amazon.com/certification/certified-sysops-admin-associate/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-devops-pro",
+    "title": "AWS Certified DevOps Engineer - Professional",
+    "provider": "Amazon Web Services",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Advanced AWS DevOps credential for CI/CD, observability, and platform automation.",
+    "skillsGained": [
+      "CI/CD",
+      "Observability",
+      "Infrastructure as Code",
+      "Automation"
+    ],
+    "prerequisites": [
+      "cloud-aws-sysops",
+      "cloud-aws-developer"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+    "color": "#b45309",
+    "nextSteps": [],
+    "interests": [
+      "devops",
+      "aws",
+      "platform engineering"
+    ],
+    "resources": [
+      {
+        "title": "AWS DevOps Pro Official Page",
+        "url": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-aws-security-specialty",
+    "title": "AWS Certified Security - Specialty",
+    "provider": "Amazon Web Services",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Cloud security specialization for protecting workloads and data in AWS.",
+    "skillsGained": [
+      "IAM",
+      "Detection/Response",
+      "Data Protection",
+      "Security Monitoring"
+    ],
+    "prerequisites": [
+      "cloud-aws-solutions-arch",
+      "cyber-sec-plus"
+    ],
+    "link": "https://aws.amazon.com/certification/certified-security-specialty/",
+    "color": "#92400e",
+    "nextSteps": [
+      "cyber-ccsp"
+    ],
+    "interests": [
+      "cloud security",
+      "aws security",
+      "security engineering"
+    ],
+    "resources": [
+      {
+        "title": "AWS Security Specialty Official Page",
+        "url": "https://aws.amazon.com/certification/certified-security-specialty/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-azure-az305",
+    "title": "Azure Solutions Architect Expert (AZ-305)",
+    "provider": "Microsoft",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Design-level Azure architecture certification for enterprise cloud systems.",
+    "skillsGained": [
+      "Architecture Design",
+      "Governance",
+      "Business Continuity",
+      "Security Design"
+    ],
+    "prerequisites": [
+      "cloud-azure-admin"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
+    "color": "#1d4ed8",
+    "nextSteps": [],
+    "interests": [
+      "azure architecture",
+      "cloud design",
+      "enterprise"
+    ],
+    "resources": [
+      {
+        "title": "AZ-305 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-azure-az500",
+    "title": "Azure Security Engineer Associate (AZ-500)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Security-focused Azure certification covering identity, platforms, and operations.",
+    "skillsGained": [
+      "Azure Security",
+      "Identity Protection",
+      "Network Security",
+      "Threat Protection"
+    ],
+    "prerequisites": [
+      "cloud-azure-admin",
+      "cyber-sec-plus"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/",
+    "color": "#1e40af",
+    "nextSteps": [
+      "cyber-ccsp"
+    ],
+    "interests": [
+      "cloud security",
+      "azure",
+      "security engineering"
+    ],
+    "resources": [
+      {
+        "title": "AZ-500 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-gcp-architect",
+    "title": "Professional Cloud Architect",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Top-tier GCP architecture credential for scalable and secure cloud systems.",
+    "skillsGained": [
+      "Architecture Design",
+      "Reliability Engineering",
+      "Governance",
+      "Security"
+    ],
+    "prerequisites": [
+      "cloud-gcp-ace"
+    ],
+    "link": "https://cloud.google.com/learn/certification/cloud-architect",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "interests": [
+      "gcp architecture",
+      "cloud strategy",
+      "enterprise cloud"
+    ],
+    "resources": [
+      {
+        "title": "GCP Professional Cloud Architect Official Page",
+        "url": "https://cloud.google.com/learn/certification/cloud-architect",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-gcp-devops",
+    "title": "Professional Cloud DevOps Engineer",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Advanced SRE/DevOps certification on Google Cloud platforms.",
+    "skillsGained": [
+      "SRE",
+      "Observability",
+      "CI/CD",
+      "Incident Management"
+    ],
+    "prerequisites": [
+      "cloud-gcp-ace"
+    ],
+    "link": "https://cloud.google.com/learn/certification/cloud-devops-engineer",
+    "color": "#1d4ed8",
+    "nextSteps": [],
+    "interests": [
+      "devops",
+      "sre",
+      "gcp"
+    ],
+    "resources": [
+      {
+        "title": "GCP Professional Cloud DevOps Engineer Official Page",
+        "url": "https://cloud.google.com/learn/certification/cloud-devops-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-terraform-associate",
+    "title": "HashiCorp Terraform Associate",
+    "provider": "HashiCorp",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Infrastructure-as-code credential with broad modern cloud relevance.",
+    "skillsGained": [
+      "Terraform",
+      "IaC Workflows",
+      "State Management",
+      "Cloud Provisioning"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://www.hashicorp.com/certification/terraform-associate",
+    "color": "#7c3aed",
+    "nextSteps": [
+      "cloud-aws-devops-pro",
+      "cloud-gcp-devops"
+    ],
+    "interests": [
+      "iac",
+      "devops",
+      "cloud automation"
+    ],
+    "resources": [
+      {
+        "title": "Terraform Associate Official Page",
+        "url": "https://www.hashicorp.com/certification/terraform-associate",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-cka",
+    "title": "Certified Kubernetes Administrator (CKA)",
+    "provider": "Linux Foundation / CNCF",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Premier Kubernetes operations certification for production clusters.",
+    "skillsGained": [
+      "Kubernetes Administration",
+      "Cluster Operations",
+      "Troubleshooting",
+      "Security Basics"
+    ],
+    "prerequisites": [
+      "cloud-terraform-associate"
+    ],
+    "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+    "color": "#0284c7",
+    "nextSteps": [
+      "cloud-ckad",
+      "cloud-cks"
+    ],
+    "interests": [
+      "kubernetes",
+      "platform engineering",
+      "devops"
+    ],
+    "resources": [
+      {
+        "title": "CKA Official Page",
+        "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-ckad",
+    "title": "Certified Kubernetes Application Developer (CKAD)",
+    "provider": "Linux Foundation / CNCF",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Developer-focused Kubernetes credential for cloud-native application delivery.",
+    "skillsGained": [
+      "Kubernetes App Design",
+      "Deployments",
+      "Troubleshooting",
+      "Config Management"
+    ],
+    "prerequisites": [
+      "cloud-cka"
+    ],
+    "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+    "color": "#0ea5e9",
+    "nextSteps": [],
+    "interests": [
+      "cloud-native development",
+      "kubernetes",
+      "platform"
+    ],
+    "resources": [
+      {
+        "title": "CKAD Official Page",
+        "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-cks",
+    "title": "Certified Kubernetes Security Specialist (CKS)",
+    "provider": "Linux Foundation / CNCF",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Advanced Kubernetes security cert for hardened production environments.",
+    "skillsGained": [
+      "Kubernetes Security",
+      "Supply Chain Security",
+      "Runtime Security",
+      "Hardening"
+    ],
+    "prerequisites": [
+      "cloud-cka",
+      "cyber-sec-plus"
+    ],
+    "link": "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/",
+    "color": "#0369a1",
+    "nextSteps": [
+      "cyber-ccsp"
+    ],
+    "interests": [
+      "kubernetes security",
+      "cloud security",
+      "platform security"
+    ],
+    "resources": [
+      {
+        "title": "CKS Official Page",
+        "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-azure-dp900",
+    "title": "Azure Data Fundamentals (DP-900)",
+    "provider": "Microsoft",
+    "level": "Entry",
+    "category": "Data Science",
+    "description": "Entry-level credential covering core data concepts and Azure data services.",
+    "skillsGained": [
+      "Relational Data",
+      "Non-Relational Data",
+      "Analytics Basics",
+      "Azure Data Services"
+    ],
+    "prerequisites": [],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+    "color": "#1d4ed8",
+    "nextSteps": [
+      "data-azure-dp203"
+    ],
+    "interests": [
+      "data fundamentals",
+      "azure data",
+      "analytics"
+    ],
+    "resources": [
+      {
+        "title": "DP-900 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-azure-dp203",
+    "title": "Azure Data Engineer Associate (DP-203)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Data engineering certification for integrating and transforming data at scale.",
+    "skillsGained": [
+      "Data Pipelines",
+      "Data Storage",
+      "Transformation",
+      "Monitoring"
+    ],
+    "prerequisites": [
+      "data-azure-dp900"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-engineer/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "data-databricks-de"
+    ],
+    "interests": [
+      "data engineering",
+      "azure",
+      "pipelines"
+    ],
+    "resources": [
+      {
+        "title": "DP-203 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-engineer/",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-gcp-data-engineer",
+    "title": "Professional Data Engineer",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "Data Science",
+    "description": "High-value cloud data engineering cert for GCP analytics and ML data pipelines.",
+    "skillsGained": [
+      "Data Processing",
+      "Pipeline Architecture",
+      "BigQuery",
+      "ML Data Readiness"
+    ],
+    "prerequisites": [
+      "cloud-gcp-ace",
+      "data-google-analytics"
+    ],
+    "link": "https://cloud.google.com/learn/certification/data-engineer",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "interests": [
+      "data engineering",
+      "gcp",
+      "big data"
+    ],
+    "resources": [
+      {
+        "title": "GCP Professional Data Engineer Official Page",
+        "url": "https://cloud.google.com/learn/certification/data-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-snowpro-core",
+    "title": "SnowPro Core Certification",
+    "provider": "Snowflake",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Popular modern cloud data platform credential centered on Snowflake.",
+    "skillsGained": [
+      "Snowflake Architecture",
+      "Data Warehousing",
+      "Security",
+      "Performance Tuning"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://learn.snowflake.com/en/certifications/snowpro-core/",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "data-databricks-de"
+    ],
+    "interests": [
+      "data warehouse",
+      "analytics engineering",
+      "cloud data"
+    ],
+    "resources": [
+      {
+        "title": "SnowPro Core Official Page",
+        "url": "https://learn.snowflake.com/en/certifications/snowpro-core/",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-dbt-analytics",
+    "title": "dbt Analytics Engineering Certification",
+    "provider": "dbt Labs",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Modern analytics engineering credential for transformation workflows and data modeling.",
+    "skillsGained": [
+      "dbt",
+      "Data Modeling",
+      "Transformation Workflows",
+      "Analytics Engineering"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://www.getdbt.com/certifications/analytics-engineer-certification-exam",
+    "color": "#f97316",
+    "nextSteps": [
+      "data-snowpro-core"
+    ],
+    "interests": [
+      "analytics engineering",
+      "sql",
+      "transformations"
+    ],
+    "resources": [
+      {
+        "title": "dbt Analytics Engineering Official Page",
+        "url": "https://www.getdbt.com/certifications/analytics-engineer-certification-exam",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-tableau-data-analyst",
+    "title": "Tableau Certified Data Analyst",
+    "provider": "Tableau",
+    "level": "Advanced",
+    "category": "Data Science",
+    "description": "Advanced Tableau credential for production-grade analytics and visual storytelling.",
+    "skillsGained": [
+      "Advanced Tableau",
+      "Data Analysis",
+      "Storytelling",
+      "Dashboard Optimization"
+    ],
+    "prerequisites": [
+      "data-tableau-specialist"
+    ],
+    "link": "https://www.tableau.com/learn/certification/certified-data-analyst",
+    "color": "#2563eb",
+    "nextSteps": [],
+    "interests": [
+      "business intelligence",
+      "tableau",
+      "analytics"
+    ],
+    "resources": [
+      {
+        "title": "Tableau Certified Data Analyst Official Page",
+        "url": "https://www.tableau.com/learn/certification/certified-data-analyst",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-sas-base",
+    "title": "SAS Certified Specialist: Base Programming",
+    "provider": "SAS (Legacy + Enterprise)",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Long-standing analytics certification still relevant in regulated enterprise environments.",
+    "skillsGained": [
+      "SAS Programming",
+      "Data Manipulation",
+      "Reporting",
+      "Validation"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://www.sas.com/en_us/certification/credentials/foundation-tools/base-programming-specialist.html",
+    "color": "#1e293b",
+    "nextSteps": [],
+    "interests": [
+      "enterprise analytics",
+      "legacy data stacks",
+      "regulated environments"
+    ],
+    "resources": [
+      {
+        "title": "SAS Base Programming Official Page",
+        "url": "https://www.sas.com/en_us/certification/credentials/foundation-tools/base-programming-specialist.html",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cyber-cisa",
+    "title": "CISA (Certified Information Systems Auditor)",
+    "provider": "ISACA",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Globally recognized credential for IT audit, control, and assurance.",
+    "skillsGained": [
+      "IT Auditing",
+      "Governance",
+      "Risk Assessment",
+      "Control Frameworks"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.isaca.org/credentialing/cisa",
+    "color": "#0f172a",
+    "nextSteps": [
+      "cyber-crisc",
+      "cyber-cism"
+    ],
+    "interests": [
+      "audit",
+      "governance",
+      "risk",
+      "compliance"
+    ],
+    "resources": [
+      {
+        "title": "CISA Official Page",
+        "url": "https://www.isaca.org/credentialing/cisa",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-crisc",
+    "title": "CRISC (Certified in Risk and Information Systems Control)",
+    "provider": "ISACA",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Risk-focused credential for enterprise security controls and governance.",
+    "skillsGained": [
+      "Risk Identification",
+      "Control Design",
+      "Monitoring",
+      "Risk Response"
+    ],
+    "prerequisites": [
+      "cyber-cisa"
+    ],
+    "link": "https://www.isaca.org/credentialing/crisc",
+    "color": "#1e293b",
+    "nextSteps": [
+      "cyber-cism"
+    ],
+    "interests": [
+      "risk management",
+      "security governance",
+      "enterprise security"
+    ],
+    "resources": [
+      {
+        "title": "CRISC Official Page",
+        "url": "https://www.isaca.org/credentialing/crisc",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-sscp",
+    "title": "SSCP (Systems Security Certified Practitioner)",
+    "provider": "ISC2",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Operations-centered ISC2 certification for hands-on security practitioners.",
+    "skillsGained": [
+      "Access Controls",
+      "Security Operations",
+      "Incident Response",
+      "Network Security"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.isc2.org/Certifications/SSCP",
+    "color": "#334155",
+    "nextSteps": [
+      "cyber-cissp"
+    ],
+    "interests": [
+      "security operations",
+      "defensive security",
+      "isc2"
+    ],
+    "resources": [
+      {
+        "title": "SSCP Official Page",
+        "url": "https://www.isc2.org/Certifications/SSCP",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-gcih",
+    "title": "GCIH (GIAC Certified Incident Handler)",
+    "provider": "GIAC / SANS",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Incident handling certification focused on detection, response, and forensics workflows.",
+    "skillsGained": [
+      "Incident Handling",
+      "Threat Hunting",
+      "Forensics Basics",
+      "Containment"
+    ],
+    "prerequisites": [
+      "cyber-cysa-plus"
+    ],
+    "link": "https://www.giac.org/certifications/certified-incident-handler-gcih/",
+    "color": "#1f2937",
+    "nextSteps": [],
+    "interests": [
+      "incident response",
+      "blue team",
+      "threat detection"
+    ],
+    "resources": [
+      {
+        "title": "GCIH Official Page",
+        "url": "https://www.giac.org/certifications/certified-incident-handler-gcih/",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-securityx",
+    "title": "CompTIA SecurityX (formerly CASP+)",
+    "provider": "CompTIA",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Advanced practitioner-level certification for enterprise security architecture and operations.",
+    "skillsGained": [
+      "Security Architecture",
+      "Risk Management",
+      "Advanced Operations",
+      "Governance"
+    ],
+    "prerequisites": [
+      "cyber-cysa-plus"
+    ],
+    "link": "https://www.comptia.org/certifications/securityx",
+    "color": "#991b1b",
+    "nextSteps": [
+      "cyber-cissp"
+    ],
+    "interests": [
+      "advanced security",
+      "enterprise security",
+      "security architecture"
+    ],
+    "resources": [
+      {
+        "title": "SecurityX Official Page",
+        "url": "https://www.comptia.org/certifications/securityx",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-google-cloud-security",
+    "title": "Google Professional Cloud Security Engineer",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Cloud security engineering certification for Google Cloud environments.",
+    "skillsGained": [
+      "Cloud IAM",
+      "Data Protection",
+      "Threat Detection",
+      "Compliance"
+    ],
+    "prerequisites": [
+      "cloud-gcp-ace",
+      "cyber-sec-plus"
+    ],
+    "link": "https://cloud.google.com/learn/certification/cloud-security-engineer",
+    "color": "#1d4ed8",
+    "nextSteps": [
+      "cyber-ccsp"
+    ],
+    "interests": [
+      "cloud security",
+      "gcp",
+      "security engineering"
+    ],
+    "resources": [
+      {
+        "title": "Google Cloud Security Engineer Official Page",
+        "url": "https://cloud.google.com/learn/certification/cloud-security-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-cfr",
+    "title": "CFR (CyberSec First Responder)",
+    "provider": "CertNexus",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Defensive operations certification around threat detection and active response.",
+    "skillsGained": [
+      "Threat Analysis",
+      "Incident Response",
+      "Vulnerability Assessment",
+      "SOC Skills"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://certnexus.com/certification/cybersec-first-responder/",
+    "color": "#0f172a",
+    "nextSteps": [
+      "cyber-cysa-plus"
+    ],
+    "interests": [
+      "soc",
+      "defense",
+      "incident response"
+    ],
+    "resources": [
+      {
+        "title": "CyberSec First Responder Official Page",
+        "url": "https://certnexus.com/certification/cybersec-first-responder/",
+        "type": "Official"
+      },
+      {
+        "title": "TryHackMe",
+        "url": "https://tryhackme.com/",
+        "type": "Practice"
+      },
+      {
+        "title": "OWASP",
+        "url": "https://owasp.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cloud-comptia-cloud-plus",
+    "title": "CompTIA Cloud+",
+    "provider": "CompTIA",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Vendor-neutral cloud operations and infrastructure credential.",
+    "skillsGained": [
+      "Cloud Architecture",
+      "Operations",
+      "Automation",
+      "Security"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://www.comptia.org/certifications/cloud",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "cloud-terraform-associate"
+    ],
+    "interests": [
+      "cloud ops",
+      "infrastructure",
+      "vendor-neutral cloud"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA Cloud+ Official Page",
+        "url": "https://www.comptia.org/certifications/cloud",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-alibaba-aca",
+    "title": "Alibaba Cloud Certified Associate",
+    "provider": "Alibaba Cloud",
+    "level": "Entry",
+    "category": "Cloud Computing",
+    "description": "Foundational Alibaba Cloud certification for multi-cloud and APAC-focused teams.",
+    "skillsGained": [
+      "Alibaba Cloud Services",
+      "Compute",
+      "Storage",
+      "Networking"
+    ],
+    "prerequisites": [],
+    "link": "https://edu.alibabacloud.com/certification",
+    "color": "#ea580c",
+    "nextSteps": [],
+    "interests": [
+      "multicloud",
+      "cloud fundamentals",
+      "apac cloud"
+    ],
+    "resources": [
+      {
+        "title": "Alibaba Cloud Certified Associate Official Page",
+        "url": "https://edu.alibabacloud.com/certification",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-oci-foundations",
+    "title": "Oracle Cloud Infrastructure Foundations Associate",
+    "provider": "Oracle",
+    "level": "Entry",
+    "category": "Cloud Computing",
+    "description": "OCI foundational cloud knowledge and services certification.",
+    "skillsGained": [
+      "OCI Core Services",
+      "IAM",
+      "Networking",
+      "Cloud Economics"
+    ],
+    "prerequisites": [],
+    "link": "https://education.oracle.com/oracle-cloud-infrastructure-foundations-associate/trackp_900",
+    "color": "#7c2d12",
+    "nextSteps": [],
+    "interests": [
+      "oci",
+      "cloud fundamentals",
+      "oracle cloud"
+    ],
+    "resources": [
+      {
+        "title": "OCI Foundations Official Page",
+        "url": "https://education.oracle.com/oracle-cloud-infrastructure-foundations-associate/trackp_900",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "cloud-vcp-dcv",
+    "title": "VMware Certified Professional - Data Center Virtualization",
+    "provider": "VMware",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Virtualization-focused certification for enterprise data center environments.",
+    "skillsGained": [
+      "vSphere",
+      "Virtualization",
+      "High Availability",
+      "Cluster Management"
+    ],
+    "prerequisites": [
+      "soft-comptia-network-plus"
+    ],
+    "link": "https://www.vmware.com/learning/certification/vcp-dcv.html",
+    "color": "#15803d",
+    "nextSteps": [],
+    "interests": [
+      "virtualization",
+      "infrastructure",
+      "data center"
+    ],
+    "resources": [
+      {
+        "title": "VCP-DCV Official Page",
+        "url": "https://www.vmware.com/learning/certification/vcp-dcv.html",
+        "type": "Official"
+      },
+      {
+        "title": "Cloud Academy",
+        "url": "https://cloudacademy.com/",
+        "type": "Course"
+      },
+      {
+        "title": "A Cloud Guru Labs",
+        "url": "https://www.pluralsight.com/cloud-guru",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-nvidia-dli",
+    "title": "NVIDIA Deep Learning Institute Certifications",
+    "provider": "NVIDIA DLI",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Hands-on GPU and deep learning certifications from NVIDIA DLI.",
+    "skillsGained": [
+      "GPU Computing",
+      "Deep Learning",
+      "Model Optimization",
+      "Inference"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization"
+    ],
+    "link": "https://www.nvidia.com/en-us/training/",
+    "color": "#16a34a",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "deep learning",
+      "gpu",
+      "ai engineering"
+    ],
+    "resources": [
+      {
+        "title": "NVIDIA DLI Official Page",
+        "url": "https://www.nvidia.com/en-us/training/",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-datacamp-ai-engineer",
+    "title": "DataCamp AI Engineer Certification",
+    "provider": "DataCamp",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Applied AI engineering path for building and deploying LLM and ML workflows.",
+    "skillsGained": [
+      "Prompt Engineering",
+      "Model Evaluation",
+      "ML Workflows",
+      "Deployment Basics"
+    ],
+    "prerequisites": [
+      "ai-python-for-all"
+    ],
+    "link": "https://www.datacamp.com/certification",
+    "color": "#22c55e",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "ai engineering",
+      "applied ai",
+      "llm apps"
+    ],
+    "resources": [
+      {
+        "title": "DataCamp AI Engineer Official Page",
+        "url": "https://www.datacamp.com/certification",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "ai-dlai-genai-llms",
+    "title": "DeepLearning.AI Generative AI with LLMs",
+    "provider": "DeepLearning.AI",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Modern generative AI curriculum focused on LLM systems and practical applications.",
+    "skillsGained": [
+      "LLM Fundamentals",
+      "Prompt Design",
+      "RAG Concepts",
+      "Model Safety Basics"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization"
+    ],
+    "link": "https://www.coursera.org/learn/generative-ai-with-llms",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "ai-google-ml"
+    ],
+    "interests": [
+      "generative ai",
+      "llms",
+      "ai applications"
+    ],
+    "resources": [
+      {
+        "title": "Generative AI with LLMs Official Page",
+        "url": "https://www.coursera.org/learn/generative-ai-with-llms",
+        "type": "Official"
+      },
+      {
+        "title": "Hugging Face Learn",
+        "url": "https://huggingface.co/learn",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Learn",
+        "url": "https://www.kaggle.com/learn",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-ibm-data-analyst",
+    "title": "IBM Data Analyst Professional Certificate",
+    "provider": "IBM / Coursera",
+    "level": "Entry",
+    "category": "Data Science",
+    "description": "Entry-level analytics pathway covering spreadsheets, SQL, Python, and visualization.",
+    "skillsGained": [
+      "Data Analysis",
+      "SQL",
+      "Excel",
+      "Visualization"
+    ],
+    "prerequisites": [],
+    "link": "https://www.coursera.org/professional-certificates/ibm-data-analyst",
+    "color": "#1e3a8a",
+    "nextSteps": [
+      "data-ibm-science"
+    ],
+    "interests": [
+      "data analysis",
+      "entry analytics",
+      "business intelligence"
+    ],
+    "resources": [
+      {
+        "title": "IBM Data Analyst Official Page",
+        "url": "https://www.coursera.org/professional-certificates/ibm-data-analyst",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-comptia-data-plus",
+    "title": "CompTIA Data+",
+    "provider": "CompTIA",
+    "level": "Entry",
+    "category": "Data Science",
+    "description": "Vendor-neutral data analytics certification for early-career analysts.",
+    "skillsGained": [
+      "Data Concepts",
+      "Data Mining",
+      "Visualization",
+      "Governance"
+    ],
+    "prerequisites": [],
+    "link": "https://www.comptia.org/certifications/data",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "data-power-bi",
+      "data-tableau-specialist"
+    ],
+    "interests": [
+      "analytics",
+      "data fundamentals",
+      "business data"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA Data+ Official Page",
+        "url": "https://www.comptia.org/certifications/data",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-cloudera-analyst",
+    "title": "Cloudera Certified Associate: Data Analyst",
+    "provider": "Cloudera",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Data analyst credential for SQL analytics in big data ecosystems.",
+    "skillsGained": [
+      "SQL Analytics",
+      "Data Warehousing",
+      "Big Data Querying",
+      "Reporting"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://www.cloudera.com/about/training/certification/cca-data-analyst.html",
+    "color": "#ea580c",
+    "nextSteps": [],
+    "interests": [
+      "big data analytics",
+      "sql",
+      "enterprise analytics"
+    ],
+    "resources": [
+      {
+        "title": "Cloudera Data Analyst Official Page",
+        "url": "https://www.cloudera.com/about/training/certification/cca-data-analyst.html",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-google-advanced-analytics",
+    "title": "Google Advanced Data Analytics Certificate",
+    "provider": "Google / Coursera",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Advanced analytics program emphasizing statistical analysis and predictive modeling.",
+    "skillsGained": [
+      "Statistics",
+      "Machine Learning Basics",
+      "Python Analytics",
+      "Model Interpretation"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://grow.google/certificates/advanced-data-analytics/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "data-ibm-science"
+    ],
+    "interests": [
+      "advanced analytics",
+      "data science",
+      "python analytics"
+    ],
+    "resources": [
+      {
+        "title": "Google Advanced Data Analytics Official Page",
+        "url": "https://grow.google/certificates/advanced-data-analytics/",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-acap",
+    "title": "Associate Certified Analytics Professional (aCAP)",
+    "provider": "INFORMS",
+    "level": "Intermediate",
+    "category": "Data Science",
+    "description": "Foundational professional analytics credential for data-driven business decisioning.",
+    "skillsGained": [
+      "Analytics Lifecycle",
+      "Problem Framing",
+      "Modeling Basics",
+      "Communication"
+    ],
+    "prerequisites": [
+      "data-google-analytics"
+    ],
+    "link": "https://www.certifiedanalytics.org/acap",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "interests": [
+      "professional analytics",
+      "business analytics",
+      "decision science"
+    ],
+    "resources": [
+      {
+        "title": "aCAP Official Page",
+        "url": "https://www.certifiedanalytics.org/acap",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "data-databricks-de-pro",
+    "title": "Databricks Certified Data Engineer Professional",
+    "provider": "Databricks",
+    "level": "Advanced",
+    "category": "Data Science",
+    "description": "Advanced data engineering credential for production-grade lakehouse systems.",
+    "skillsGained": [
+      "Advanced Spark",
+      "Data Architecture",
+      "Optimization",
+      "Production Pipelines"
+    ],
+    "prerequisites": [
+      "data-databricks-de"
+    ],
+    "link": "https://www.databricks.com/learn/certification/data-engineer-professional",
+    "color": "#dc2626",
+    "nextSteps": [],
+    "interests": [
+      "data engineering",
+      "lakehouse",
+      "advanced pipelines"
+    ],
+    "resources": [
+      {
+        "title": "Databricks Data Engineer Professional Official Page",
+        "url": "https://www.databricks.com/learn/certification/data-engineer-professional",
+        "type": "Official"
+      },
+      {
+        "title": "Pandas Documentation",
+        "url": "https://pandas.pydata.org/docs/",
+        "type": "Course"
+      },
+      {
+        "title": "Kaggle Competitions",
+        "url": "https://www.kaggle.com/competitions",
+        "type": "Practice"
+      }
+    ]
+  },
+  {
+    "id": "soft-azure-az204",
+    "title": "Azure Developer Associate (AZ-204)",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Developer-focused Azure certification for building cloud apps and integrations.",
+    "skillsGained": [
+      "Azure App Services",
+      "Serverless",
+      "Storage",
+      "Security Integration"
+    ],
+    "prerequisites": [
+      "cloud-azure-fundamentals"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/",
+    "color": "#2563eb",
+    "nextSteps": [
+      "cloud-azure-az305"
+    ],
+    "interests": [
+      "cloud development",
+      "azure",
+      "backend"
+    ],
+    "resources": [
+      {
+        "title": "AZ-204 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-docker-dca",
+    "title": "Docker Certified Associate (DCA)",
+    "provider": "Docker",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Containerization credential for building, shipping, and running applications with Docker.",
+    "skillsGained": [
+      "Containerization",
+      "Docker Compose",
+      "Image Security",
+      "Orchestration Basics"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://www.docker.com/certification/",
+    "color": "#0284c7",
+    "nextSteps": [
+      "cloud-cka"
+    ],
+    "interests": [
+      "containers",
+      "devops",
+      "backend"
+    ],
+    "resources": [
+      {
+        "title": "Docker Certified Associate Official Page",
+        "url": "https://www.docker.com/certification/",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-github-actions",
+    "title": "GitHub Actions Certification",
+    "provider": "GitHub",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "CI/CD automation skills using GitHub Actions workflows and secure delivery pipelines.",
+    "skillsGained": [
+      "CI/CD Pipelines",
+      "Workflow Automation",
+      "DevSecOps Basics",
+      "Release Engineering"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://education.github.com/experiences/certifications",
+    "color": "#1f2937",
+    "nextSteps": [
+      "cloud-aws-devops-pro"
+    ],
+    "interests": [
+      "cicd",
+      "automation",
+      "devops",
+      "github"
+    ],
+    "resources": [
+      {
+        "title": "GitHub Actions Certification Official Page",
+        "url": "https://education.github.com/experiences/certifications",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-pcep",
+    "title": "PCEP: Entry-Level Python Programmer",
+    "provider": "Python Institute",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Entry-level Python credential that prepares learners for associate-level paths.",
+    "skillsGained": [
+      "Python Basics",
+      "Control Flow",
+      "Data Types",
+      "Functions"
+    ],
+    "prerequisites": [],
+    "link": "https://pythoninstitute.org/pcep",
+    "color": "#0f766e",
+    "nextSteps": [
+      "soft-python-pcap"
+    ],
+    "interests": [
+      "python",
+      "coding fundamentals",
+      "automation"
+    ],
+    "resources": [
+      {
+        "title": "PCEP Official Page",
+        "url": "https://pythoninstitute.org/pcep",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-salesforce-platform-dev1",
+    "title": "Salesforce Certified Platform Developer I",
+    "provider": "Salesforce",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Build and customize Salesforce applications with Apex, Lightning, and platform tools.",
+    "skillsGained": [
+      "Apex",
+      "Lightning Components",
+      "Data Modeling",
+      "Salesforce App Development"
+    ],
+    "prerequisites": [
+      "soft-cs50"
+    ],
+    "link": "https://trailhead.salesforce.com/en/credentials/platformdeveloperi/",
+    "color": "#0ea5e9",
+    "nextSteps": [],
+    "interests": [
+      "saas development",
+      "crm engineering",
+      "business apps"
+    ],
+    "resources": [
+      {
+        "title": "Salesforce Platform Developer I Official Page",
+        "url": "https://trailhead.salesforce.com/en/credentials/platformdeveloperi/",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-mongodb-developer",
+    "title": "MongoDB Certified Developer Associate",
+    "provider": "MongoDB",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Developer credential for designing and building MongoDB-backed applications.",
+    "skillsGained": [
+      "MongoDB CRUD",
+      "Data Modeling",
+      "Aggregation",
+      "Performance Tuning"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://www.mongodb.com/learn/certification",
+    "color": "#16a34a",
+    "nextSteps": [],
+    "interests": [
+      "databases",
+      "backend",
+      "nosql"
+    ],
+    "resources": [
+      {
+        "title": "MongoDB Developer Associate Official Page",
+        "url": "https://www.mongodb.com/learn/certification",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-gitlab-associate",
+    "title": "GitLab Certified Associate",
+    "provider": "GitLab",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Foundational GitLab and DevOps workflow certification.",
+    "skillsGained": [
+      "GitLab Basics",
+      "Source Control",
+      "CI/CD Fundamentals",
+      "Collaboration"
+    ],
+    "prerequisites": [],
+    "link": "https://about.gitlab.com/learn/certifications/",
+    "color": "#f97316",
+    "nextSteps": [
+      "soft-github-actions"
+    ],
+    "interests": [
+      "devops",
+      "version control",
+      "cicd"
+    ],
+    "resources": [
+      {
+        "title": "GitLab Certified Associate Official Page",
+        "url": "https://about.gitlab.com/learn/certifications/",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "soft-spring-pro",
+    "title": "VMware Spring Certified Professional",
+    "provider": "VMware",
+    "level": "Advanced",
+    "category": "Software Development",
+    "description": "Advanced Java/Spring ecosystem certification for enterprise application development.",
+    "skillsGained": [
+      "Spring Boot",
+      "Microservices",
+      "Security",
+      "Data Access"
+    ],
+    "prerequisites": [
+      "soft-java-oracle"
+    ],
+    "link": "https://www.vmware.com/learning/certification/spring.html",
+    "color": "#15803d",
+    "nextSteps": [],
+    "interests": [
+      "java",
+      "spring",
+      "enterprise backend"
+    ],
+    "resources": [
+      {
+        "title": "Spring Certified Professional Official Page",
+        "url": "https://www.vmware.com/learning/certification/spring.html",
+        "type": "Official"
+      },
+      {
+        "title": "Exercism",
+        "url": "https://exercism.org/",
+        "type": "Practice"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-pmp",
+    "title": "PMP (Project Management Professional)",
+    "provider": "PMI",
+    "level": "Advanced",
+    "category": "IT Management & Support",
+    "description": "Premier project management certification recognized globally across technology programs.",
+    "skillsGained": [
+      "Project Planning",
+      "Risk Management",
+      "Stakeholder Communication",
+      "Delivery Management"
+    ],
+    "prerequisites": [],
+    "link": "https://www.pmi.org/certifications/project-management-pmp",
+    "color": "#2563eb",
+    "nextSteps": [],
+    "interests": [
+      "project management",
+      "program delivery",
+      "leadership"
+    ],
+    "resources": [
+      {
+        "title": "PMP Official Page",
+        "url": "https://www.pmi.org/certifications/project-management-pmp",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-capm",
+    "title": "CAPM (Certified Associate in Project Management)",
+    "provider": "PMI",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "Entry-level PM credential and pathway into PMP-level program management.",
+    "skillsGained": [
+      "Project Foundations",
+      "Planning",
+      "Scheduling",
+      "Governance Basics"
+    ],
+    "prerequisites": [],
+    "link": "https://www.pmi.org/certifications/certified-associate-capm",
+    "color": "#1d4ed8",
+    "nextSteps": [
+      "it-pmp"
+    ],
+    "interests": [
+      "project management",
+      "operations",
+      "leadership"
+    ],
+    "resources": [
+      {
+        "title": "CAPM Official Page",
+        "url": "https://www.pmi.org/certifications/certified-associate-capm",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-itil4",
+    "title": "ITIL 4 Foundation",
+    "provider": "PeopleCert / AXELOS",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "IT service management foundation credential widely used in enterprise operations.",
+    "skillsGained": [
+      "ITSM Principles",
+      "Service Value System",
+      "Incident/Problem Concepts",
+      "Continual Improvement"
+    ],
+    "prerequisites": [],
+    "link": "https://www.peoplecert.org/certifications/it-governance-and-service-management/ITIL-1",
+    "color": "#1e293b",
+    "nextSteps": [],
+    "interests": [
+      "itsm",
+      "it operations",
+      "service management"
+    ],
+    "resources": [
+      {
+        "title": "ITIL 4 Foundation Official Page",
+        "url": "https://www.peoplecert.org/certifications/it-governance-and-service-management/ITIL-1",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-ccna",
+    "title": "Cisco CCNA",
+    "provider": "Cisco",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Core networking credential highly valued for network and infrastructure careers.",
+    "skillsGained": [
+      "Routing/Switching",
+      "Network Security Basics",
+      "Automation Basics",
+      "Troubleshooting"
+    ],
+    "prerequisites": [
+      "soft-comptia-network-plus"
+    ],
+    "link": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "it-ccnp-enterprise"
+    ],
+    "interests": [
+      "network engineering",
+      "infrastructure",
+      "enterprise networking"
+    ],
+    "resources": [
+      {
+        "title": "CCNA Official Page",
+        "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-ccnp-enterprise",
+    "title": "Cisco CCNP Enterprise",
+    "provider": "Cisco",
+    "level": "Advanced",
+    "category": "IT Management & Support",
+    "description": "Professional-level Cisco networking certification for advanced enterprise infrastructure roles.",
+    "skillsGained": [
+      "Advanced Routing",
+      "SD-WAN",
+      "Wireless",
+      "Enterprise Architecture"
+    ],
+    "prerequisites": [
+      "it-ccna"
+    ],
+    "link": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccnp-enterprise/index.html",
+    "color": "#0284c7",
+    "nextSteps": [],
+    "interests": [
+      "enterprise networking",
+      "advanced infrastructure",
+      "network architecture"
+    ],
+    "resources": [
+      {
+        "title": "CCNP Enterprise Official Page",
+        "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccnp-enterprise/index.html",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-prince2",
+    "title": "PRINCE2 Foundation/Practitioner",
+    "provider": "PeopleCert",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Structured project management methodology certification with strong global adoption.",
+    "skillsGained": [
+      "Project Governance",
+      "Method-Based Delivery",
+      "Risk and Change Control",
+      "Stakeholder Management"
+    ],
+    "prerequisites": [],
+    "link": "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "interests": [
+      "project methodology",
+      "governance",
+      "program delivery"
+    ],
+    "resources": [
+      {
+        "title": "PRINCE2 Official Page",
+        "url": "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "it-m365-endpoint-admin",
+    "title": "Microsoft 365 Endpoint Administrator Associate",
+    "provider": "Microsoft",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Endpoint and device management certification for modern enterprise IT support.",
+    "skillsGained": [
+      "Endpoint Management",
+      "Intune",
+      "Security Policies",
+      "App Deployment"
+    ],
+    "prerequisites": [
+      "google-it-support"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/m365-endpoint-administrator/",
+    "color": "#2563eb",
+    "nextSteps": [],
+    "interests": [
+      "it support",
+      "endpoint management",
+      "enterprise operations"
+    ],
+    "resources": [
+      {
+        "title": "Microsoft 365 Endpoint Administrator Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/m365-endpoint-administrator/",
+        "type": "Official"
+      },
+      {
+        "title": "PMI Learning",
+        "url": "https://www.pmi.org/learning",
+        "type": "Course"
+      },
+      {
+        "title": "AXELOS Resources",
+        "url": "https://www.peoplecert.org/",
+        "type": "Community"
+      }
+    ]
+  },
+  {
+    "id": "cyber-chfi",
+    "title": "CHFI (Computer Hacking Forensic Investigator)",
+    "provider": "EC-Council",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Digital forensics certification focused on evidence handling and incident investigation.",
+    "skillsGained": [
+      "Digital Forensics",
+      "Evidence Analysis",
+      "Incident Investigation",
+      "Chain of Custody"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://www.eccouncil.org/train-certify/computer-hacking-forensic-investigator-chfi/",
+    "color": "#1f2937",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "CHFI Official Page",
+        "url": "https://www.eccouncil.org/train-certify/computer-hacking-forensic-investigator-chfi/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "forensics",
+      "incident response",
+      "security"
+    ]
+  },
+  {
+    "id": "cyber-pnpt",
+    "title": "PNPT (Practical Network Penetration Tester)",
+    "provider": "TCM Security",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Practical red-team style pentesting certification with reporting and communication focus.",
+    "skillsGained": [
+      "Active Directory Pentesting",
+      "External/Internal Testing",
+      "Reporting",
+      "Client Communication"
+    ],
+    "prerequisites": [
+      "cyber-ejpt"
+    ],
+    "link": "https://certifications.tcm-sec.com/pnpt/",
+    "color": "#111827",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "PNPT Official Page",
+        "url": "https://certifications.tcm-sec.com/pnpt/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "red team",
+      "pentest",
+      "offensive security"
+    ]
+  },
+  {
+    "id": "cyber-oswe",
+    "title": "OSWE (Web Expert)",
+    "provider": "OffSec",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Advanced web application penetration testing and code-audit focused certification.",
+    "skillsGained": [
+      "Advanced Web Exploitation",
+      "Code Review",
+      "Custom Exploit Development",
+      "Logic Flaw Analysis"
+    ],
+    "prerequisites": [
+      "cyber-oscp"
+    ],
+    "link": "https://www.offsec.com/courses/web-300/",
+    "color": "#0f172a",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "OSWE Official Page",
+        "url": "https://www.offsec.com/courses/web-300/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "web security",
+      "offensive security",
+      "appsec"
+    ]
+  },
+  {
+    "id": "cyber-ccsk",
+    "title": "CCSK (Certificate of Cloud Security Knowledge)",
+    "provider": "Cloud Security Alliance",
+    "level": "Intermediate",
+    "category": "Cyber Security",
+    "description": "Foundational cloud security body-of-knowledge certification.",
+    "skillsGained": [
+      "Cloud Security Fundamentals",
+      "Shared Responsibility",
+      "Cloud Governance",
+      "Risk Management"
+    ],
+    "prerequisites": [
+      "cyber-sec-plus"
+    ],
+    "link": "https://cloudsecurityalliance.org/education/ccsk/",
+    "color": "#334155",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "CCSK Official Page",
+        "url": "https://cloudsecurityalliance.org/education/ccsk/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "cloud security",
+      "governance",
+      "risk"
+    ]
+  },
+  {
+    "id": "cyber-crto",
+    "title": "CRTO (Certified Red Team Operator)",
+    "provider": "Zero-Point Security",
+    "level": "Advanced",
+    "category": "Cyber Security",
+    "description": "Specialized red team certification centered on adversary simulation and C2 operations.",
+    "skillsGained": [
+      "C2 Frameworks",
+      "OPSEC",
+      "Adversary Simulation",
+      "Windows Tradecraft"
+    ],
+    "prerequisites": [
+      "cyber-oscp"
+    ],
+    "link": "https://training.zeropointsecurity.co.uk/courses/red-team-ops",
+    "color": "#0b1220",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "CRTO Official Page",
+        "url": "https://training.zeropointsecurity.co.uk/courses/red-team-ops",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "red team",
+      "adversary simulation",
+      "offensive security"
+    ]
+  },
+  {
+    "id": "cloud-azure-az400",
+    "title": "Azure DevOps Engineer Expert (AZ-400)",
+    "provider": "Microsoft",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Advanced DevOps practices on Azure including CI/CD, reliability, and secure delivery.",
+    "skillsGained": [
+      "Azure DevOps",
+      "CI/CD",
+      "IaC",
+      "Observability"
+    ],
+    "prerequisites": [
+      "soft-azure-az204"
+    ],
+    "link": "https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/",
+    "color": "#1d4ed8",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "AZ-400 Official Page",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "devops",
+      "azure",
+      "platform engineering"
+    ]
+  },
+  {
+    "id": "cloud-oci-architect-associate",
+    "title": "Oracle Cloud Infrastructure Architect Associate",
+    "provider": "Oracle",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "OCI architecture certification for resilient and secure cloud design.",
+    "skillsGained": [
+      "OCI Architecture",
+      "Networking",
+      "Security Design",
+      "Scalability"
+    ],
+    "prerequisites": [
+      "cloud-oci-foundations"
+    ],
+    "link": "https://education.oracle.com/oracle-cloud-infrastructure-architect-associate/trackp_620",
+    "color": "#7c2d12",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "OCI Architect Associate Official Page",
+        "url": "https://education.oracle.com/oracle-cloud-infrastructure-architect-associate/trackp_620",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "cloud architecture",
+      "oci",
+      "infrastructure"
+    ]
+  },
+  {
+    "id": "cloud-gcp-network-engineer",
+    "title": "Google Professional Cloud Network Engineer",
+    "provider": "Google Cloud",
+    "level": "Advanced",
+    "category": "Cloud Computing",
+    "description": "Specialist networking credential for GCP hybrid and cloud-native architectures.",
+    "skillsGained": [
+      "GCP Networking",
+      "Hybrid Connectivity",
+      "Network Security",
+      "Performance"
+    ],
+    "prerequisites": [
+      "cloud-gcp-ace"
+    ],
+    "link": "https://cloud.google.com/learn/certification/cloud-network-engineer",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "GCP Cloud Network Engineer Official Page",
+        "url": "https://cloud.google.com/learn/certification/cloud-network-engineer",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "networking",
+      "gcp",
+      "cloud infrastructure"
+    ]
+  },
+  {
+    "id": "cloud-finops-practitioner",
+    "title": "FinOps Certified Practitioner",
+    "provider": "FinOps Foundation",
+    "level": "Intermediate",
+    "category": "Cloud Computing",
+    "description": "Cloud cost optimization and financial operations certification.",
+    "skillsGained": [
+      "Cloud Cost Management",
+      "FinOps Practices",
+      "Reporting",
+      "Optimization"
+    ],
+    "prerequisites": [
+      "cloud-aws-practitioner"
+    ],
+    "link": "https://www.finops.org/certification/practitioner/",
+    "color": "#0f766e",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "FinOps Practitioner Official Page",
+        "url": "https://www.finops.org/certification/practitioner/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "finops",
+      "cloud operations",
+      "cost optimization"
+    ]
+  },
+  {
+    "id": "ai-tensorflow-cert-advanced",
+    "title": "TensorFlow Developer Certificate (Advanced Prep)",
+    "provider": "TensorFlow",
+    "level": "Advanced",
+    "category": "AI Development",
+    "description": "Advanced prep track for production TensorFlow model design and deployment.",
+    "skillsGained": [
+      "Advanced TensorFlow",
+      "Model Optimization",
+      "Serving",
+      "Production ML"
+    ],
+    "prerequisites": [
+      "ai-tensorflow-dev"
+    ],
+    "link": "https://www.tensorflow.org/certificate",
+    "color": "#f97316",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "TensorFlow Advanced Prep Official Page",
+        "url": "https://www.tensorflow.org/certificate",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "tensorflow",
+      "ml engineering",
+      "deployment"
+    ]
+  },
+  {
+    "id": "ai-hf-llm-engineer",
+    "title": "Hugging Face LLM Engineer Path",
+    "provider": "Hugging Face",
+    "level": "Intermediate",
+    "category": "AI Development",
+    "description": "Practical path for building LLM apps with transformers, PEFT, and inference tooling.",
+    "skillsGained": [
+      "Transformers",
+      "Fine-Tuning",
+      "RAG",
+      "Inference Optimization"
+    ],
+    "prerequisites": [
+      "ai-ml-specialization"
+    ],
+    "link": "https://huggingface.co/learn",
+    "color": "#eab308",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "Hugging Face LLM Engineer Path Official Page",
+        "url": "https://huggingface.co/learn",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "llm",
+      "generative ai",
+      "nlp"
+    ]
+  },
+  {
+    "id": "data-sas-stat-business-analyst",
+    "title": "SAS Statistical Business Analyst",
+    "provider": "SAS",
+    "level": "Advanced",
+    "category": "Data Science",
+    "description": "Advanced SAS credential for predictive and statistical business analytics.",
+    "skillsGained": [
+      "Statistical Modeling",
+      "Forecasting",
+      "Business Analytics",
+      "SAS Procedures"
+    ],
+    "prerequisites": [
+      "data-sas-base"
+    ],
+    "link": "https://www.sas.com/en_us/certification/credentials/advanced-analytics/statistical-business-analyst.html",
+    "color": "#1e293b",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "SAS Statistical Business Analyst Official Page",
+        "url": "https://www.sas.com/en_us/certification/credentials/advanced-analytics/statistical-business-analyst.html",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "statistics",
+      "sas",
+      "business analytics"
+    ]
+  },
+  {
+    "id": "soft-circleci-professional",
+    "title": "CircleCI Certified Professional",
+    "provider": "CircleCI",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "CI/CD pipeline design and optimization credential using CircleCI.",
+    "skillsGained": [
+      "Pipeline Design",
+      "Automation",
+      "Testing Strategy",
+      "Delivery Optimization"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://university.circleci.com/",
+    "color": "#0ea5e9",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "CircleCI Certified Professional Official Page",
+        "url": "https://university.circleci.com/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "cicd",
+      "devops",
+      "automation"
+    ]
+  },
+  {
+    "id": "soft-postgresql-associate",
+    "title": "PostgreSQL Associate",
+    "provider": "EDB / PostgreSQL Ecosystem",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "PostgreSQL administration and development fundamentals for production apps.",
+    "skillsGained": [
+      "SQL",
+      "Schema Design",
+      "Query Tuning",
+      "PostgreSQL Operations"
+    ],
+    "prerequisites": [
+      "web-fcc-backend"
+    ],
+    "link": "https://www.enterprisedb.com/training",
+    "color": "#2563eb",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "PostgreSQL Associate Official Page",
+        "url": "https://www.enterprisedb.com/training",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "postgresql",
+      "database",
+      "backend"
+    ]
+  },
+  {
+    "id": "soft-puppet-certified",
+    "title": "Puppet Certified Professional",
+    "provider": "Puppet",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Infrastructure automation certification for managing systems with Puppet.",
+    "skillsGained": [
+      "Configuration Management",
+      "Automation",
+      "Infrastructure as Code",
+      "Ops Workflows"
+    ],
+    "prerequisites": [
+      "soft-rhcsa"
+    ],
+    "link": "https://www.puppet.com/resources/certification",
+    "color": "#f97316",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "Puppet Certified Professional Official Page",
+        "url": "https://www.puppet.com/resources/certification",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "automation",
+      "infra",
+      "devops"
+    ]
+  },
+  {
+    "id": "soft-chef-certified",
+    "title": "Chef Certified Developer",
+    "provider": "Progress Chef",
+    "level": "Intermediate",
+    "category": "Software Development",
+    "description": "Chef-focused automation and infrastructure management certification.",
+    "skillsGained": [
+      "Chef DSL",
+      "Infrastructure Automation",
+      "Testing",
+      "Config Management"
+    ],
+    "prerequisites": [
+      "soft-rhcsa"
+    ],
+    "link": "https://www.chef.io/training",
+    "color": "#b91c1c",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "Chef Certified Developer Official Page",
+        "url": "https://www.chef.io/training",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "infra automation",
+      "devops",
+      "configuration management"
+    ]
+  },
+  {
+    "id": "soft-unity-programmer",
+    "title": "Unity Certified User: Programmer",
+    "provider": "Unity",
+    "level": "Entry",
+    "category": "Software Development",
+    "description": "Foundational game development credential with Unity and C# scripting.",
+    "skillsGained": [
+      "Unity Scripting",
+      "C#",
+      "Gameplay Systems",
+      "Debugging"
+    ],
+    "prerequisites": [],
+    "link": "https://unity.com/products/unity-certifications",
+    "color": "#111827",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "Unity Certified User: Programmer Official Page",
+        "url": "https://unity.com/products/unity-certifications",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "game dev",
+      "c#",
+      "programming"
+    ]
+  },
+  {
+    "id": "it-comptia-project-plus",
+    "title": "CompTIA Project+",
+    "provider": "CompTIA",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "Project management fundamentals for technical teams and IT delivery.",
+    "skillsGained": [
+      "Project Planning",
+      "Scope Management",
+      "Risk Basics",
+      "Communication"
+    ],
+    "prerequisites": [],
+    "link": "https://www.comptia.org/certifications/project",
+    "color": "#b91c1c",
+    "nextSteps": [
+      "it-capm"
+    ],
+    "resources": [
+      {
+        "title": "CompTIA Project+ Official Page",
+        "url": "https://www.comptia.org/certifications/project",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "project management",
+      "it delivery"
+    ]
+  },
+  {
+    "id": "it-csm",
+    "title": "CSM (Certified ScrumMaster)",
+    "provider": "Scrum Alliance",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "Agile/Scrum facilitator certification for iterative team delivery.",
+    "skillsGained": [
+      "Scrum Framework",
+      "Facilitation",
+      "Agile Ceremonies",
+      "Team Coaching"
+    ],
+    "prerequisites": [],
+    "link": "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster",
+    "color": "#0284c7",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "CSM Official Page",
+        "url": "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "agile",
+      "scrum",
+      "team leadership"
+    ]
+  },
+  {
+    "id": "it-psm1",
+    "title": "PSM I (Professional Scrum Master I)",
+    "provider": "Scrum.org",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "Professional Scrum Master baseline certification focused on Scrum principles.",
+    "skillsGained": [
+      "Scrum Theory",
+      "Team Facilitation",
+      "Empiricism",
+      "Delivery Focus"
+    ],
+    "prerequisites": [],
+    "link": "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments",
+    "color": "#0ea5e9",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "PSM I Official Page",
+        "url": "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "scrum",
+      "agile",
+      "delivery"
+    ]
+  },
+  {
+    "id": "it-safe-agilist",
+    "title": "SAFe Agilist",
+    "provider": "Scaled Agile",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Scaled Agile certification for enterprise-level agile transformation and program execution.",
+    "skillsGained": [
+      "Scaled Agile",
+      "Program Increment Planning",
+      "Lean-Agile Leadership",
+      "Portfolio Alignment"
+    ],
+    "prerequisites": [
+      "it-csm"
+    ],
+    "link": "https://scaledagile.com/certification/courses/leading-safe/",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "SAFe Agilist Official Page",
+        "url": "https://scaledagile.com/certification/courses/leading-safe/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "enterprise agile",
+      "program management",
+      "leadership"
+    ]
+  },
+  {
+    "id": "it-cobit-foundation",
+    "title": "COBIT Foundation",
+    "provider": "ISACA",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "IT governance and control framework certification for enterprise operations.",
+    "skillsGained": [
+      "IT Governance",
+      "Control Objectives",
+      "Risk Oversight",
+      "Process Maturity"
+    ],
+    "prerequisites": [],
+    "link": "https://www.isaca.org/credentialing/cobit",
+    "color": "#1f2937",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "COBIT Foundation Official Page",
+        "url": "https://www.isaca.org/credentialing/cobit",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "governance",
+      "it controls",
+      "risk"
+    ]
+  },
+  {
+    "id": "it-six-sigma-green",
+    "title": "Six Sigma Green Belt",
+    "provider": "ASQ / IASSC",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Process improvement certification for data-driven quality and operational efficiency.",
+    "skillsGained": [
+      "DMAIC",
+      "Process Analysis",
+      "Quality Improvement",
+      "Metrics"
+    ],
+    "prerequisites": [],
+    "link": "https://asq.org/cert/six-sigma-green-belt",
+    "color": "#15803d",
+    "nextSteps": [
+      "it-six-sigma-black"
+    ],
+    "resources": [
+      {
+        "title": "Six Sigma Green Belt Official Page",
+        "url": "https://asq.org/cert/six-sigma-green-belt",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "process improvement",
+      "operations",
+      "quality"
+    ]
+  },
+  {
+    "id": "it-six-sigma-black",
+    "title": "Six Sigma Black Belt",
+    "provider": "ASQ / IASSC",
+    "level": "Advanced",
+    "category": "IT Management & Support",
+    "description": "Advanced quality and process optimization certification for transformation leaders.",
+    "skillsGained": [
+      "Advanced DMAIC",
+      "Statistical Analysis",
+      "Process Transformation",
+      "Leadership"
+    ],
+    "prerequisites": [
+      "it-six-sigma-green"
+    ],
+    "link": "https://asq.org/cert/six-sigma-black-belt",
+    "color": "#166534",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "Six Sigma Black Belt Official Page",
+        "url": "https://asq.org/cert/six-sigma-black-belt",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "quality leadership",
+      "process optimization",
+      "operations"
+    ]
+  },
+  {
+    "id": "it-veeam-vmce",
+    "title": "Veeam Certified Engineer (VMCE)",
+    "provider": "Veeam",
+    "level": "Advanced",
+    "category": "IT Management & Support",
+    "description": "Data protection and backup architecture certification for enterprise operations.",
+    "skillsGained": [
+      "Backup Architecture",
+      "Disaster Recovery",
+      "Monitoring",
+      "Data Protection"
+    ],
+    "prerequisites": [
+      "it-ccna"
+    ],
+    "link": "https://www.veeam.com/vmce-certification.html",
+    "color": "#16a34a",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "VMCE Official Page",
+        "url": "https://www.veeam.com/vmce-certification.html",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "backup",
+      "disaster recovery",
+      "it operations"
+    ]
+  },
+  {
+    "id": "it-salesforce-admin",
+    "title": "Salesforce Certified Administrator",
+    "provider": "Salesforce",
+    "level": "Entry",
+    "category": "IT Management & Support",
+    "description": "Administration credential for configuring and operating Salesforce environments.",
+    "skillsGained": [
+      "Salesforce Configuration",
+      "User Management",
+      "Reporting",
+      "Automation Basics"
+    ],
+    "prerequisites": [],
+    "link": "https://trailhead.salesforce.com/en/credentials/administrator/",
+    "color": "#0ea5e9",
+    "nextSteps": [
+      "soft-salesforce-platform-dev1"
+    ],
+    "resources": [
+      {
+        "title": "Salesforce Administrator Official Page",
+        "url": "https://trailhead.salesforce.com/en/credentials/administrator/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "saas administration",
+      "crm",
+      "business systems"
+    ]
+  },
+  {
+    "id": "it-iiba-cbda",
+    "title": "IIBA-CBDA (Business Data Analytics)",
+    "provider": "IIBA",
+    "level": "Intermediate",
+    "category": "IT Management & Support",
+    "description": "Business data analytics certification focused on translating data into business decisions.",
+    "skillsGained": [
+      "Business Analysis",
+      "Data Interpretation",
+      "Decision Support",
+      "Stakeholder Communication"
+    ],
+    "prerequisites": [],
+    "link": "https://www.iiba.org/business-analysis-certifications/cbda/",
+    "color": "#1e40af",
+    "nextSteps": [],
+    "resources": [
+      {
+        "title": "IIBA-CBDA Official Page",
+        "url": "https://www.iiba.org/business-analysis-certifications/cbda/",
+        "type": "Official"
+      },
+      {
+        "title": "Roadmap.sh",
+        "url": "https://roadmap.sh/",
+        "type": "Community"
+      },
+      {
+        "title": "Hands-on Labs",
+        "url": "https://github.com/practical-tutorials/project-based-learning",
+        "type": "Practice"
+      }
+    ],
+    "interests": [
+      "business analytics",
+      "analysis",
+      "data-driven decisions"
+    ]
+  }
+]

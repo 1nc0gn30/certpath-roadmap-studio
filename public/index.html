@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google CertPath Studio | Interactive Certification Roadmap Studio</title>
+  <meta name="description" content="Interactive Certification Roadmap Studio & Career Path DAG Solver with Google Material 3 Design">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --g-blue: #1a73e8;
+      --g-blue-hover: #1557b0;
+      --g-blue-surface: #e8f0fe;
+      --g-red: #ea4335;
+      --g-red-surface: #fce8e6;
+      --g-yellow: #fbbc04;
+      --g-yellow-surface: #fef7e0;
+      --g-green: #34a853;
+      --g-green-surface: #e6f4ea;
+      --g-purple: #9334e6;
+      --g-purple-surface: #f3e8fd;
+      
+      --bg-primary: #f8fafd;
+      --bg-surface: #ffffff;
+      --bg-surface-variant: #f1f3f4;
+      --bg-canvas: #ffffff;
+      --text-primary: #202124;
+      --text-secondary: #5f6368;
+      --text-tertiary: #80868b;
+      --border-color: #dadce0;
+      --border-subtle: #e8eaed;
+      --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.1), 0 1px 3px 1px rgba(60,64,67,0.05);
+      --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.15), 0 4px 8px 3px rgba(60,64,67,0.08);
+      --shadow-lg: 0 2px 6px 2px rgba(60,64,67,0.15), 0 8px 16px 4px rgba(60,64,67,0.08);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      
+      --font-sans: 'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Roboto Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-surface: #1e1e1e;
+      --bg-surface-variant: #2d2d2d;
+      --bg-canvas: #181818;
+      --text-primary: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --text-tertiary: #5f6368;
+      --border-color: #3c4043;
+      --border-subtle: #2d2d2d;
+      --g-blue-surface: rgba(26, 115, 232, 0.15);
+      --g-green-surface: rgba(52, 168, 83, 0.15);
+      --g-yellow-surface: rgba(251, 188, 4, 0.15);
+      --g-red-surface: rgba(234, 67, 53, 0.15);
+      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.5);
+      --shadow-md: 0 4px 8px 0 rgba(0,0,0,0.6);
+      --shadow-lg: 0 8px 24px 0 rgba(0,0,0,0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Top App Bar */
+    header.app-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .google-dots {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot.blue { background: var(--g-blue); }
+    .dot.red { background: var(--g-red); }
+    .dot.yellow { background: var(--g-yellow); }
+    .dot.green { background: var(--g-green); }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--g-blue-surface);
+      color: var(--g-blue);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-surface-variant);
+      padding: 4px;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--bg-surface);
+      color: var(--g-blue);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .app-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-surface-variant);
+      color: var(--text-primary);
+    }
+
+    /* Subheader & Filter Strip */
+    .filter-strip {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 480px;
+      min-width: 260px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 44px;
+      background: var(--bg-surface-variant);
+      border: 1px solid transparent;
+      border-radius: var(--radius-full);
+      padding: 0 44px 0 44px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      background: var(--bg-surface);
+      border-color: var(--g-blue);
+      box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      display: none;
+      font-size: 16px;
+    }
+
+    .filter-chips-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .chip-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .chip-btn:hover {
+      background: var(--bg-surface-variant);
+      color: var(--text-primary);
+    }
+
+    .chip-btn.active {
+      background: var(--g-blue-surface);
+      border-color: var(--g-blue);
+      color: var(--g-blue);
+      font-weight: 600;
+    }
+
+    .chip-badge {
+      background: rgba(0,0,0,0.06);
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: var(--radius-full);
+    }
+    .chip-btn.active .chip-badge {
+      background: rgba(26,115,232,0.2);
+    }
+
+    /* Actions Strip */
+    .export-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--bg-surface-variant);
+      border-color: var(--text-tertiary);
+    }
+
+    .btn-action.primary {
+      background: var(--g-blue);
+      border-color: var(--g-blue);
+      color: #ffffff;
+    }
+
+    .btn-action.primary:hover {
+      background: var(--g-blue-hover);
+    }
+
+    /* Main Content Area */
+    main.main-viewport {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 128px);
+    }
+
+    /* Canvas View (DAG Engine) */
+    .viewport-canvas {
+      flex: 1;
+      position: relative;
+      background: var(--bg-canvas);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #dag-svg-container {
+      width: 100%;
+      height: 100%;
+      min-height: 650px;
+      cursor: grab;
+      user-select: none;
+    }
+    #dag-svg-container:active {
+      cursor: grabbing;
+    }
+
+    /* Floating Zoom Controls */
+    .canvas-controls {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+      gap: 4px;
+      z-index: 50;
+    }
+
+    .canvas-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+
+    .canvas-btn:hover {
+      background: var(--bg-surface-variant);
+      color: var(--text-primary);
+    }
+
+    /* Canvas Legend */
+    .canvas-legend {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 50;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    /* SVG DAG Styling */
+    .dag-edge {
+      fill: none;
+      stroke: var(--border-color);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      transition: stroke 0.2s, stroke-width 0.2s;
+    }
+
+    .dag-edge.prereq-active {
+      stroke: var(--g-green);
+      stroke-width: 3;
+      stroke-dasharray: 6 3;
+      animation: dash 1s linear infinite;
+    }
+
+    .dag-edge.unlocked-active {
+      stroke: var(--g-blue);
+      stroke-width: 3;
+      stroke-dasharray: 6 3;
+      animation: dash 1s linear infinite;
+    }
+
+    @keyframes dash {
+      to { stroke-dashoffset: -18; }
+    }
+
+    .dag-node-group {
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .dag-node-rect {
+      fill: var(--bg-surface);
+      stroke: var(--border-color);
+      stroke-width: 1.5;
+      rx: 12;
+      ry: 12;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+      transition: all 0.2s ease;
+    }
+
+    .dag-node-group:hover .dag-node-rect {
+      stroke: var(--g-blue);
+      stroke-width: 2;
+      filter: drop-shadow(0 4px 12px rgba(26,115,232,0.18));
+    }
+
+    .dag-node-group.selected .dag-node-rect {
+      stroke: var(--g-blue);
+      stroke-width: 2.5;
+      fill: var(--g-blue-surface);
+    }
+
+    .dag-node-group.is-prereq .dag-node-rect {
+      stroke: var(--g-green);
+      stroke-width: 2.5;
+      fill: var(--g-green-surface);
+    }
+
+    .dag-node-group.is-unlocked .dag-node-rect {
+      stroke: var(--g-blue);
+      stroke-width: 2.5;
+      fill: var(--g-blue-surface);
+    }
+
+    /* Side Detail Panel */
+    .detail-drawer {
+      width: 420px;
+      max-width: 90vw;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      z-index: 90;
+      overflow-y: auto;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .detail-drawer.collapsed {
+      transform: translateX(100%);
+      display: none;
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      background: var(--bg-surface);
+      z-index: 10;
+    }
+
+    .drawer-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      padding: 4px;
+      border-radius: 50%;
+    }
+
+    .drawer-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .meta-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .level-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .level-badge.Entry { background: var(--g-green-surface); color: var(--g-green); }
+    .level-badge.Intermediate { background: var(--g-yellow-surface); color: #b06000; }
+    .level-badge.Advanced { background: var(--g-red-surface); color: var(--g-red); }
+
+    .provider-pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-variant);
+      color: var(--text-secondary);
+    }
+
+    .category-pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--g-blue-surface);
+      color: var(--g-blue);
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .skills-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-chip {
+      background: var(--bg-surface-variant);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+    }
+
+    .resource-card {
+      background: var(--bg-surface-variant);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.15s;
+    }
+
+    .resource-card:hover {
+      border-color: var(--g-blue);
+      background: var(--g-blue-surface);
+      color: var(--g-blue);
+    }
+
+    /* Career Path Wizard Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalSlide 0.2s ease-out;
+    }
+
+    @keyframes modalSlide {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-body {
+      padding: 28px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .select-input, .text-input {
+      height: 48px;
+      background: var(--bg-surface-variant);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0 16px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .select-input:focus, .text-input:focus {
+      border-color: var(--g-blue);
+      background: var(--bg-surface);
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .role-card {
+      background: var(--bg-surface-variant);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .role-card:hover {
+      border-color: var(--g-blue);
+      transform: translateY(-2px);
+    }
+
+    .role-card.selected {
+      background: var(--g-blue-surface);
+      border-color: var(--g-blue);
+    }
+
+    .phase-container {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .phase-header {
+      background: var(--bg-surface-variant);
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-items {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .checklist-checkbox {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--g-blue);
+      cursor: pointer;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #323232;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      z-index: 300;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Stats Overview Banner */
+    .stats-strip {
+      display: flex;
+      gap: 24px;
+      padding: 8px 24px;
+      background: var(--bg-surface-variant);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-val {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .detail-drawer {
+        position: fixed;
+        right: 0;
+        top: 64px;
+        bottom: 0;
+      }
+      .filter-strip {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Bar -->
+  <header class="app-bar">
+    <div class="brand-section" onclick="resetView()">
+      <div class="google-dots">
+        <div class="dot blue"></div>
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="brand-title">
+        Google CertPath Studio
+        <span class="brand-badge">DAG Studio</span>
+      </div>
+    </div>
+
+    <!-- Navigation Views -->
+    <nav class="nav-tabs">
+      <button class="nav-tab-btn active" id="tab-dag" onclick="switchView('dag')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="9" y1="6" x2="15" y2="6"></line><line x1="6" y1="9" x2="18" y2="15"></line></svg>
+        Roadmap DAG
+      </button>
+      <button class="nav-tab-btn" id="tab-wizard" onclick="openCareerWizard()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        Career Wizard
+      </button>
+      <button class="nav-tab-btn" id="tab-prereqs" onclick="switchView('prereqs')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+        Prereq Explorer
+      </button>
+      <button class="nav-tab-btn" id="tab-compare" onclick="openCompareModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"></rect><rect x="14" y="3" width="7" height="18" rx="1"></rect></svg>
+        Compare
+      </button>
+    </nav>
+
+    <!-- App Actions -->
+    <div class="app-bar-actions">
+      <button class="btn-icon" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Stats Telemetry Strip -->
+  <div class="stats-strip" id="stats-strip">
+    <div class="stat-chip">Total Certifications: <span class="stat-val" id="stat-total">137</span></div>
+    <div class="stat-chip">Categories: <span class="stat-val" id="stat-categories">7</span></div>
+    <div class="stat-chip">Top Providers: <span class="stat-val" id="stat-providers">AWS, Azure, GCP, CompTIA, Cisco</span></div>
+    <div class="stat-chip">Architecture: <span class="stat-val">DAG Solver Acyclic (100% stdlib)</span></div>
+  </div>
+
+  <!-- Filter & Action Strip -->
+  <section class="filter-strip">
+    <div class="search-box-wrapper">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="search-input" class="search-input" placeholder="Search certifications, providers, skills (e.g. Kubernetes, AWS, Security)..." oninput="handleSearch(this.value)">
+      <button class="search-clear-btn" id="search-clear" onclick="clearSearch()">✕</button>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filter-chips-group" id="category-chips">
+      <button class="chip-btn active" onclick="filterCategory('All')">All Domains <span class="chip-badge" id="badge-all">137</span></button>
+      <button class="chip-btn" onclick="filterCategory('Cloud Computing')">Cloud <span class="chip-badge">27</span></button>
+      <button class="chip-btn" onclick="filterCategory('Cyber Security')">Cyber Security <span class="chip-badge">26</span></button>
+      <button class="chip-btn" onclick="filterCategory('AI Development')">AI & ML <span class="chip-badge">15</span></button>
+      <button class="chip-btn" onclick="filterCategory('Data Science')">Data Science <span class="chip-badge">19</span></button>
+      <button class="chip-btn" onclick="filterCategory('Web Development')">Web Dev <span class="chip-badge">10</span></button>
+      <button class="chip-btn" onclick="filterCategory('Software Development')">Software Dev <span class="chip-badge">23</span></button>
+      <button class="chip-btn" onclick="filterCategory('IT Management & Support')">IT Mgmt <span class="chip-badge">17</span></button>
+    </div>
+
+    <!-- 1-Click Exports -->
+    <div class="export-actions-group">
+      <button class="btn-action" onclick="copyMermaidExport()" title="Copy Mermaid Diagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Copy Mermaid
+      </button>
+      <button class="btn-action" onclick="downloadMarkdownGuide()" title="Download Study Guide">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Study Guide (.md)
+      </button>
+      <button class="btn-action" onclick="exportJsonData()" title="Export JSON">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        Export JSON
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Viewport Area -->
+  <main class="main-viewport">
+    
+    <!-- SVG Interactive DAG Canvas -->
+    <section class="viewport-canvas">
+      <svg id="dag-svg-container"></svg>
+
+      <!-- Zoom / Pan Controls -->
+      <div class="canvas-controls">
+        <button class="canvas-btn" onclick="zoomIn()" title="Zoom In">+</button>
+        <button class="canvas-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+        <button class="canvas-btn" onclick="resetZoom()" title="Reset Zoom">⤾</button>
+        <button class="canvas-btn" onclick="fitToScreen()" title="Fit to Screen">⛶</button>
+      </div>
+
+      <!-- Legend -->
+      <div class="canvas-legend">
+        <div class="legend-item"><div class="legend-indicator" style="background: var(--g-green)"></div> Entry Level</div>
+        <div class="legend-item"><div class="legend-indicator" style="background: #eab308"></div> Intermediate Level</div>
+        <div class="legend-item"><div class="legend-indicator" style="background: var(--g-red)"></div> Advanced Level</div>
+        <div class="legend-item"><div class="legend-indicator" style="background: var(--g-blue)"></div> Unlocked Progression</div>
+      </div>
+    </section>
+
+    <!-- Side Detail Drawer -->
+    <aside class="detail-drawer" id="detail-drawer">
+      <div class="drawer-header">
+        <div>
+          <h2 id="drawer-title" style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Certification Details</h2>
+          <span id="drawer-provider" style="font-size: 13px; color: var(--text-secondary);">Select any node to inspect details</span>
+        </div>
+        <button class="drawer-close-btn" onclick="closeDrawer()">✕</button>
+      </div>
+
+      <div class="drawer-body" id="drawer-body">
+        <div class="meta-badge-row">
+          <span class="level-badge Entry" id="drawer-level">Entry</span>
+          <span class="category-pill" id="drawer-category">Cloud Computing</span>
+          <span class="provider-pill" id="drawer-hours">~80 hrs</span>
+        </div>
+
+        <div>
+          <div class="section-title">Overview</div>
+          <p id="drawer-description" style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);">
+            Select a certification from the DAG roadmap to view full prerequisites, next progression paths, skills gained, and study materials.
+          </p>
+        </div>
+
+        <div>
+          <div class="section-title">Prerequisites Chain (<span id="drawer-prereqs-count">0</span>)</div>
+          <div id="drawer-prereqs-list" style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 13px; color: var(--text-tertiary);">None (Direct Entry Point)</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">Unlocked Credentials (<span id="drawer-unlocked-count">0</span>)</div>
+          <div id="drawer-unlocked-list" style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 13px; color: var(--text-tertiary);">None</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">Skills Gained</div>
+          <div class="skills-chip-list" id="drawer-skills-list"></div>
+        </div>
+
+        <div>
+          <div class="section-title">Official Resources & Prep</div>
+          <div id="drawer-resources-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+        </div>
+
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+          <a id="drawer-official-link" href="#" target="_blank" class="btn-action primary" style="flex: 1; justify-content: center; text-decoration: none;">
+            Official Curriculum ↗
+          </a>
+          <button class="btn-action" onclick="planForSelectedCert()">
+            Plan Path
+          </button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Career Wizard Modal -->
+  <div class="modal-overlay" id="wizard-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 style="font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--g-blue);">✦</span> Career Roadmap Wizard
+        </h2>
+        <button class="drawer-close-btn" onclick="closeWizardModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Select Target Role Archetype</label>
+          <div class="role-grid" id="role-cards-container">
+            <!-- Dynamic role cards -->
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Weekly Study Hours</label>
+            <input type="range" id="wizard-hours-slider" min="5" max="40" step="5" value="10" oninput="updateWizardHours(this.value)" style="accent-color: var(--g-blue);">
+            <span id="wizard-hours-val" style="font-size: 13px; color: var(--text-secondary);">10 hours / week</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Estimated Completion</label>
+            <div id="wizard-timeline-estimate" style="font-size: 16px; font-weight: 700; color: var(--g-blue); margin-top: 6px;">
+              ~16 Weeks
+            </div>
+          </div>
+        </div>
+
+        <!-- Generated Phased Roadmap -->
+        <div>
+          <div class="section-title">Milestone Phased Study Plan</div>
+          <div id="wizard-phases-container"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px;">
+          <button class="btn-action" onclick="closeWizardModal()">Close</button>
+          <button class="btn-action primary" onclick="applyWizardRoadmapToCanvas()">Highlight on Roadmap DAG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare Modal -->
+  <div class="modal-overlay" id="compare-modal">
+    <div class="modal-dialog" style="max-width: 900px;">
+      <div class="modal-header">
+        <h2 style="font-size: 20px; font-weight: 700;">Side-by-Side Credential Comparison</h2>
+        <button class="drawer-close-btn" onclick="closeCompareModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+          <select id="compare-select-1" class="select-input" style="flex:1;" onchange="renderComparison()"></select>
+          <select id="compare-select-2" class="select-input" style="flex:1;" onchange="renderComparison()"></select>
+        </div>
+        <div id="comparison-table-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="app-toast">
+    <span id="toast-msg">Notification text</span>
+  </div>
+
+  <script>
+    // --- STATE MANAGEMENT ---
+    let allCerts = [];
+    let certMap = new Map();
+    let currentCategory = 'All';
+    let currentSearch = '';
+    let selectedCertId = null;
+    let activeRole = 'cloud_security_architect';
+    
+    // Canvas transform state
+    let zoomLevel = 1.0;
+    let panX = 40;
+    let panY = 40;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    // Career Roles Preset
+    const CAREER_ROLES = [
+      {
+        id: 'cloud_security_architect',
+        title: 'Cloud Security Architect',
+        desc: 'Design zero-trust multi-cloud infrastructure and governance.',
+        certs: ['net-plus', 'sec-plus', 'aws-csaa', 'aws-sec-spec', 'gcp-pca', 'ccsp'],
+        category: 'Cyber Security'
+      },
+      {
+        id: 'ai_ml_engineer',
+        title: 'AI & ML Engineer',
+        desc: 'Build, deploy, and monitor scalable LLMs and ML pipelines.',
+        certs: ['python-pcap', 'ds-ibm-data-science', 'ai-tf-developer', 'aws-mla', 'gcp-pde'],
+        category: 'AI Development'
+      },
+      {
+        id: 'fullstack_devops_lead',
+        title: 'Full-Stack DevOps Lead',
+        desc: 'Orchestrate CI/CD, Kubernetes clusters, and microservices.',
+        certs: ['web-html-css', 'web-js-algorithms', 'linux-lpic1', 'k8s-cka', 'hashi-terraform-assoc', 'aws-dop'],
+        category: 'Cloud Computing'
+      },
+      {
+        id: 'penetration_tester',
+        title: 'Penetration Tester / Red Team',
+        desc: 'Offensive security, network exploitation, and vulnerability assessment.',
+        certs: ['net-plus', 'sec-plus', 'pentest-plus', 'ejpt', 'oscp'],
+        category: 'Cyber Security'
+      },
+      {
+        id: 'data_platform_architect',
+        title: 'Data Platform Architect',
+        desc: 'Architect data lakes, real-time analytics, and ETL pipelines.',
+        certs: ['sql-standalone', 'data-dbt-cert', 'snowflake-snowpro-core', 'databricks-de-assoc', 'aws-das'],
+        category: 'Data Science'
+      },
+      {
+        id: 'soc_analyst',
+        title: 'SOC & Incident Response Analyst',
+        desc: 'Threat hunting, telemetry analysis, and incident remediation.',
+        certs: ['a-plus', 'net-plus', 'sec-plus', 'cysa-plus', 'splunk-core-power-user'],
+        category: 'Cyber Security'
+      }
+    ];
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadCertCatalog();
+      setupCanvasPanZoom();
+      renderRoleCards();
+      renderComparisonDropdowns();
+      
+      // Auto-select first cert
+      if (allCerts.length > 0) {
+        selectCert(allCerts[0].id);
+      }
+    });
+
+    async function loadCertCatalog() {
+      try {
+        let resp = await fetch('/api/catalog');
+        if (!resp.ok) {
+          resp = await fetch('/certs.json');
+        }
+        if (!resp.ok) {
+          resp = await fetch('certs.json');
+        }
+        allCerts = await resp.json();
+      } catch (e) {
+        console.warn('Falling back to local certs.json path', e);
+        try {
+          const resp = await fetch('data/certs.json');
+          allCerts = await resp.json();
+        } catch (e2) {
+          console.error('Failed to load certification dataset', e2);
+          allCerts = [];
+        }
+      }
+
+      // Index certs
+      certMap.clear();
+      allCerts.forEach(c => certMap.set(c.id, c));
+      
+      // Update Telemetry Strip
+      document.getElementById('stat-total').innerText = allCerts.length;
+      document.getElementById('badge-all').innerText = allCerts.length;
+      
+      renderDAGCanvas();
+    }
+
+    // --- DAG CANVAS RENDERING ---
+    function renderDAGCanvas() {
+      const svg = document.getElementById('dag-svg-container');
+      svg.innerHTML = '';
+
+      // Filter certs
+      let filtered = allCerts.filter(c => {
+        const matchesCat = (currentCategory === 'All') || (c.category === currentCategory);
+        const matchesSearch = !currentSearch || (
+          c.title.toLowerCase().includes(currentSearch) ||
+          c.provider.toLowerCase().includes(currentSearch) ||
+          c.description.toLowerCase().includes(currentSearch) ||
+          (c.skillsGained && c.skillsGained.some(s => s.toLowerCase().includes(currentSearch)))
+        );
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        svg.innerHTML = `<text x="50%" y="50%" text-anchor="middle" fill="var(--text-tertiary)" font-size="16">No certifications match current filter.</text>`;
+        return;
+      }
+
+      // Group by Level (Columns: Entry -> Intermediate -> Advanced)
+      const levels = ['Entry', 'Intermediate', 'Advanced'];
+      const columns = { 'Entry': [], 'Intermediate': [], 'Advanced': [] };
+      
+      filtered.forEach(c => {
+        const lvl = c.level || 'Entry';
+        if (columns[lvl]) columns[lvl].push(c);
+        else columns['Intermediate'].push(c);
+      });
+
+      const colWidth = 320;
+      const nodeHeight = 84;
+      const gapY = 24;
+      const gapX = 140;
+
+      const nodePositions = new Map();
+      let maxColumnHeight = 0;
+
+      levels.forEach((lvl, colIndex) => {
+        const certsInCol = columns[lvl];
+        const colX = colIndex * (colWidth + gapX) + 60;
+        
+        certsInCol.forEach((cert, rowIndex) => {
+          const rowY = rowIndex * (nodeHeight + gapY) + 60;
+          nodePositions.set(cert.id, { x: colX, y: rowY, width: colWidth, height: nodeHeight, cert });
+        });
+
+        const colHeight = certsInCol.length * (nodeHeight + gapY) + 120;
+        if (colHeight > maxColumnHeight) maxColumnHeight = colHeight;
+      });
+
+      // Create View Group with zoom & pan transform
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('id', 'dag-viewport-group');
+      g.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoomLevel})`);
+      svg.appendChild(g);
+
+      // Render Dependency Edges (Bezier Curves)
+      filtered.forEach(cert => {
+        const targetPos = nodePositions.get(cert.id);
+        if (!targetPos) return;
+
+        const prereqs = cert.prerequisites || [];
+        prereqs.forEach(prereqId => {
+          const sourcePos = nodePositions.get(prereqId);
+          if (sourcePos) {
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const startX = sourcePos.x + sourcePos.width;
+            const startY = sourcePos.y + sourcePos.height / 2;
+            const endX = targetPos.x;
+            const endY = targetPos.y + targetPos.height / 2;
+            const deltaX = (endX - startX) / 2;
+
+            const d = `M ${startX} ${startY} C ${startX + deltaX} ${startY}, ${endX - deltaX} ${endY}, ${endX} ${endY}`;
+            path.setAttribute('d', d);
+            path.setAttribute('class', 'dag-edge');
+            path.setAttribute('data-source', prereqId);
+            path.setAttribute('data-target', cert.id);
+            g.appendChild(path);
+          }
+        });
+      });
+
+      // Render Nodes
+      filtered.forEach(cert => {
+        const pos = nodePositions.get(cert.id);
+        if (!pos) return;
+
+        const nodeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        nodeGroup.setAttribute('class', 'dag-node-group');
+        nodeGroup.setAttribute('id', `node-${cert.id}`);
+        nodeGroup.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
+        nodeGroup.onclick = (e) => {
+          e.stopPropagation();
+          selectCert(cert.id);
+        };
+
+        // Node Box
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('class', 'dag-node-rect');
+        rect.setAttribute('width', pos.width);
+        rect.setAttribute('height', pos.height);
+        nodeGroup.appendChild(rect);
+
+        // Provider Color Stripe
+        const stripe = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        stripe.setAttribute('x', '0');
+        stripe.setAttribute('y', '0');
+        stripe.setAttribute('width', '6');
+        stripe.setAttribute('height', pos.height);
+        stripe.setAttribute('rx', '3');
+        stripe.setAttribute('fill', cert.color || 'var(--g-blue)');
+        nodeGroup.appendChild(stripe);
+
+        // Title Text
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', '16');
+        text.setAttribute('y', '26');
+        text.setAttribute('font-size', '13');
+        text.setAttribute('font-weight', '600');
+        text.setAttribute('fill', 'var(--text-primary)');
+        text.textContent = truncateText(cert.title, 34);
+        nodeGroup.appendChild(text);
+
+        // Provider Text
+        const providerText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        providerText.setAttribute('x', '16');
+        providerText.setAttribute('y', '46');
+        providerText.setAttribute('font-size', '11');
+        providerText.setAttribute('fill', 'var(--text-secondary)');
+        providerText.textContent = cert.provider;
+        nodeGroup.appendChild(providerText);
+
+        // Skills Gained Badges / Count
+        const badgeText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        badgeText.setAttribute('x', '16');
+        badgeText.setAttribute('y', '68');
+        badgeText.setAttribute('font-size', '10');
+        badgeText.setAttribute('font-weight', '500');
+        badgeText.setAttribute('fill', 'var(--g-blue)');
+        const skillCount = cert.skillsGained ? cert.skillsGained.length : 0;
+        const prereqCount = cert.prerequisites ? cert.prerequisites.length : 0;
+        badgeText.textContent = `★ ${skillCount} Skills • ⇱ ${prereqCount} Prereqs`;
+        nodeGroup.appendChild(badgeText);
+
+        // Level Pill Indicator
+        const levelText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        levelText.setAttribute('x', pos.width - 16);
+        levelText.setAttribute('y', '68');
+        levelText.setAttribute('text-anchor', 'end');
+        levelText.setAttribute('font-size', '10');
+        levelText.setAttribute('font-weight', '700');
+        levelText.setAttribute('fill', getLevelColor(cert.level));
+        levelText.textContent = (cert.level || 'Entry').toUpperCase();
+        nodeGroup.appendChild(levelText);
+
+        g.appendChild(nodeGroup);
+      });
+
+      // Highlight currently selected node if any
+      if (selectedCertId) {
+        highlightDependencies(selectedCertId);
+      }
+    }
+
+    function truncateText(str, max) {
+      if (!str) return '';
+      return str.length > max ? str.substring(0, max - 1) + '…' : str;
+    }
+
+    function getLevelColor(level) {
+      if (level === 'Entry') return 'var(--g-green)';
+      if (level === 'Intermediate') return '#eab308';
+      if (level === 'Advanced') return 'var(--g-red)';
+      return 'var(--g-blue)';
+    }
+
+    // --- SELECTION & DEPENDENCY HIGHLIGHTING ---
+    function selectCert(certId) {
+      selectedCertId = certId;
+      const cert = certMap.get(certId);
+      if (!cert) return;
+
+      // Update Details Drawer
+      document.getElementById('drawer-title').innerText = cert.title;
+      document.getElementById('drawer-provider').innerText = `${cert.provider} • ID: ${cert.id}`;
+      document.getElementById('drawer-level').innerText = cert.level || 'Entry';
+      document.getElementById('drawer-level').className = `level-badge ${cert.level || 'Entry'}`;
+      document.getElementById('drawer-category').innerText = cert.category || 'General';
+      document.getElementById('drawer-description').innerText = cert.description || 'No description provided.';
+      document.getElementById('drawer-official-link').href = cert.link || '#';
+
+      // Render Skills Gained
+      const skillsContainer = document.getElementById('drawer-skills-list');
+      skillsContainer.innerHTML = '';
+      (cert.skillsGained || []).forEach(s => {
+        const chip = document.createElement('span');
+        chip.className = 'skill-chip';
+        chip.innerText = s;
+        skillsContainer.appendChild(chip);
+      });
+
+      // Resolve Prerequisites
+      const prereqsList = document.getElementById('drawer-prereqs-list');
+      prereqsList.innerHTML = '';
+      const allPrereqs = resolveRecursivePrereqs(certId);
+      document.getElementById('drawer-prereqs-count').innerText = allPrereqs.length;
+
+      if (allPrereqs.length === 0) {
+        prereqsList.innerHTML = '<span style="font-size: 13px; color: var(--text-tertiary);">None (Direct Entry Point)</span>';
+      } else {
+        allPrereqs.forEach(pId => {
+          const pCert = certMap.get(pId);
+          const item = document.createElement('div');
+          item.className = 'resource-card';
+          item.style.cursor = 'pointer';
+          item.innerHTML = `<div><strong style="color:var(--g-green); font-size:12px;">Prerequisite:</strong> ${pCert ? pCert.title : pId}</div><span>→</span>`;
+          item.onclick = () => selectCert(pId);
+          prereqsList.appendChild(item);
+        });
+      }
+
+      // Resolve Unlocked Credentials
+      const unlockedList = document.getElementById('drawer-unlocked-list');
+      unlockedList.innerHTML = '';
+      const allUnlocked = resolveUnlockedCerts(certId);
+      document.getElementById('drawer-unlocked-count').innerText = allUnlocked.length;
+
+      if (allUnlocked.length === 0) {
+        unlockedList.innerHTML = '<span style="font-size: 13px; color: var(--text-tertiary);">None (Terminal Capstone)</span>';
+      } else {
+        allUnlocked.forEach(uId => {
+          const uCert = certMap.get(uId);
+          const item = document.createElement('div');
+          item.className = 'resource-card';
+          item.style.cursor = 'pointer';
+          item.innerHTML = `<div><strong style="color:var(--g-blue); font-size:12px;">Unlocks:</strong> ${uCert ? uCert.title : uId}</div><span>→</span>`;
+          item.onclick = () => selectCert(uId);
+          unlockedList.appendChild(item);
+        });
+      }
+
+      // Render Resources
+      const resContainer = document.getElementById('drawer-resources-list');
+      resContainer.innerHTML = '';
+      (cert.resources || []).forEach(r => {
+        const link = document.createElement('a');
+        link.className = 'resource-card';
+        link.href = r.url;
+        link.target = '_blank';
+        link.innerHTML = `<div><strong>[${r.type || 'Course'}]</strong> ${r.title}</div><span>↗</span>`;
+        resContainer.appendChild(link);
+      });
+
+      // Highlight DAG on Canvas
+      highlightDependencies(certId);
+    }
+
+    function resolveRecursivePrereqs(targetId) {
+      const visited = new Set();
+      const prereqs = [];
+      function dfs(id) {
+        const c = certMap.get(id);
+        if (!c) return;
+        (c.prerequisites || []).forEach(pId => {
+          if (!visited.has(pId)) {
+            visited.add(pId);
+            dfs(pId);
+            prereqs.push(pId);
+          }
+        });
+      }
+      dfs(targetId);
+      return prereqs;
+    }
+
+    function resolveUnlockedCerts(sourceId) {
+      const unlocked = [];
+      allCerts.forEach(c => {
+        if (c.prerequisites && c.prerequisites.includes(sourceId)) {
+          unlocked.push(c.id);
+        }
+      });
+      return unlocked;
+    }
+
+    function highlightDependencies(certId) {
+      // Remove previous highlights
+      document.querySelectorAll('.dag-node-group').forEach(el => {
+        el.classList.remove('selected', 'is-prereq', 'is-unlocked');
+      });
+      document.querySelectorAll('.dag-edge').forEach(el => {
+        el.classList.remove('prereq-active', 'unlocked-active');
+      });
+
+      const nodeEl = document.getElementById(`node-${certId}`);
+      if (nodeEl) nodeEl.classList.add('selected');
+
+      const prereqs = resolveRecursivePrereqs(certId);
+      prereqs.forEach(pId => {
+        const pEl = document.getElementById(`node-${pId}`);
+        if (pEl) pEl.classList.add('is-prereq');
+      });
+
+      const unlocked = resolveUnlockedCerts(certId);
+      unlocked.forEach(uId => {
+        const uEl = document.getElementById(`node-${uId}`);
+        if (uEl) uEl.classList.add('is-unlocked');
+      });
+
+      // Highlight connecting edges
+      document.querySelectorAll('.dag-edge').forEach(edge => {
+        const s = edge.getAttribute('data-source');
+        const t = edge.getAttribute('data-target');
+        if (prereqs.includes(s) && (t === certId || prereqs.includes(t))) {
+          edge.classList.add('prereq-active');
+        }
+        if (s === certId || unlocked.includes(t)) {
+          edge.classList.add('unlocked-active');
+        }
+      });
+    }
+
+    // --- CANVAS PAN & ZOOM ---
+    function setupCanvasPanZoom() {
+      const svg = document.getElementById('dag-svg-container');
+
+      svg.addEventListener('mousedown', (e) => {
+        if (e.target.tagName === 'svg' || e.target.id === 'dag-svg-container') {
+          isDragging = true;
+          startX = e.clientX - panX;
+          startY = e.clientY - panY;
+        }
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        panX = e.clientX - startX;
+        panY = e.clientY - startY;
+        updateSvgTransform();
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      svg.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+        zoomLevel = Math.max(0.3, Math.min(2.5, zoomLevel * zoomFactor));
+        updateSvgTransform();
+      });
+    }
+
+    function updateSvgTransform() {
+      const g = document.getElementById('dag-viewport-group');
+      if (g) {
+        g.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoomLevel})`);
+      }
+    }
+
+    function zoomIn() {
+      zoomLevel = Math.min(2.5, zoomLevel * 1.2);
+      updateSvgTransform();
+    }
+
+    function zoomOut() {
+      zoomLevel = Math.max(0.3, zoomLevel / 1.2);
+      updateSvgTransform();
+    }
+
+    function resetZoom() {
+      zoomLevel = 1.0;
+      panX = 40;
+      panY = 40;
+      updateSvgTransform();
+    }
+
+    function fitToScreen() {
+      zoomLevel = 0.75;
+      panX = 20;
+      panY = 20;
+      updateSvgTransform();
+    }
+
+    // --- SEARCH & FILTERS ---
+    function handleSearch(val) {
+      currentSearch = val.toLowerCase().trim();
+      document.getElementById('search-clear').style.display = currentSearch ? 'block' : 'none';
+      renderDAGCanvas();
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      currentSearch = '';
+      document.getElementById('search-clear').style.display = 'none';
+      renderDAGCanvas();
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('#category-chips .chip-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All')));
+      });
+      renderDAGCanvas();
+    }
+
+    function resetView() {
+      currentCategory = 'All';
+      clearSearch();
+      resetZoom();
+      filterCategory('All');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('detail-drawer');
+      drawer.classList.toggle('collapsed');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      showToast(`Switched to ${next} theme`);
+    }
+
+    // --- CAREER WIZARD ---
+    function openCareerWizard() {
+      document.getElementById('wizard-modal').classList.add('active');
+      selectRole(CAREER_ROLES[0].id);
+    }
+
+    function closeWizardModal() {
+      document.getElementById('wizard-modal').classList.remove('active');
+    }
+
+    function renderRoleCards() {
+      const container = document.getElementById('role-cards-container');
+      container.innerHTML = '';
+      CAREER_ROLES.forEach(r => {
+        const card = document.createElement('div');
+        card.className = `role-card ${r.id === activeRole ? 'selected' : ''}`;
+        card.onclick = () => selectRole(r.id);
+        card.innerHTML = `
+          <strong style="font-size: 14px;">${r.title}</strong>
+          <span style="font-size: 12px; color: var(--text-secondary);">${r.desc}</span>
+          <span style="font-size: 11px; color: var(--g-blue); font-weight:600; margin-top:4px;">${r.certs.length} Certifications</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function selectRole(roleId) {
+      activeRole = roleId;
+      document.querySelectorAll('.role-card').forEach((c, idx) => {
+        c.classList.toggle('selected', CAREER_ROLES[idx].id === roleId);
+      });
+
+      const role = CAREER_ROLES.find(r => r.id === roleId);
+      if (!role) return;
+
+      // Render Phased Breakdown
+      const container = document.getElementById('wizard-phases-container');
+      container.innerHTML = '';
+
+      const phases = [
+        { name: 'Phase 1: Foundational & Prerequisites', certs: role.certs.slice(0, 2) },
+        { name: 'Phase 2: Core Competency & Associate', certs: role.certs.slice(2, 4) },
+        { name: 'Phase 3: Advanced Specialization & Capstone', certs: role.certs.slice(4) }
+      ];
+
+      phases.forEach(ph => {
+        if (ph.certs.length === 0) return;
+        const phaseDiv = document.createElement('div');
+        phaseDiv.className = 'phase-container';
+        
+        let itemsHtml = ph.certs.map(cId => {
+          const c = certMap.get(cId);
+          return `
+            <div class="checklist-item">
+              <input type="checkbox" class="checklist-checkbox" id="check-${cId}">
+              <label for="check-${cId}"><strong>${c ? c.title : cId}</strong> <span style="color:var(--text-secondary);">(${c ? c.provider : 'Core'})</span></label>
+            </div>
+          `;
+        }).join('');
+
+        phaseDiv.innerHTML = `
+          <div class="phase-header">
+            <span>${ph.name}</span>
+            <span style="font-size: 12px; color: var(--g-blue); font-weight: 500;">${ph.certs.length} Target Certs</span>
+          </div>
+          <div class="phase-items">${itemsHtml}</div>
+        `;
+        container.appendChild(phaseDiv);
+      });
+
+      updateWizardHours(document.getElementById('wizard-hours-slider').value);
+    }
+
+    function updateWizardHours(hours) {
+      document.getElementById('wizard-hours-val').innerText = `${hours} hours / week`;
+      const role = CAREER_ROLES.find(r => r.id === activeRole);
+      const totalHours = (role ? role.certs.length : 4) * 80;
+      const weeks = Math.ceil(totalHours / hours);
+      document.getElementById('wizard-timeline-estimate').innerText = `~${weeks} Weeks (${totalHours} total study hours)`;
+    }
+
+    function applyWizardRoadmapToCanvas() {
+      const role = CAREER_ROLES.find(r => r.id === activeRole);
+      if (!role) return;
+      closeWizardModal();
+      
+      // Select first cert and highlight
+      if (role.certs.length > 0) {
+        selectCert(role.certs[role.certs.length - 1]);
+        showToast(`Highlighted complete roadmap for ${role.title}`);
+      }
+    }
+
+    // --- COMPARE MODAL ---
+    function openCompareModal() {
+      document.getElementById('compare-modal').classList.add('active');
+      renderComparison();
+    }
+
+    function closeCompareModal() {
+      document.getElementById('compare-modal').classList.remove('active');
+    }
+
+    function renderComparisonDropdowns() {
+      const s1 = document.getElementById('compare-select-1');
+      const s2 = document.getElementById('compare-select-2');
+      s1.innerHTML = '';
+      s2.innerHTML = '';
+
+      allCerts.forEach((c, i) => {
+        const o1 = document.createElement('option');
+        o1.value = c.id;
+        o1.text = `${c.provider}: ${c.title}`;
+        if (i === 0) o1.selected = true;
+        s1.appendChild(o1);
+
+        const o2 = document.createElement('option');
+        o2.value = c.id;
+        o2.text = `${c.provider}: ${c.title}`;
+        if (i === 1) o2.selected = true;
+        s2.appendChild(o2);
+      });
+    }
+
+    function renderComparison() {
+      const id1 = document.getElementById('compare-select-1').value;
+      const id2 = document.getElementById('compare-select-2').value;
+      const c1 = certMap.get(id1);
+      const c2 = certMap.get(id2);
+      if (!c1 || !c2) return;
+
+      const container = document.getElementById('comparison-table-container');
+      container.innerHTML = `
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          <tr style="border-bottom: 2px solid var(--border-color);">
+            <th style="padding: 12px; text-align: left; width: 25%;">Feature</th>
+            <th style="padding: 12px; text-align: left; width: 37.5%; color: var(--g-blue);">${c1.title}</th>
+            <th style="padding: 12px; text-align: left; width: 37.5%; color: var(--g-purple);">${c2.title}</th>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 12px; font-weight: 600;">Provider</td>
+            <td style="padding: 12px;">${c1.provider}</td>
+            <td style="padding: 12px;">${c2.provider}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 12px; font-weight: 600;">Difficulty Level</td>
+            <td style="padding: 12px;"><span class="level-badge ${c1.level}">${c1.level}</span></td>
+            <td style="padding: 12px;"><span class="level-badge ${c2.level}">${c2.level}</span></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 12px; font-weight: 600;">Domain</td>
+            <td style="padding: 12px;">${c1.category}</td>
+            <td style="padding: 12px;">${c2.category}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 12px; font-weight: 600;">Skills Gained</td>
+            <td style="padding: 12px;">${(c1.skillsGained || []).join(', ')}</td>
+            <td style="padding: 12px;">${(c2.skillsGained || []).join(', ')}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-subtle);">
+            <td style="padding: 12px; font-weight: 600;">Prerequisites</td>
+            <td style="padding: 12px;">${(c1.prerequisites || []).length} required</td>
+            <td style="padding: 12px;">${(c2.prerequisites || []).length} required</td>
+          </tr>
+        </table>
+      `;
+    }
+
+    // --- 1-CLICK EXPORTS ---
+    function copyMermaidExport() {
+      let mermaid = 'graph LR\n';
+      allCerts.slice(0, 30).forEach(c => {
+        const safeTitle = c.title.replace(/["\(\)]/g, '');
+        (c.prerequisites || []).forEach(p => {
+          mermaid += `  ${p} --> ${c.id}["${safeTitle}"]\n`;
+        });
+      });
+      navigator.clipboard.writeText(mermaid);
+      showToast('✓ Mermaid diagram copied to clipboard!');
+    }
+
+    function downloadMarkdownGuide() {
+      let md = `# Certification Roadmap Study Guide\n\nGenerated by Google CertPath Studio.\n\n`;
+      allCerts.forEach(c => {
+        md += `## ${c.title} (${c.provider})\n`;
+        md += `- **Level**: ${c.level}\n- **Category**: ${c.category}\n- **Description**: ${c.description}\n`;
+        md += `- **Skills**: ${(c.skillsGained || []).join(', ')}\n\n`;
+      });
+
+      const blob = new Blob([md], { type: 'text/markdown' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'certpath_study_guide.md';
+      a.click();
+      showToast('✓ Study Guide downloaded (.md)');
+    }
+
+    function exportJsonData() {
+      const blob = new Blob([JSON.stringify(allCerts, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'certpath_catalog.json';
+      a.click();
+      showToast('✓ JSON Catalog exported');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('app-toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function planForSelectedCert() {
+      if (selectedCertId) {
+        showToast(`Generating custom study plan for ${selectedCertId}...`);
+      }
+    }
+
+    function switchView(view) {
+      if (view === 'dag') {
+        renderDAGCanvas();
+      } else if (view === 'prereqs') {
+        if (selectedCertId) {
+          highlightDependencies(selectedCertId);
+          showToast(`Prerequisite Explorer activated for ${selectedCertId}`);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

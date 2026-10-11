@@ -15,12 +15,16 @@
   <meta property="og:url" content="https://certpath-roadmap-studio.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://certpath-roadmap-studio.netlify.app/assets/banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CertPath Roadmap Studio Sovereign Engineering Certification DAG">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@1nc0gn30">
   <meta name="twitter:creator" content="@1nc0gn30">
   <meta name="twitter:title" content="CertPath Roadmap Studio — Interactive Certification DAG">
   <meta name="twitter:description" content="Explore prerequisite graphs, salary benchmarks, and study roadmaps across AWS, Azure, CompTIA, Cisco, and Offensive Security.">
   <meta name="twitter:image" content="https://certpath-roadmap-studio.netlify.app/assets/banner.png">
+  <meta name="twitter:image:alt" content="CertPath Roadmap Studio Sovereign Engineering Certification DAG">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -1015,6 +1019,7 @@
   <!-- Top App Bar -->
   <header class="app-bar">
     <div class="brand-section" onclick="resetView()">
+      <img src="/assets/icon.png" alt="CertPath Roadmap Studio Logo" class="brand-icon" style="width: 28px; height: 28px; border-radius: 6px; object-fit: cover; border: 1px solid var(--border-color);">
       <div class="google-dots">
         <div class="dot blue"></div>
         <div class="dot red"></div>
@@ -1023,7 +1028,7 @@
       </div>
       <div class="brand-title">
         CertPath Roadmap Studio
-        <span class="brand-badge">DAG Studio</span>
+        <span class="brand-badge">v2.5 SOVEREIGN</span>
         <span id="licenseBadge" class="brand-badge" style="background: var(--bg-surface-variant); color: var(--text-secondary); font-weight: 700;">⚡ FREE TIER</span>
       </div>
     </div>
@@ -2010,13 +2015,18 @@
       setTimeout(() => toast.classList.remove('show'), 3000);
     }
 
-    let isProLicensed = localStorage.getItem('certpath_pro_licensed') === 'true' || window.location.search.includes('licensed=true');
+    let isProLicensed = false;
 
     function checkProLicense() {
-      if (window.location.search.includes('licensed=true')) {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('licensed') === 'true' || urlParams.get('pro') === '1') {
         localStorage.setItem('certpath_pro_licensed', 'true');
-        isProLicensed = true;
+        localStorage.setItem('certpath_pro_key', 'true');
       }
+      isProLicensed = localStorage.getItem('certpath_pro_licensed') === 'true' ||
+                      localStorage.getItem('certpath_pro_key') === 'true' ||
+                      localStorage.getItem('pro_licensed') === 'true';
+
       const badge = document.getElementById('licenseBadge') || document.getElementById('proStatusBadge');
       if (badge) {
         if (isProLicensed) {
@@ -2037,30 +2047,57 @@
       }
     }
 
+    function checkLicense() {
+      checkProLicense();
+    }
+
     function openPaywallModal(feature = 'Pro Feature') {
-      const modal = document.getElementById('certpathPaywallModal');
+      const modal = document.getElementById('certpathPaywallModal') || document.getElementById('licenseModal');
       const featText = document.getElementById('paywallFeatureTrigger');
       if (featText) featText.textContent = feature;
-      if (modal) modal.style.display = 'flex';
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.add('open');
+      }
     }
 
     function closePaywallModal() {
-      const modal = document.getElementById('certpathPaywallModal');
-      if (modal) modal.style.display = 'none';
+      const modal = document.getElementById('certpathPaywallModal') || document.getElementById('licenseModal');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('open');
+      }
     }
 
-    function verifyLicenseKey() {
-      const input = document.getElementById('licenseKeyInput');
-      const val = input ? input.value.trim() : '';
+    function openLicenseModal(feature) {
+      openPaywallModal(feature);
+    }
+
+    function closeLicenseModal() {
+      closePaywallModal();
+    }
+
+    function verifyLicenseKey(providedKey) {
+      const input = document.getElementById('licenseKeyInput') || document.getElementById('licenseInput');
+      const val = (providedKey || (input ? input.value : '')).trim();
       if (!val) {
         alert('Please enter a valid license key or receipt email.');
         return;
       }
-      localStorage.setItem('certpath_pro_licensed', 'true');
-      isProLicensed = true;
-      checkProLicense();
-      closePaywallModal();
-      showToast('⭐ Pro license activated! All career roadmap features unlocked.');
+      if (val.length > 3 || val.toUpperCase() === 'CERTPATH-PRO-2026' || val.includes('@')) {
+        localStorage.setItem('certpath_pro_licensed', 'true');
+        localStorage.setItem('certpath_pro_key', val);
+        isProLicensed = true;
+        checkProLicense();
+        closePaywallModal();
+        showToast('⭐ Pro license activated! All career roadmap features unlocked.');
+      } else {
+        alert('Please enter a valid license key or receipt email.');
+      }
+    }
+
+    function activateLicenseKey(providedKey) {
+      verifyLicenseKey(providedKey);
     }
 
     function openDePayCheckout() {
@@ -2100,7 +2137,7 @@
   </script>
 
   <!-- Pro Paywall Modal -->
-  <div id="certpathPaywallModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+  <div id="certpathPaywallModal" class="modal-overlay modal-paywall" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
     <div style="background: var(--bg-surface); border: 1.5px solid rgba(212,175,55,0.4); border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-family: var(--font-sans); position: relative;">
       <button type="button" onclick="closePaywallModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; color: var(--text-secondary); cursor: pointer;">&times;</button>
       <div style="display: inline-block; background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">PRO FOUNDING ACCESS</div>
@@ -2128,8 +2165,8 @@
       <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
         <label for="licenseKeyInput" style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Already have a license key or receipt email?</label>
         <div style="display: flex; gap: 8px;">
-          <input type="text" id="licenseKeyInput" placeholder="CERTPATH-PRO-xxxx or email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
-          <button type="button" onclick="verifyLicenseKey()" style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Activate</button>
+          <input type="text" id="licenseKeyInput" placeholder="CERTPATH-PRO-2026 or receipt email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
+          <button type="button" id="btnActivateKey" onclick="verifyLicenseKey()" style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Activate Pro ⚡</button>
         </div>
       </div>
     </div>

@@ -72,6 +72,24 @@ EMBEDDED_STUDIO_HTML = """<!DOCTYPE html>
 """
 
 
+def _is_local_origin(origin) -> bool:
+    """True for no Origin (CLI/curl/same-origin GET) or a localhost origin."""
+    if not origin:
+        return True
+    from urllib.parse import urlparse
+    try:
+        u = urlparse(origin)
+    except Exception:
+        return False
+    return u.scheme in ("http", "https") and (u.hostname or "") in ("localhost", "127.0.0.1", "::1")
+
+
+def _cors_origin(handler) -> str:
+    """Echo the Origin only when it is local; never '*'."""
+    origin = handler.headers.get("Origin", "")
+    return origin if origin and _is_local_origin(origin) else "http://127.0.0.1"
+
+
 class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
     """HTTP Request Handler providing REST API and static UI serving."""
 
@@ -87,7 +105,7 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def _set_cors_headers(self) -> None:
         """Set standard permissive CORS headers for local/cross-origin studio development."""
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Origin", _cors_origin(self))
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With")
 
@@ -474,6 +492,12 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         """Handle POST requests for roadmap generation, comparison, and searches."""
+
+        if not _is_local_origin(self.headers.get("Origin")):
+
+            self.send_error(403, "Cross-origin request blocked")
+
+            return
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 

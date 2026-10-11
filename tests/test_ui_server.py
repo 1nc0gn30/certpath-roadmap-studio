@@ -183,7 +183,7 @@ def test_cors_options_preflight(test_server: Tuple[str, int]):
     base_url, _ = test_server
     status, headers, _ = make_request(f"{base_url}/api/catalog", method="OPTIONS")
     assert status in (200, 204)
-    assert headers.get("Access-Control-Allow-Origin") == "*"
+    assert headers.get("Access-Control-Allow-Origin") == "http://127.0.0.1"
     assert "GET" in headers.get("Access-Control-Allow-Methods", "")
 
 

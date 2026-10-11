@@ -8,17 +8,19 @@
   <meta name="description" content="Interactive Certification Roadmap Studio & Career Path DAG Solver (Design influenced by Material 3)">
   <link rel="canonical" href="https://certpath-roadmap-studio.netlify.app/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon.png">
+  <link rel="apple-touch-icon" href="/assets/icon.png">
   <meta property="og:title" content="CertPath Roadmap Studio — Interactive Engineering Certification DAG">
   <meta property="og:description" content="Explore prerequisite graphs, salary benchmarks, and study roadmaps across AWS, Azure, CompTIA, Cisco, and Offensive Security.">
   <meta property="og:url" content="https://certpath-roadmap-studio.netlify.app/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://nullai.tech/brand/certpath-og.png">
+  <meta property="og:image" content="https://certpath-roadmap-studio.netlify.app/assets/banner.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@1nc0gn30">
   <meta name="twitter:creator" content="@1nc0gn30">
   <meta name="twitter:title" content="CertPath Roadmap Studio — Interactive Certification DAG">
   <meta name="twitter:description" content="Explore prerequisite graphs, salary benchmarks, and study roadmaps across AWS, Azure, CompTIA, Cisco, and Offensive Security.">
-  <meta name="twitter:image" content="https://nullai.tech/brand/certpath-og.png">
+  <meta name="twitter:image" content="https://certpath-roadmap-studio.netlify.app/assets/banner.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -1022,7 +1024,7 @@
       <div class="brand-title">
         CertPath Roadmap Studio
         <span class="brand-badge">DAG Studio</span>
-        <span id="proStatusBadge" class="brand-badge" style="background: #10B981; color: #08080B; font-weight: 800; display: none;">⭐ PRO ACTIVE</span>
+        <span id="licenseBadge" class="brand-badge" style="background: var(--bg-surface-variant); color: var(--text-secondary); font-weight: 700;">⚡ FREE TIER</span>
       </div>
     </div>
 
@@ -2015,9 +2017,19 @@
         localStorage.setItem('certpath_pro_licensed', 'true');
         isProLicensed = true;
       }
-      const badge = document.getElementById('proStatusBadge');
-      if (badge && isProLicensed) {
-        badge.style.display = 'inline-block';
+      const badge = document.getElementById('licenseBadge') || document.getElementById('proStatusBadge');
+      if (badge) {
+        if (isProLicensed) {
+          badge.textContent = '⭐ PRO ACTIVE';
+          badge.style.background = '#10B981';
+          badge.style.color = '#08080B';
+          badge.style.display = 'inline-block';
+        } else {
+          badge.textContent = '⚡ FREE TIER';
+          badge.style.background = 'var(--bg-surface-variant)';
+          badge.style.color = 'var(--text-secondary)';
+          badge.style.display = 'inline-block';
+        }
       }
       const banner = document.querySelector('.sales-banner-top');
       if (banner && isProLicensed) {

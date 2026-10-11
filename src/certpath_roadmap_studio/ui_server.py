@@ -72,6 +72,17 @@ EMBEDDED_STUDIO_HTML = """<!DOCTYPE html>
 """
 
 
+def _safe_rel(raw: str) -> str:
+    """Request path -> safe relative path inside a static dir; '' (index) if it
+    tries to climb out with '..' or is absolute. Raw request paths are not normalised."""
+    from urllib.parse import unquote
+    rel = unquote(str(raw or "")).replace("\\", "/").lstrip("/")
+    parts = [p for p in rel.split("/") if p not in ("", ".")]
+    if any(p == ".." for p in parts) or ":" in (parts[0] if parts else ""):
+        return ""
+    return "/".join(parts)
+
+
 def _is_local_origin(origin) -> bool:
     """True for no Origin (CLI/curl/same-origin GET) or a localhost origin."""
     if not origin:
@@ -481,7 +492,7 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
 
         # 17. Static file handling from public directory
         pub_dir = self._get_public_dir()
-        clean_rel_path = path.lstrip("/")
+        clean_rel_path = _safe_rel(path)
         target_file = pub_dir / clean_rel_path
         if target_file.exists() and target_file.is_file():
             self._serve_file(target_file)

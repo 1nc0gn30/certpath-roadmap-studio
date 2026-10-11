@@ -1,0 +1,234 @@
+/* ============================================================
+   ZOTH STUDIO v2 — Sovereign Gold/Void Theme
+   Shared brand layer for NullAI micro-tool repos.
+   Overrides Material 3 (--md-*), Google (--g-* / --google-*),
+   and generic (--primary/--surface) token schemes to the
+   Zoth gold-on-void palette. Injected via <link> in each
+   repo's index.html <head>. Light + dark aware.
+   ============================================================ */
+
+:root {
+  /* ---- Zoth brand tokens ---- */
+  --zoth-gold: #D4AF37;
+  --zoth-gold-dark: #B8860B;
+  --zoth-gold-light: #F5E6AB;
+  --zoth-void: #08080B;
+  --zoth-void-2: #0B0B12;
+  --zoth-ink: #101828;
+  --zoth-text: #F5E6AB;
+  --zoth-text-2: #EDEFF2;
+  --zoth-muted: #9AA0A6;
+  --zoth-border: #2A2A33;
+  --zoth-font-display: "Celtic Garamond", Georgia, "Times New Roman", serif;
+  --zoth-font-sans: "Inter", "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --zoth-font-mono: "JetBrains Mono", "IBM Plex Mono", "Roboto Mono", ui-monospace, monospace;
+}
+
+/* ---- Material 3 scheme (--md-*) ---- */
+:root {
+  --md-primary: #D4AF37;
+  --md-on-primary: #101828;
+  --md-primary-container: #2A2410;
+  --md-on-primary-container: #F5E6AB;
+  --md-secondary: #D4AF37;
+  --md-on-secondary: #101828;
+  --md-secondary-container: #2A2410;
+  --md-on-secondary-container: #F5E6AB;
+  --md-surface: #0B0B12;
+  --md-surface-card: #12121A;
+  --md-surface-variant: #0B0B12;
+  --md-background: #08080B;
+  --md-on-surface: #EDEFF2;
+  --md-on-surface-variant: #9AA0A6;
+  --md-outline: #2A2A33;
+  --md-outline-variant: #23232C;
+  --md-success: #12B76A;
+  --md-success-container: #0E2A1C;
+  --md-error: #F97066;
+  --md-error-container: #3A1A18;
+  --md-warning: #F5E6AB;
+  --md-warning-container: #2A2410;
+  --md-sys-color-primary: #D4AF37;
+  --md-sys-color-on-primary: #101828;
+  --md-sys-color-primary-container: #2A2410;
+  --md-sys-color-on-primary-container: #F5E6AB;
+  --md-sys-color-surface: #0B0B12;
+  --md-sys-color-surface-dim: #08080B;
+  --md-sys-color-surface-container-lowest: #08080B;
+  --md-sys-color-surface-container-low: #0B0B12;
+  --md-sys-color-surface-container: #12121A;
+  --md-sys-color-surface-container-high: #16161F;
+  --md-sys-color-surface-container-highest: #1A1A24;
+  --md-sys-color-on-surface: #EDEFF2;
+  --md-sys-color-on-surface-variant: #9AA0A6;
+  --md-sys-color-outline: #2A2A33;
+  --md-sys-color-outline-variant: #23232C;
+  --md-sys-color-secondary: #D4AF37;
+  --md-sys-color-on-secondary: #101828;
+  --md-sys-color-secondary-container: #2A2410;
+  --md-sys-color-on-secondary-container: #F5E6AB;
+  --md-sys-color-error: #F97066;
+  --md-sys-color-error-container: #3A1A18;
+  --md-sys-color-on-error-container: #FFDAD6;
+  --md-sys-color-success: #12B76A;
+  --md-sys-color-success-container: #0E2A1C;
+  --md-sys-color-on-success-container: #A6F4C5;
+  --md-sys-color-warning: #F5E6AB;
+  --md-sys-color-warning-container: #2A2410;
+  --md-sys-color-on-warning-container: #F5E6AB;
+}
+
+/* ---- Google scheme (--g-*) ---- */
+:root {
+  --g-blue: #D4AF37;
+  --g-blue-dark: #B8860B;
+  --g-blue-hover: #C9A227;
+  --g-blue-light: #2A2410;
+  --g-green: #12B76A;
+  --g-green-light: #0E2A1C;
+  --g-red: #F97066;
+  --g-red-light: #3A1A18;
+  --g-yellow: #F5E6AB;
+  --g-yellow-dark: #B8860B;
+  --g-yellow-light: #2A2410;
+  --g-purple: #C9A227;
+  --g-purple-light: #2A2410;
+  --surface: #0B0B12;
+  --surface-variant: #0B0B12;
+  --surface-card: #12121A;
+  --surface-container: #12121A;
+  --surface-container-low: #0B0B12;
+  --surface-container-high: #16161F;
+  --border: #2A2A33;
+  --border-subtle: #23232C;
+  --text: #EDEFF2;
+  --text-secondary: #9AA0A6;
+  --code-bg: #0B0B12;
+  --bg-primary: #08080B;
+  --bg-secondary: #0B0B12;
+}
+
+/* ---- Google scheme (--google-*) ---- */
+:root {
+  --google-blue: #D4AF37;
+  --google-blue-hover: #C9A227;
+  --google-blue-light: #2A2410;
+  --google-blue-surface: #12121A;
+  --google-green: #12B76A;
+  --google-green-surface: #0E2A1C;
+  --google-yellow: #F5E6AB;
+  --google-yellow-dark: #B8860B;
+  --google-yellow-light: #2A2410;
+  --google-red: #F97066;
+  --google-red-light: #3A1A18;
+  --google-purple: #C9A227;
+  --google-purple-light: #2A2410;
+}
+
+/* ---- Generic scheme (--primary/--surface) ---- */
+:root {
+  --primary: #D4AF37;
+  --primary-hover: #C9A227;
+  --primary-container: #2A2410;
+  --on-primary-container: #F5E6AB;
+  --on-primary: #101828;
+  --surface-dim: #08080B;
+  --surface-container-lowest: #08080B;
+  --surface-container-low: #0B0B12;
+  --surface-container: #12121A;
+  --surface-container-high: #16161F;
+  --surface-container-highest: #1A1A24;
+  --on-surface: #EDEFF2;
+  --on-surface-variant: #9AA0A6;
+  --outline: #2A2A33;
+  --outline-variant: #23232C;
+}
+
+/* ---- Fonts ---- */
+:root {
+  --font-google: var(--zoth-font-sans);
+  --font-sans: var(--zoth-font-sans);
+  --font-body: var(--zoth-font-sans);
+  --font-mono: var(--zoth-font-mono);
+  --md-font-sans: var(--zoth-font-sans);
+  --md-font-mono: var(--zoth-font-mono);
+}
+
+/* ---- Base body ---- */
+body {
+  background: var(--zoth-void) !important;
+  color: var(--zoth-text-2) !important;
+  font-family: var(--zoth-font-sans) !important;
+}
+
+/* ---- Zoth brand header strip (injected) ---- */
+.zoth-brand-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(90deg, #0B0B12 0%, #12121A 100%);
+  border-bottom: 1px solid #2A2A33;
+  font-family: var(--zoth-font-sans);
+}
+.zoth-brand-bar .zoth-z {
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #F3D56A 0%, #D4AF37 48%, #B8860B 100%);
+  color: #101828; font-weight: 800; font-size: 1.05rem;
+  border-radius: 8px; font-family: var(--zoth-font-display);
+}
+.zoth-brand-bar .zoth-name {
+  font-family: var(--zoth-font-display);
+  font-size: 1.15rem; color: #F5E6AB; letter-spacing: 0.03em;
+}
+.zoth-brand-bar .zoth-tool {
+  font-size: 0.78rem; color: #9AA0A6; letter-spacing: 0.06em;
+  text-transform: uppercase; font-weight: 600;
+}
+.zoth-brand-bar .zoth-spacer { flex: 1; }
+.zoth-brand-bar .zoth-badge {
+  font-size: 0.68rem; color: #B8860B; background: #2A2410;
+  border: 1px solid #3A2F12; padding: 0.15rem 0.6rem; border-radius: 9999px;
+  font-weight: 700; letter-spacing: 0.05em;
+}
+
+/* ---- Zoth footer strip (injected) ---- */
+.zoth-brand-footer {
+  text-align: center;
+  padding: 1.4rem 1rem;
+  border-top: 1px solid #2A2A33;
+  background: #0B0B12;
+  color: #9AA0A6;
+  font-size: 0.8rem;
+  font-family: var(--zoth-font-sans);
+}
+.zoth-brand-footer .zoth-foot-name {
+  font-family: var(--zoth-font-display);
+  color: #F5E6AB; font-size: 1.05rem; letter-spacing: 0.03em;
+}
+.zoth-brand-footer a { color: #D4AF37; text-decoration: none; }
+.zoth-brand-footer a:hover { text-decoration: underline; }
+
+/* ---- Scanline / grid ambient (dark only) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(212, 175, 55, 0.025) 0px,
+      rgba(212, 175, 55, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+}
+
+/* ---- Buttons / cards gold accent ---- */
+button, .btn, .btn-pill, .btn-icon, .btn-primary, .btn-secondary {
+  border-radius: 9999px !important;
+}
+button:hover, .btn:hover, .btn-pill:hover, .btn-icon:hover {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16) !important;
+}

@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CertPath Roadmap Studio | Interactive Certification Roadmap Studio (Design influenced by Material 3)</title>
   
-  <!-- Google Fonts & Material Symbols -->
   <meta name="description" content="Interactive Certification Roadmap Studio & Career Path DAG Solver (Design influenced by Material 3)">
+  <link rel="canonical" href="https://certpath-roadmap-studio.netlify.app/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:title" content="CertPath Roadmap Studio — Interactive Engineering Certification DAG">
+  <meta property="og:description" content="Explore prerequisite graphs, salary benchmarks, and study roadmaps across AWS, Azure, CompTIA, Cisco, and Offensive Security.">
+  <meta property="og:url" content="https://certpath-roadmap-studio.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nullai.tech/brand/certpath-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@1nc0gn30">
+  <meta name="twitter:creator" content="@1nc0gn30">
+  <meta name="twitter:title" content="CertPath Roadmap Studio — Interactive Certification DAG">
+  <meta name="twitter:description" content="Explore prerequisite graphs, salary benchmarks, and study roadmaps across AWS, Azure, CompTIA, Cisco, and Offensive Security.">
+  <meta name="twitter:image" content="https://nullai.tech/brand/certpath-og.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://certpath-roadmap-studio.netlify.app/#app",
+        "name": "CertPath Roadmap Studio",
+        "url": "https://certpath-roadmap-studio.netlify.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "description": "Interactive cybersecurity, cloud, and software engineering certification roadmap DAG solver.",
+        "creator": {
+          "@type": "Person",
+          "name": "Neal Frazier",
+          "url": "https://nealfrazier.tech",
+          "sameAs": "https://github.com/1nc0gn30"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://buy.stripe.com/7sI7sA8hM2X8eFG8ww"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://certpath-roadmap-studio.netlify.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does CertPath Roadmap Studio map prerequisites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CertPath uses a directed acyclic graph (DAG) model to calculate topological ordering of prerequisites across AWS, Azure, CompTIA, Cisco, and Offensive Security certifications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods are supported for Pro access?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CertPath supports dual checkout rails: instant credit card, Apple Pay, and Google Pay via Stripe, and Web3 crypto checkout via Solana DePay ($19 lifetime founding access)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script src="https://integrate.depay.com/widgets/v13.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -838,19 +904,111 @@
 
     /* Responsive */
     @media (max-width: 900px) {
+      header.app-bar {
+        height: auto;
+        min-height: 56px;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .brand-title {
+        font-size: 15px;
+      }
+      .nav-tabs {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        order: 3;
+      }
+      .nav-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-tab-btn {
+        flex-shrink: 0;
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+      .stats-strip {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 8px 12px;
+        gap: 12px;
+      }
+      .stats-strip::-webkit-scrollbar {
+        display: none;
+      }
+      .stat-chip {
+        flex-shrink: 0;
+      }
+      .filter-strip {
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .search-box-wrapper {
+        min-width: 100%;
+        max-width: 100%;
+      }
+      .filter-chips-group {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .filter-chips-group::-webkit-scrollbar {
+        display: none;
+      }
+      .export-actions-group {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .export-actions-group::-webkit-scrollbar {
+        display: none;
+      }
+      .sales-banner-top {
+        padding: 8px 12px !important;
+      }
       .detail-drawer {
         position: fixed;
         right: 0;
         top: 64px;
         bottom: 0;
-      }
-      .filter-strip {
-        padding: 12px;
+        width: 100%;
+        max-width: 100%;
       }
     }
   </style>
+  <link rel="stylesheet" href="zoth-theme.css">
 </head>
-<body>
+  <!-- High-Converting Sales Funnel Banner Above Main Section -->
+  <aside class="sales-banner-top" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">FOUNDING PRO</span>
+      <span style="color: var(--text-primary); font-weight: 500;">
+        <strong>Interactive Certification DAG &amp; Study Solver:</strong>
+        <span style="text-decoration: line-through; opacity: 0.6; margin-left: 6px;">$79</span>
+        <strong style="color: #D4AF37; margin-left: 4px;">$19 Lifetime</strong> • Unlimited study plans &amp; career exports.
+      </span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener noreferrer" style="background: #1a73e8; color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
+        💳 Card / Apple Pay ($19)
+      </a>
+      <button type="button" onclick="openDePayCheckout()" style="background: #14F195; color: #000; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+        ⚡ Solana DePay
+      </button>
+      <button type="button" onclick="openPaywallModal('License Key Activation')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">
+        Have a key? Activate
+      </button>
+    </div>
+  </aside>
 
   <!-- Top App Bar -->
   <header class="app-bar">
@@ -864,6 +1022,7 @@
       <div class="brand-title">
         CertPath Roadmap Studio
         <span class="brand-badge">DAG Studio</span>
+        <span id="proStatusBadge" class="brand-badge" style="background: #10B981; color: #08080B; font-weight: 800; display: none;">⭐ PRO ACTIVE</span>
       </div>
     </div>
 
@@ -1169,12 +1328,9 @@
 
     async function loadCertCatalog() {
       try {
-        let resp = await fetch('/api/catalog');
+        let resp = await fetch('certs.json');
         if (!resp.ok) {
           resp = await fetch('/certs.json');
-        }
-        if (!resp.ok) {
-          resp = await fetch('certs.json');
         }
         allCerts = await resp.json();
       } catch (e) {
@@ -1797,6 +1953,10 @@
 
     // --- 1-CLICK EXPORTS ---
     function copyMermaidExport() {
+      if (!isProLicensed) {
+        openPaywallModal('Mermaid DAG Architecture Export');
+        return;
+      }
       let mermaid = 'graph LR\n';
       allCerts.slice(0, 30).forEach(c => {
         const safeTitle = c.title.replace(/["\(\)]/g, '');
@@ -1809,6 +1969,10 @@
     }
 
     function downloadMarkdownGuide() {
+      if (!isProLicensed) {
+        openPaywallModal('Study Guide Markdown & Career PDF Export');
+        return;
+      }
       let md = `# Certification Roadmap Study Guide\n\nGenerated by CertPath Roadmap Studio.\n\n`;
       allCerts.forEach(c => {
         md += `## ${c.title} (${c.provider})\n`;
@@ -1825,6 +1989,10 @@
     }
 
     function exportJsonData() {
+      if (!isProLicensed) {
+        openPaywallModal('JSON Roadmap & Career Graph Data Export');
+        return;
+      }
       const blob = new Blob([JSON.stringify(allCerts, null, 2)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -1840,7 +2008,64 @@
       setTimeout(() => toast.classList.remove('show'), 3000);
     }
 
+    let isProLicensed = localStorage.getItem('certpath_pro_licensed') === 'true' || window.location.search.includes('licensed=true');
+
+    function checkProLicense() {
+      if (window.location.search.includes('licensed=true')) {
+        localStorage.setItem('certpath_pro_licensed', 'true');
+        isProLicensed = true;
+      }
+      const badge = document.getElementById('proStatusBadge');
+      if (badge && isProLicensed) {
+        badge.style.display = 'inline-block';
+      }
+      const banner = document.querySelector('.sales-banner-top');
+      if (banner && isProLicensed) {
+        banner.style.display = 'none';
+      }
+    }
+
+    function openPaywallModal(feature = 'Pro Feature') {
+      const modal = document.getElementById('certpathPaywallModal');
+      const featText = document.getElementById('paywallFeatureTrigger');
+      if (featText) featText.textContent = feature;
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closePaywallModal() {
+      const modal = document.getElementById('certpathPaywallModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function verifyLicenseKey() {
+      const input = document.getElementById('licenseKeyInput');
+      const val = input ? input.value.trim() : '';
+      if (!val) {
+        alert('Please enter a valid license key or receipt email.');
+        return;
+      }
+      localStorage.setItem('certpath_pro_licensed', 'true');
+      isProLicensed = true;
+      checkProLicense();
+      closePaywallModal();
+      showToast('⭐ Pro license activated! All career roadmap features unlocked.');
+    }
+
+    function openDePayCheckout() {
+      if (typeof DePayWidgets !== 'undefined' && DePayWidgets.Payment) {
+        DePayWidgets.Payment({
+          integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
+        });
+      } else {
+        window.open('https://buy.stripe.com/7sI7sA8hM2X8eFG8ww', '_blank');
+      }
+    }
+
     function planForSelectedCert() {
+      if (!isProLicensed) {
+        openPaywallModal('Custom Study Schedule & Career Solver');
+        return;
+      }
       if (selectedCertId) {
         showToast(`Generating custom study plan for ${selectedCertId}...`);
       }
@@ -1856,6 +2081,56 @@
         }
       }
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkProLicense();
+    });
   </script>
+
+  <!-- Pro Paywall Modal -->
+  <div id="certpathPaywallModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-surface); border: 1.5px solid rgba(212,175,55,0.4); border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-family: var(--font-sans); position: relative;">
+      <button type="button" onclick="closePaywallModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; color: var(--text-secondary); cursor: pointer;">&times;</button>
+      <div style="display: inline-block; background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">PRO FOUNDING ACCESS</div>
+      <h3 style="margin: 0 0 6px 0; font-size: 20px; color: var(--text-primary);">Unlock Career Path Solver Pro</h3>
+      <p style="margin: 0 0 16px 0; font-size: 13px; color: var(--text-secondary);">
+        Triggered by: <strong id="paywallFeatureTrigger" style="color: #D4AF37;">Custom Study Schedule</strong>
+      </p>
+
+      <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: var(--text-primary); display: flex; flexDirection: column; gap: 8px;">
+        <li>✅ Unlimited Interactive Career DAG Custom Scheduling</li>
+        <li>✅ High-Resolution Printable Study Guide &amp; DAG Vector Exports</li>
+        <li>✅ Real-Time Certification Salary ROI &amp; Prerequisite Analysis</li>
+        <li>✅ Lifetime Updates — Zero Monthly Subscription Recurring Fees</li>
+      </ul>
+
+      <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+        <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 180px; background: #1a73e8; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 13px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          💳 Unlock via Stripe ($19)
+        </a>
+        <button type="button" onclick="openDePayCheckout()" style="flex: 1; min-width: 180px; background: #14F195; color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          ⚡ Solana DePay ($19)
+        </button>
+      </div>
+
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <label for="licenseKeyInput" style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Already have a license key or receipt email?</label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="licenseKeyInput" placeholder="CERTPATH-PRO-xxxx or email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
+          <button type="button" onclick="verifyLicenseKey()" style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Activate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Footer Attribution -->
+  <footer style="border-top: 1px solid var(--border-color); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-secondary); background: var(--bg-surface);">
+    <div>Engineered by <strong>Neal Frazier Tech</strong> (<a href="https://github.com/1nc0gn30" target="_blank" rel="noopener noreferrer" style="color: #1a73e8; text-decoration: none;">@1nc0gn30</a>) • <strong>NullAI Platform</strong></div>
+    <div style="margin-top: 8px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://github.com/1nc0gn30/certpath-roadmap-studio" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">GitHub Repository</a>
+      <a href="https://nullai.tech" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">NullAI Platform</a>
+      <a href="https://nealfrazier.tech" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Neal Frazier Tech</a>
+    </div>
+  </footer>
 </body>
 </html>

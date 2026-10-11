@@ -683,57 +683,21 @@ def _find_public_dir() -> Path:
 def cmd_serve(args: argparse.Namespace) -> int:
     """Launch the Google Material 3 Roadmap Studio Web UI."""
     public_dir = _find_public_dir()
-    if not public_dir.exists():
-        print(Term.red(f"Error: Public web directory not found at {public_dir}"), file=sys.stderr)
-        return 1
-
     host = args.host
-    initial_port = args.port
-
-    # Find free port if requested port is taken
-    port = initial_port
-    for offset in range(20):
-        test_port = initial_port + offset
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            if s.connect_ex((host, test_port)) != 0:
-                port = test_port
-                break
-
-    class Handler(http.server.SimpleHTTPRequestHandler):
-        def __init__(self, *handler_args, **kwargs):
-            super().__init__(*handler_args, directory=str(public_dir), **kwargs)
-
-        def log_message(self, format, *log_args):
-            # Quiet logging
-            pass
-
-    server_address = (host, port)
-    url = f"http://{host}:{port}"
+    port = args.port
+    open_browser = not args.no_browser
 
     try:
-        httpd = socketserver.TCPServer(server_address, Handler)
-    except Exception as err:
-        print(Term.red(f"Failed to bind HTTP server to {url}: {err}"), file=sys.stderr)
-        return 1
+        from .ui_server import run_server
 
-    print(Term.bold(f"\n🚀 Google Material 3 Roadmap Studio Web UI running!"))
-    print(f"   Local URL:  {Term.green(Term.bold(url))}")
-    print(f"   Directory:  {Term.dim(str(public_dir))}")
-    print(Term.dim("   Press Ctrl+C to stop the server.\n"))
-
-    if not args.no_browser:
-        try:
-            webbrowser.open(url)
-        except Exception:
-            pass
-
-    try:
-        httpd.serve_forever()
+        run_server(host=host, port=port, open_browser=open_browser, public_dir=public_dir)
+        return 0
     except KeyboardInterrupt:
-        print(Term.yellow("\nShutting down web server..."))
-    finally:
-        httpd.server_close()
-    return 0
+        print(Term.yellow("\nShutting down CertPath Studio server..."))
+        return 0
+    except Exception as err:
+        print(Term.red(f"Failed to start CertPath Studio UI server: {err}"), file=sys.stderr)
+        return 1
 
 
 def cmd_mcp() -> int:

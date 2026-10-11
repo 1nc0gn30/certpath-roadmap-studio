@@ -1,0 +1,33 @@
+{
+  "name": "certpath-roadmap-studio",
+  "version": "2.0.0",
+  "description": "Interactive Cybersecurity Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator — Desktop Workstation",
+  "main": "electron/main.cjs",
+  "bin": {
+    "certpath": "./bin/certpath.js",
+    "certpath-studio": "./bin/certpath.js"
+  },
+  "scripts": {
+    "start": "python3 -m certpath_roadmap_studio.cli serve --port 8098 --no-browser",
+    "electron": "electron .",
+    "app": "electron .",
+    "test": "pytest tests/"
+  },
+  "keywords": [
+    "certification",
+    "roadmap",
+    "dag",
+    "cybersecurity",
+    "career-path",
+    "roi-calculator",
+    "zero-egress",
+    "sovereign",
+    "electron",
+    "zoth"
+  ],
+  "author": "NullAI Tech / Zoth Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.5.8"
+  }
+}

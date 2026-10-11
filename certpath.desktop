@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CertPath Roadmap Studio
+GenericName=Certification DAG & Skill Tree Architect
+Comment=Interactive Cybersecurity Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator
+Exec=/usr/local/bin/certpath desktop
+Icon=/media/neo/f2fdda77-178b-4603-ae80-c7aa4cd97908/certpath-roadmap-studio/assets/icon.png
+Terminal=false
+Categories=Education;Security;Development;System;Utility;
+StartupNotify=true
+Actions=CLI;Web;
+
+[Desktop Action CLI]
+Name=Open CertPath CLI
+Exec=x-terminal-emulator -e "/usr/local/bin/certpath --help"
+
+[Desktop Action Web]
+Name=Open Web UI (Port 8098)
+Exec=/usr/local/bin/certpath web

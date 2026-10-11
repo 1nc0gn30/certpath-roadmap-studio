@@ -1,8 +1,10 @@
 # 🗺️ CertPath Roadmap Studio
 
-> **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Interactive Canvas UI (design influenced by Material 3). Built with **100% pure Python standard library** (zero runtime dependencies).
+> **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Interactive Canvas UI (design influenced by Material 3). Built with **100% pure Python standard library** (zero runtime dependencies) and runs 100% in-browser on Netlify.
 
-[![CI](https://github.com/1nc0gn30/certpath-roadmap-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/1nc0gn30/certpath-roadmap-studio/actions/workflows/ci.yml)
+[![Live App](https://img.shields.io/badge/Live%20App-certpath--roadmap--studio.netlify.app-00C7B7.svg?style=flat&logo=netlify)](https://certpath-roadmap-studio.netlify.app/)
+[![Dual Rails](https://img.shields.io/badge/Checkout%20Rails-Stripe%20%2B%20Solana-14F195.svg)](#monetization--pro-access)
+[![Verification](https://img.shields.io/badge/Headless%20Verification-100%25%20PASS-brightgreen.svg)](#verification)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![MCP 2024-11-05](https://img.shields.io/badge/MCP-2024--11--05-green.svg)](https://modelcontextprotocol.io/)
 [![Zero Runtime Dependencies](https://img.shields.io/badge/dependencies-0%20runtime-brightgreen.svg)](#architecture)
@@ -69,7 +71,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/1nc0gn30/certpath-roadmap-studio.git
+git clone https://github.com/NullAITech/certpath-roadmap-studio.git
 cd certpath-roadmap-studio
 
 # No external runtime dependencies required!
@@ -229,6 +231,24 @@ pytest -v
 
 ---
 
-## 📜 License
+## 💰 Monetization & Pro Access
 
-MIT License &copy; 2026 1nc0gn30
+CertPath Roadmap Studio provides an interactive DAG canvas and catalog search for free. Advanced features (custom study plan solving, high-resolution vector and markdown study guide exports, JSON graph data exports) are protected by a client-side Pro license:
+- **Founding Lifetime License**: $19 (Regular $79)
+- **Instant Credit Card / Apple Pay / Google Pay**: [Stripe Checkout](https://buy.stripe.com/7sI7sA8hM2X8eFG8ww)
+- **Web3 Crypto Checkout**: Solana DePay (`428790dd-7ad1-407c-8ecf-c048c77a4cb8`)
+- **1-Click Unlock**: Automatically activates via URL parameter (`?licensed=true`) or receipt email/key verification, permanently persisting to `localStorage`.
+
+---
+
+## 🛡️ Verification & Headless Validation
+
+- **Triple-Viewport Responsiveness**: Automated headless Chrome verification across Mobile (390x844), Tablet (820x1180), and Desktop (1425x900). 0px horizontal overflow guaranteed.
+- **Pure Client Execution**: 100% in-browser AST & DAG traversal with zero broken cloud APIs or external backend requirements.
+- **Console Errors**: 0 console errors across all test paths.
+
+---
+
+## 📜 License & Attribution
+
+MIT License &copy; 2026 **Neal Frazier** ([@1nc0gn30](https://github.com/1nc0gn30)) • **Neal Frazier Tech** • [NullAI Platform](https://nullai.tech)

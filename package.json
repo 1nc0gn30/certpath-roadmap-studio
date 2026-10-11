@@ -1,17 +1,24 @@
 {
   "name": "certpath-roadmap-studio",
   "version": "2.5.0",
-  "description": "Interactive Cybersecurity Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator — Desktop Workstation",
+  "description": "Interactive Cybersecurity Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator — Desktop & Web Workstation",
   "main": "electron/main.cjs",
+  "homepage": "https://certpath-roadmap-studio.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1nc0gn30/certpath-roadmap-studio.git"
+  },
   "bin": {
     "certpath": "./bin/certpath.js",
     "certpath-studio": "./bin/certpath.js"
   },
   "scripts": {
-    "start": "python3 -m certpath_roadmap_studio.cli serve --port 8098 --no-browser",
+    "start": "python3 -m http.server 8093 --directory public",
+    "serve:public": "python3 -m http.server 8093 --directory public",
     "electron": "electron .",
     "app": "electron .",
-    "test": "pytest tests/"
+    "test": "pytest tests/",
+    "test:ui": "python3 scripts/verify_ui.py"
   },
   "keywords": [
     "certification",
@@ -23,7 +30,7 @@
     "zero-egress",
     "sovereign",
     "electron",
-    "zoth"
+    "nullai"
   ],
   "author": "Neal Frazier Tech (@1nc0gn30) • NullAI Platform",
   "license": "MIT",

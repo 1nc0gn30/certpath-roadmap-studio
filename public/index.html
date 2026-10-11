@@ -994,7 +994,7 @@
   <link rel="stylesheet" href="zoth-theme.css">
 </head>
   <!-- High-Converting Sales Funnel Banner Above Main Section -->
-  <aside class="sales-banner-top" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
+  <aside class="sales-banner-top" id="salesBanner" data-alias="founding-offer-banner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
     <div style="display: flex; align-items: center; gap: 10px;">
       <span style="background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">FOUNDING PRO</span>
       <span style="color: var(--text-primary); font-weight: 500;">
@@ -1010,7 +1010,7 @@
       <button type="button" onclick="openDePayCheckout()" style="background: #14F195; color: #000; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
         ⚡ Solana DePay
       </button>
-      <button type="button" onclick="openPaywallModal('License Key Activation')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">
+      <button type="button" id="btn-paywall-key" onclick="openPaywallModal('License Key Activation')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">
         Have a key? Activate
       </button>
     </div>
@@ -2009,10 +2009,21 @@
     }
 
     function showToast(msg) {
-      const toast = document.getElementById('app-toast');
-      document.getElementById('toast-msg').innerText = msg;
+      let toast = document.getElementById('app-toast') || document.getElementById('toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+      }
+      const msgEl = document.getElementById('toast-msg') || toast;
+      msgEl.innerText = msg;
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.classList.remove('show');
+        toast.style.display = 'none';
+      }, 3500);
     }
 
     let isProLicensed = false;
@@ -2022,6 +2033,10 @@
       if (urlParams.get('licensed') === 'true' || urlParams.get('pro') === '1') {
         localStorage.setItem('certpath_pro_licensed', 'true');
         localStorage.setItem('certpath_pro_key', 'true');
+        try {
+          const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+          window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+        } catch (e) {}
       }
       isProLicensed = localStorage.getItem('certpath_pro_licensed') === 'true' ||
                       localStorage.getItem('certpath_pro_key') === 'true' ||
@@ -2041,7 +2056,7 @@
           badge.style.display = 'inline-block';
         }
       }
-      const banner = document.querySelector('.sales-banner-top');
+      const banner = document.querySelector('.sales-banner-top') || document.getElementById('salesBanner');
       if (banner && isProLicensed) {
         banner.style.display = 'none';
       }
@@ -2078,13 +2093,13 @@
     }
 
     function verifyLicenseKey(providedKey) {
-      const input = document.getElementById('licenseKeyInput') || document.getElementById('licenseInput');
+      const input = document.getElementById('license-input') || document.getElementById('licenseKeyInput') || document.getElementById('licenseInput');
       const val = (providedKey || (input ? input.value : '')).trim();
       if (!val) {
-        alert('Please enter a valid license key or receipt email.');
+        showToast('Please enter a valid license key or receipt email.');
         return;
       }
-      if (val.length > 3 || val.toUpperCase() === 'CERTPATH-PRO-2026' || val.includes('@')) {
+      if (val.length > 3 || val.toUpperCase() === 'CERTPATH-PRO-2026' || val.toUpperCase() === 'SOVEREIGN-PRO-2026' || val.includes('@')) {
         localStorage.setItem('certpath_pro_licensed', 'true');
         localStorage.setItem('certpath_pro_key', val);
         isProLicensed = true;
@@ -2092,7 +2107,7 @@
         closePaywallModal();
         showToast('⭐ Pro license activated! All career roadmap features unlocked.');
       } else {
-        alert('Please enter a valid license key or receipt email.');
+        showToast('Please enter a valid license key or receipt email.');
       }
     }
 
@@ -2137,7 +2152,7 @@
   </script>
 
   <!-- Pro Paywall Modal -->
-  <div id="certpathPaywallModal" class="modal-overlay modal-paywall" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+  <div id="certpathPaywallModal" class="modal-overlay modal-paywall" data-alias="paywall-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
     <div style="background: var(--bg-surface); border: 1.5px solid rgba(212,175,55,0.4); border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-family: var(--font-sans); position: relative;">
       <button type="button" onclick="closePaywallModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; color: var(--text-secondary); cursor: pointer;">&times;</button>
       <div style="display: inline-block; background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">PRO FOUNDING ACCESS</div>
@@ -2165,7 +2180,7 @@
       <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
         <label for="licenseKeyInput" style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Already have a license key or receipt email?</label>
         <div style="display: flex; gap: 8px;">
-          <input type="text" id="licenseKeyInput" placeholder="CERTPATH-PRO-2026 or receipt email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
+          <input type="text" id="license-input" data-alias="license-input" name="licenseKeyInput" placeholder="CERTPATH-PRO-2026 or receipt email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
           <button type="button" id="btnActivateKey" onclick="verifyLicenseKey()" style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Activate Pro ⚡</button>
         </div>
       </div>

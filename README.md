@@ -4,6 +4,7 @@
 
 [![Live App](https://img.shields.io/badge/Live%20App-certpath--roadmap--studio.netlify.app-00C7B7.svg?style=flat&logo=netlify)](https://certpath-roadmap-studio.netlify.app/)
 [![Dual Rails](https://img.shields.io/badge/Checkout%20Rails-Stripe%20%2B%20Solana-14F195.svg)](#monetization--pro-access)
+[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/certpath-roadmap-studio)
 [![Verification](https://img.shields.io/badge/Headless%20Verification-100%25%20PASS-brightgreen.svg)](#verification)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![MCP 2024-11-05](https://img.shields.io/badge/MCP-2024--11--05-green.svg)](https://modelcontextprotocol.io/)
@@ -235,8 +236,9 @@ pytest -v
 
 CertPath Roadmap Studio provides an interactive DAG canvas and catalog search for free. Advanced features (custom study plan solving, high-resolution vector and markdown study guide exports, JSON graph data exports) are protected by a client-side Pro license:
 - **Founding Lifetime License**: $19 (Regular $79)
-- **Instant Credit Card / Apple Pay / Google Pay**: [Stripe Checkout](https://buy.stripe.com/7sI7sA8hM2X8eFG8ww)
-- **Web3 Crypto Checkout**: Solana DePay (`428790dd-7ad1-407c-8ecf-c048c77a4cb8`)
+- **Instant Credit Card / Apple Pay / Google Pay**: [Stripe Checkout ($19 USD)](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L)
+- **Web3 Crypto Checkout**: Solana DePay (`428790dd-7ad1-407c-8ecf-c048c77a4cb8`, receiver `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`)
+- **Zoth Studio Enclave**: Also integrated as a native God Mode workstation at [https://zoth.nullai.tech/tools/certpath-roadmap-studio](https://zoth.nullai.tech/tools/certpath-roadmap-studio).
 - **1-Click Unlock**: Automatically activates via URL parameter (`?licensed=true`) or receipt email/key verification, permanently persisting to `localStorage`.
 
 ---

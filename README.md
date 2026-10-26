@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="CertPath Roadmap Studio — Sovereign Architecture Banner" width="100%" />
+</div>
+
+<br />
+
 # 🗺️ CertPath Roadmap Studio
 
 > **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Interactive Canvas UI (design influenced by Material 3). Built with **100% pure Python standard library** (zero runtime dependencies) and runs 100% in-browser on Netlify.

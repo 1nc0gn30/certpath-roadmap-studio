@@ -47,10 +47,10 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": "19.00",
+          "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L"
+          "url": "https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X"
         }
       },
       {
@@ -70,7 +70,7 @@
             "name": "What payment methods are supported for Pro access?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "CertPath supports dual checkout rails: instant credit card, Apple Pay, and Google Pay via Stripe, and Web3 crypto checkout via Solana DePay ($19 lifetime founding access)."
+              "text": "CertPath supports dual checkout rails: instant credit card, Apple Pay, and Google Pay via Stripe, and Web3 crypto checkout via Solana Tip (Free (100% Open Access) founding access)."
             }
           }
         ]
@@ -78,7 +78,6 @@
     ]
   }
   </script>
-  <script src="https://integrate.depay.com/widgets/v13.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -720,7 +719,7 @@
       right: 0;
       bottom: 0;
       background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
+      backdrop-filter: none;
       z-index: 200;
       display: none;
       align-items: center;
@@ -992,27 +991,58 @@
     }
   </style>
   <link rel="stylesheet" href="zoth-theme.css">
+  <link rel="stylesheet" href="wave.css">
+  <link rel="stylesheet" href="wave-states.css">
+  <link rel="stylesheet" href="wave-type.css">
+
+  <!-- Zoth 100% Open-Access & Buy Us a Coffee Invariant -->
+  <script id="zoth-open-access-init">
+    (function() {
+      try {
+        var keys = ['agent_audiocipher_pro', 'agent_cyber_turtle_pro', 'agent_datamosh_pro', 'agent_nexus3d_pro', 'agent_policy_pro', 'audiocipher_license', 'audiocipher_pro_licensed', 'badge3d_pro_licensed', 'certpath_pro_key', 'certpath_pro_licensed', 'cron_rhythm_pro_key', 'cron_rhythm_pro_licensed', 'cwv-speed-engine_pro_licensed', 'cwv_pro_licensed', 'cyber_turtle_pro_licensed', 'datamosh_pro_licensed', 'deepsearch-research-agent_pro_licensed', 'deepsearch_pro_licensed', 'entropy_studio_licensed', 'envguard-secrets-vault_pro_licensed', 'envguard_pro_license', 'etsy_connector_pro', 'jwt_guard_licensed', 'mdg_pro_licensed', 'neuro_pro_licensed', 'nexus3d_pro_licensed', 'omnipost_pro_key', 'omnipost_pro_licensed', 'osint_pro_licensed', 'payload-entropy-studio_pro_licensed', 'polyglot_pro_licensed', 'pro_licensed', 'promptmaster_pro_licensed', 'promptmaster_pro_active', 'robots-txt-auditor_pro_licensed', 'robots_pro_licensed', 'schema_illustrator_pro_licensed', 'sovereign_pro_licensed', 'subsweep-lead-scanner_pro_licensed', 'subsweep_licensed', 'turtle_pro_licensed', 'ufo_sacred_licensed', 'vector-search-engine_pro_licensed', 'vector_studio_pro_licensed', 'web-security-guard_pro_licensed', 'web_security_guard_licensed', 'yourdigitalspace_pro', 'zela_guide_pro_licensed', 'zoth_ascii_magic_pro', 'zoth_audiocipher_licensed', 'zoth_badge3d_licensed', 'zoth_cyber_turtle_licensed', 'zoth_datamosh_licensed', 'zoth_etsy_licensed', 'zoth_nexus3d_licensed', 'zoth_osint_licensed', 'zoth_policy_licensed', 'zoth_sacred_licensed', 'zoth_ufo_licensed'];
+        for (var i = 0; i < keys.length; i++) {
+          localStorage.setItem(keys[i], 'true');
+        }
+        localStorage.setItem('pm_license_v2', JSON.stringify({ method: 'open_access', ref: 'free_forever', at: '2026-01-01T00:00:00Z' }));
+        window.isPro = true;
+        window.isProLicensed = true;
+      } catch (e) {}
+    })();
+  </script>
+  <style id="zoth-open-access-override">
+    .paywall-overlay, .output-paywall-overlay, #outputPaywallOverlay, #schemaPaywallOverlay,
+    #transformerPaywallOverlay, #proPaywallModal, #licenseModal, #salesBanner, #founding-offer-banner,
+    #funnelHeroBanner, [data-alias="paywallOverlay"], [data-alias="founding-offer-banner"] {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .paywall-wrap #outputPreview, .paywall-wrap #reportContentArea, .paywall-content,
+    .paywall-content.locked, .paywall-wrap.is-locked #outputPreview, .paywall-wrap.locked #outputPreview {
+      filter: none !important;
+      -webkit-filter: none !important;
+      user-select: auto !important;
+      pointer-events: auto !important;
+    }
+  </style>
+
 </head>
-  <!-- High-Converting Sales Funnel Banner Above Main Section -->
-  <aside class="sales-banner-top" id="salesBanner" data-alias="founding-offer-banner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
+  <!-- Support Bar Above Main Section -->
+  <aside class="sales-banner-top" id="salesBanner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
     <div style="display: flex; align-items: center; gap: 10px;">
-      <span style="background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">FOUNDING PRO</span>
+      <span style="background: #10B981; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">100% FREE &amp; OPEN ACCESS</span>
       <span style="color: var(--text-primary); font-weight: 500;">
         <strong>Interactive Certification DAG &amp; Study Solver:</strong>
-        <span style="text-decoration: line-through; opacity: 0.6; margin-left: 6px;">$79</span>
-        <strong style="color: #D4AF37; margin-left: 4px;">$19 Lifetime</strong> • Unlimited study plans &amp; career exports.
+        <strong style="color: #D4AF37; margin-left: 4px;">Zero Paywalls</strong> • 137 credentials, study plans &amp; career exports unlocked.
       </span>
     </div>
     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-      <a href="https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L" target="_blank" rel="noopener noreferrer" style="background: #1a73e8; color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
-        💳 Card / Apple Pay ($19)
+      <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" style="background: #1a73e8; color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
+        💳 ☕ Buy Us a Coffee (Stripe)
       </a>
-      <button type="button" onclick="openDePayCheckout()" style="background: #14F195; color: #000; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-        ⚡ Solana DePay
-      </button>
-      <button type="button" id="btn-paywall-key" onclick="openPaywallModal('License Key Activation')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">
-        Have a key? Activate
-      </button>
+      <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" style="background: #14F195; color: #000; text-decoration: none; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
+        ◎ Solana Tip
+      </a>
     </div>
   </aside>
 
@@ -1029,7 +1059,7 @@
       <div class="brand-title">
         CertPath Roadmap Studio
         <span class="brand-badge">v2.5 SOVEREIGN</span>
-        <span id="licenseBadge" class="brand-badge" style="background: var(--bg-surface-variant); color: var(--text-secondary); font-weight: 700;">⚡ FREE TIER</span>
+        <span id="licenseBadge" class="brand-badge" style="background: rgba(16,185,129,0.15); color: #10B981; font-weight: 800; border: 1px solid #10B981;">✦ 100% UNLOCKED</span>
       </div>
     </div>
 
@@ -2026,9 +2056,9 @@
       }, 3500);
     }
 
-    let isProLicensed = false;
+    let isProLicensed = true;
 
-    function checkProLicense() {
+    function checkProLicense() { isProLicensed = true; try { updateProUI(); } catch(e){} return true;
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('licensed') === 'true' || urlParams.get('pro') === '1') {
         localStorage.setItem('certpath_pro_licensed', 'true');
@@ -2038,27 +2068,14 @@
           window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
         } catch (e) {}
       }
-      isProLicensed = localStorage.getItem('certpath_pro_licensed') === 'true' ||
-                      localStorage.getItem('certpath_pro_key') === 'true' ||
-                      localStorage.getItem('pro_licensed') === 'true';
+      isProLicensed = true;
 
       const badge = document.getElementById('licenseBadge') || document.getElementById('proStatusBadge');
       if (badge) {
-        if (isProLicensed) {
-          badge.textContent = '⭐ PRO ACTIVE';
-          badge.style.background = '#10B981';
-          badge.style.color = '#08080B';
-          badge.style.display = 'inline-block';
-        } else {
-          badge.textContent = '⚡ FREE TIER';
-          badge.style.background = 'var(--bg-surface-variant)';
-          badge.style.color = 'var(--text-secondary)';
-          badge.style.display = 'inline-block';
-        }
-      }
-      const banner = document.querySelector('.sales-banner-top') || document.getElementById('salesBanner');
-      if (banner && isProLicensed) {
-        banner.style.display = 'none';
+        badge.textContent = '✦ 100% UNLOCKED';
+        badge.style.background = '#10B981';
+        badge.style.color = '#08080B';
+        badge.style.display = 'inline-block';
       }
     }
 
@@ -2066,70 +2083,30 @@
       checkProLicense();
     }
 
-    function openPaywallModal(feature = 'Pro Feature') {
-      const modal = document.getElementById('certpathPaywallModal') || document.getElementById('licenseModal');
-      const featText = document.getElementById('paywallFeatureTrigger');
-      if (featText) featText.textContent = feature;
-      if (modal) {
-        modal.style.display = 'flex';
-        modal.classList.add('open');
-      }
+    function openPaywallModal() {
+      // 100% Free & Open Access - no modal needed
     }
 
     function closePaywallModal() {
-      const modal = document.getElementById('certpathPaywallModal') || document.getElementById('licenseModal');
-      if (modal) {
-        modal.style.display = 'none';
-        modal.classList.remove('open');
-      }
     }
 
-    function openLicenseModal(feature) {
-      openPaywallModal(feature);
+    function openLicenseModal() {
     }
 
     function closeLicenseModal() {
-      closePaywallModal();
     }
 
-    function verifyLicenseKey(providedKey) {
-      const input = document.getElementById('license-input') || document.getElementById('licenseKeyInput') || document.getElementById('licenseInput');
-      const val = (providedKey || (input ? input.value : '')).trim();
-      if (!val) {
-        showToast('Please enter a valid license key or receipt email.');
-        return;
-      }
-      if (val.length > 3 || val.toUpperCase() === 'CERTPATH-PRO-2026' || val.toUpperCase() === 'SOVEREIGN-PRO-2026' || val.includes('@')) {
-        localStorage.setItem('certpath_pro_licensed', 'true');
-        localStorage.setItem('certpath_pro_key', val);
-        isProLicensed = true;
-        checkProLicense();
-        closePaywallModal();
-        showToast('⭐ Pro license activated! All career roadmap features unlocked.');
-      } else {
-        showToast('Please enter a valid license key or receipt email.');
-      }
+    function verifyLicenseKey() {
     }
 
-    function activateLicenseKey(providedKey) {
-      verifyLicenseKey(providedKey);
+    function activateLicenseKey() {
     }
 
     function openDePayCheckout() {
-      if (typeof DePayWidgets !== 'undefined' && DePayWidgets.Payment) {
-        DePayWidgets.Payment({
-          integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
-        });
-      } else {
-        window.open('https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L', '_blank');
-      }
+      window.open('https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X', '_blank');
     }
 
     function planForSelectedCert() {
-      if (!isProLicensed) {
-        openPaywallModal('Custom Study Schedule & Career Solver');
-        return;
-      }
       if (selectedCertId) {
         showToast(`Generating custom study plan for ${selectedCertId}...`);
       }
@@ -2150,42 +2127,6 @@
       checkProLicense();
     });
   </script>
-
-  <!-- Pro Paywall Modal -->
-  <div id="certpathPaywallModal" class="modal-overlay modal-paywall" data-alias="paywall-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
-    <div style="background: var(--bg-surface); border: 1.5px solid rgba(212,175,55,0.4); border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); font-family: var(--font-sans); position: relative;">
-      <button type="button" onclick="closePaywallModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; color: var(--text-secondary); cursor: pointer;">&times;</button>
-      <div style="display: inline-block; background: #D4AF37; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;">PRO FOUNDING ACCESS</div>
-      <h3 style="margin: 0 0 6px 0; font-size: 20px; color: var(--text-primary);">Unlock Career Path Solver Pro</h3>
-      <p style="margin: 0 0 16px 0; font-size: 13px; color: var(--text-secondary);">
-        Triggered by: <strong id="paywallFeatureTrigger" style="color: #D4AF37;">Custom Study Schedule</strong>
-      </p>
-
-      <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: var(--text-primary); display: flex; flexDirection: column; gap: 8px;">
-        <li>✅ Unlimited Interactive Career DAG Custom Scheduling</li>
-        <li>✅ High-Resolution Printable Study Guide &amp; DAG Vector Exports</li>
-        <li>✅ Real-Time Certification Salary ROI &amp; Prerequisite Analysis</li>
-        <li>✅ Lifetime Updates — Zero Monthly Subscription Recurring Fees</li>
-      </ul>
-
-      <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-        <a href="https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 180px; background: #1a73e8; color: #fff; text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 13px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
-          💳 Unlock via Stripe ($19)
-        </a>
-        <button type="button" onclick="openDePayCheckout()" style="flex: 1; min-width: 180px; background: #14F195; color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
-          ⚡ Solana DePay ($19)
-        </button>
-      </div>
-
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
-        <label for="licenseKeyInput" style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Already have a license key or receipt email?</label>
-        <div style="display: flex; gap: 8px;">
-          <input type="text" id="license-input" data-alias="license-input" name="licenseKeyInput" placeholder="CERTPATH-PRO-2026 or receipt email" style="flex: 1; background: var(--bg-surface-variant); border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; color: var(--text-primary); font-family: var(--font-mono); font-size: 12px;">
-          <button type="button" id="btnActivateKey" onclick="verifyLicenseKey()" style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Activate Pro ⚡</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Professional Footer Attribution -->
   <footer style="border-top: 1px solid var(--border-color); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-secondary); background: var(--bg-surface);">

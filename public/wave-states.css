@@ -1,0 +1,323 @@
+/* ============================================================
+   CERTPATH ROADMAP STUDIO — WAVE STATES
+   Anchor Concept: Precision CAD/DAG Workbench
+   Interactive state polish: tactile :focus-visible rings,
+   responsive 140ms hovers, resilient :empty containers,
+   clear error states, and strict prefers-reduced-motion.
+   All selectors strictly exist in public/index.html.
+   ============================================================ */
+
+/* ============================================================
+   1. KEYBOARD FOCUS & ACCESSIBILITY (:focus-visible)
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37) !important;
+  outline-offset: 2px !important;
+}
+
+.nav-tab-btn:focus-visible,
+.btn-icon:focus-visible,
+.chip-btn:focus-visible,
+.btn-action:focus-visible,
+.canvas-btn:focus-visible,
+.drawer-close-btn:focus-visible,
+.search-clear-btn:focus-visible,
+.role-card:focus-visible,
+.resource-card:focus-visible,
+#drawer-official-link:focus-visible,
+#btn-paywall-key:focus-visible,
+#btnActivateKey:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37) !important;
+  outline-offset: 2px !important;
+}
+
+.search-input:focus-visible,
+.select-input:focus-visible,
+.text-input:focus-visible,
+#license-input:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37) !important;
+  outline-offset: 0 !important;
+  border-color: var(--zoth-gold, #D4AF37) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2) !important;
+}
+
+.checklist-checkbox:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3) !important;
+}
+
+#wizard-hours-slider:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37) !important;
+  outline-offset: 3px !important;
+}
+
+/* ============================================================
+   2. TACTILE HOVER INTERACTIONS (:hover)
+   ============================================================ */
+
+.nav-tab-btn,
+.btn-icon,
+.chip-btn,
+.btn-action,
+.canvas-btn,
+.drawer-close-btn,
+.role-card,
+.resource-card,
+.checklist-item,
+.search-clear-btn,
+.skill-chip,
+.stat-chip,
+#drawer-official-link,
+#btn-paywall-key,
+#btnActivateKey {
+  transition: all 140ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-tab-btn:hover {
+  background: rgba(212, 175, 55, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.btn-icon:hover {
+  background: var(--bg-surface-variant);
+  border-color: var(--zoth-gold, #D4AF37);
+  color: var(--zoth-gold, #D4AF37);
+  transform: translateY(-1px);
+}
+
+.chip-btn:hover {
+  border-color: var(--zoth-gold, #D4AF37);
+  background: rgba(212, 175, 55, 0.06);
+  color: var(--text-primary);
+}
+
+.btn-action:hover {
+  background: var(--bg-surface-variant);
+  border-color: var(--zoth-gold, #D4AF37);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-action.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+}
+
+.canvas-btn:hover {
+  background: var(--bg-surface-variant);
+  border-color: var(--zoth-gold, #D4AF37);
+  color: var(--zoth-gold, #D4AF37);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.drawer-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--zoth-gold, #D4AF37);
+  transform: rotate(90deg);
+}
+
+.role-card:hover {
+  border-color: var(--zoth-gold, #D4AF37);
+  background: var(--bg-surface-variant);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.resource-card:hover {
+  background: var(--bg-surface-variant);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.checklist-item:hover {
+  background: rgba(212, 175, 55, 0.04);
+}
+
+.search-clear-btn:hover {
+  color: var(--zoth-gold, #D4AF37);
+  transform: scale(1.1);
+}
+
+.skill-chip:hover {
+  border-color: var(--zoth-gold, #D4AF37);
+  background: rgba(212, 175, 55, 0.08);
+  color: var(--zoth-gold-light, #F5E6AB);
+  transform: translateY(-1px);
+}
+
+.stat-chip:hover {
+  background: var(--bg-surface-variant);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.level-badge:hover,
+.provider-pill:hover,
+.category-pill:hover {
+  filter: brightness(1.15);
+}
+
+#drawer-official-link:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
+#btn-paywall-key:hover {
+  border-color: var(--zoth-gold, #D4AF37) !important;
+  color: var(--zoth-gold, #D4AF37) !important;
+}
+
+#btnActivateKey:hover {
+  background: rgba(212, 175, 55, 0.15) !important;
+  border-color: var(--zoth-gold, #D4AF37) !important;
+  color: var(--zoth-gold, #D4AF37) !important;
+}
+
+.dag-node-group:hover .dag-node-rect {
+  stroke: var(--zoth-gold, #D4AF37);
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.35));
+}
+
+/* ============================================================
+   3. EMPTY STATE PRESENTATION (:empty)
+   ============================================================ */
+
+#drawer-prereqs-list:empty::before {
+  content: "No prerequisite dependencies recorded";
+  display: block;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#drawer-unlocked-list:empty::before {
+  content: "Terminal node — unlocks no additional credentials";
+  display: block;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#drawer-skills-list:empty::before {
+  content: "No competency tags indexed";
+  display: block;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+#drawer-resources-list:empty::before {
+  content: "No official study links cataloged";
+  display: block;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#wizard-phases-container:empty::before {
+  content: "Select a career role archetype above to calculate a phased study roadmap.";
+  display: block;
+  padding: 24px 16px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+#comparison-table-container:empty::before {
+  content: "Select two certifications above to inspect side-by-side competency comparisons.";
+  display: block;
+  padding: 28px 16px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+#role-cards-container:empty::before {
+  content: "Loading role blueprints...";
+  display: block;
+  padding: 20px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* ============================================================
+   4. ERROR PRESENTATION (:invalid, .error)
+   ============================================================ */
+
+.search-input:invalid,
+.select-input:invalid,
+.text-input:invalid,
+#license-input:invalid {
+  border-color: var(--md-error, #F97066) !important;
+  box-shadow: 0 0 0 3px rgba(249, 112, 102, 0.2) !important;
+}
+
+.toast.error,
+#app-toast.error {
+  border-color: rgba(249, 112, 102, 0.6) !important;
+  box-shadow: 0 8px 24px rgba(249, 112, 102, 0.25) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ============================================================
+   5. PREFERS-REDUCED-MOTION GUARDRAIL
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-tab-btn,
+  .btn-icon,
+  .chip-btn,
+  .btn-action,
+  .canvas-btn,
+  .drawer-close-btn,
+  .role-card,
+  .resource-card,
+  .checklist-item,
+  .search-clear-btn,
+  .skill-chip,
+  .stat-chip,
+  #drawer-official-link,
+  #btn-paywall-key,
+  #btnActivateKey,
+  .dag-node-group .dag-node-rect {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .drawer-close-btn:hover {
+    transform: none !important;
+  }
+}

@@ -411,8 +411,8 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
             self._send_json(stats)
             return
 
-        # 12. REST API: /api/diagnostics or /api/health
-        if path in ("/api/diagnostics", "/api/health"):
+        # 12. REST API: /health, /api/diagnostics or /api/health
+        if path in ("/health", "/api/health", "/api/diagnostics"):
             self._send_json({
                 "status": "healthy",
                 "platform": get_platform_name(),

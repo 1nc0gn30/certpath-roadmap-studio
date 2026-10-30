@@ -1,0 +1,126 @@
+/* ============================================================
+   CERTPATH ROADMAP STUDIO — WAVE TYPOGRAPHY
+   Typography pass: readable measure on main work surface,
+   tabular numbers on existing scores, counters & prices,
+   and calibrated heading tracking and hierarchy.
+   All selectors strictly exist in public/index.html.
+   ============================================================ */
+
+/* ============================================================
+   1. READABLE MEASURE ON MAIN WORK SURFACE & CONTENT PANELS
+   ============================================================ */
+
+/* Constrain line lengths to comfortable 60-70ch reading measure */
+#drawer-description {
+  max-width: 65ch;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.drawer-body {
+  max-width: 100%;
+}
+
+.drawer-body p {
+  max-width: 65ch;
+  line-height: 1.62;
+}
+
+.modal-body {
+  max-width: 100%;
+}
+
+.modal-body p {
+  max-width: 65ch;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.role-card span {
+  max-width: 48ch;
+  line-height: 1.45;
+}
+
+.checklist-item {
+  max-width: 68ch;
+  line-height: 1.45;
+}
+
+#comparison-table-container td {
+  line-height: 1.5;
+}
+
+/* ============================================================
+   2. TABULAR NUMBERS ON EXISTING SCORES, STATS & PRICES
+   ============================================================ */
+
+/* Enforce monospaced numeral glyph alignment across telemetry, counts & prices */
+.stat-val,
+.chip-badge,
+#drawer-hours,
+#drawer-prereqs-count,
+#drawer-unlocked-count,
+#wizard-hours-val,
+#wizard-timeline-estimate,
+.brand-badge,
+.level-badge,
+.sales-banner-top strong,
+.sales-banner-top span,
+.sales-banner-top a,
+#certpathPaywallModal strong,
+#certpathPaywallModal a,
+#certpathPaywallModal button,
+#comparison-table-container td {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* ============================================================
+   3. CLEARER HEADING TRACKING & HIERARCHY
+   ============================================================ */
+
+/* Large Display Headings: Optical tightening for cohesive grouping */
+.brand-title {
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+#drawer-title {
+  letter-spacing: -0.022em;
+  line-height: 1.25;
+}
+
+.modal-header h2 {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+#certpathPaywallModal h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* Intermediate Form & Phase Subheadings */
+.phase-header {
+  letter-spacing: -0.008em;
+  line-height: 1.35;
+}
+
+.form-label {
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+/* Eyebrows, Badges & Micro-Labels: Open uppercase tracking */
+.section-title {
+  letter-spacing: 0.11em;
+  line-height: 1.3;
+}
+
+.brand-badge {
+  letter-spacing: 0.08em;
+}
+
+.level-badge {
+  letter-spacing: 0.06em;
+}

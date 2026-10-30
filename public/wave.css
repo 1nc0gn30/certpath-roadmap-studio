@@ -1,0 +1,228 @@
+/* ============================================================
+   CERTPATH ROADMAP STUDIO — WAVE POLISH
+   Anchor Concept: Precision CAD/DAG Workbench
+   Refined type hierarchy, accessible gold/void focus rings,
+   and calibrated 240ms cubic-bezier result arrivals.
+   ============================================================ */
+
+/* ---- Visible Focus & Keyboard Navigation ---- */
+:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 2px;
+}
+
+.search-input:focus,
+.search-input:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 0;
+  border-color: var(--zoth-gold, #D4AF37);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.select-input:focus,
+.select-input:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 0;
+  border-color: var(--zoth-gold, #D4AF37);
+}
+
+.nav-tab-btn:focus-visible,
+.btn-icon:focus-visible,
+.chip-btn:focus-visible,
+.btn-action:focus-visible,
+.canvas-btn:focus-visible,
+.drawer-close-btn:focus-visible,
+.search-clear-btn:focus-visible,
+.role-card:focus-visible,
+.resource-card:focus-visible,
+#drawer-official-link:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 2px;
+}
+
+.checklist-checkbox:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 2px;
+}
+
+#wizard-hours-slider:focus-visible {
+  outline: 2px solid var(--zoth-gold, #D4AF37);
+  outline-offset: 2px;
+}
+
+/* ---- Clearer Type Hierarchy: App Bar & Stats ---- */
+.brand-title {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.brand-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.stats-strip {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.stat-chip {
+  color: var(--text-secondary);
+}
+
+.stat-val {
+  font-family: var(--font-mono, monospace);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ---- Clearer Type Hierarchy: Filter Strip & Actions ---- */
+.search-input {
+  font-size: 13.5px;
+  letter-spacing: -0.005em;
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.85;
+}
+
+.chip-btn {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.chip-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.btn-action {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+/* ---- Clearer Type Hierarchy: Detail Drawer ---- */
+#drawer-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+#drawer-provider {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+#drawer-description {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.level-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.provider-pill,
+.category-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.skill-chip {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.resource-card {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ---- Clearer Type Hierarchy: Modals & Phases ---- */
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+
+.phase-header {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.checklist-item {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ---- Result Entrance Motion (Cause & Effect) ---- */
+@keyframes waveResultReveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resource-card {
+  animation: waveResultReveal 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.skill-chip {
+  animation: waveResultReveal 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.phase-container {
+  animation: waveResultReveal 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+#comparison-table-container table {
+  animation: waveResultReveal 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---- Prefers-Reduced-Motion Accessibility Guardrail ---- */
+@media (prefers-reduced-motion: reduce) {
+  .resource-card,
+  .skill-chip,
+  .phase-container,
+  #comparison-table-container table {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

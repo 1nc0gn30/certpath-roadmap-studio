@@ -258,4 +258,4 @@ CertPath Roadmap Studio is 100% free and open-access with zero paywalls, zero li
 
 ## 📜 License & Attribution
 
-MIT License &copy; 2026 **Neal Frazier** ([@1nc0gn30](https://github.com/1nc0gn30)) • **Neal Frazier Tech** • [NullAI Platform](https://nullai.tech)
+MIT License &copy; 2026 **1nc0gn30** ([@1nc0gn30](https://github.com/1nc0gn30)) • **1nc0gn30 • NullAI** • [NullAI Platform](https://nullai.tech)

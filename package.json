@@ -32,7 +32,7 @@
     "electron",
     "nullai"
   ],
-  "author": "Neal Frazier Tech (@1nc0gn30) • NullAI Platform",
+  "author": "1nc0gn30 (@1nc0gn30) • NullAI Platform",
   "license": "MIT",
   "devDependencies": {
     "electron": "^34.5.8"

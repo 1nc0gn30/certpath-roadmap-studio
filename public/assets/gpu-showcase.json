@@ -1,0 +1,41 @@
+{
+  "repo_id": "certpath-roadmap-studio",
+  "title": "Certpath Roadmap Studio",
+  "engineered_by": "1nc0gn30 (@1nc0gn30) \u2022 NullAI Platform",
+  "gpu_engine": "NVIDIA A100 80GB PCIe (ComfyUI FLUX.1 + Qwen2.5-Coder-32B + Trimesh GLB)",
+  "archetype": "astrolabe",
+  "accent_hex": "#D4AF37",
+  "qwen32b_design_spec": "Certpath Roadmap Studio: Astrolabe UI, #D4AF37 accent, celestial navigation theme, intuitive layout, dynamic shader effects.",
+  "assets": {
+    "hero_4k": "/assets/gpu-hero-4k.png",
+    "og_banner": "/og-banner.jpg",
+    "model_3d_glb": "/assets/gpu-artifact.glb",
+    "showreel_webm": "/assets/gpu-showreel.webm",
+    "ad_mp4": "/assets/gpu-ad-15s.mp4"
+  },
+  "benchmark_ms": {
+    "index": 23,
+    "total_repos": 99,
+    "repo_id": "certpath-roadmap-studio",
+    "title": "Certpath Roadmap Studio",
+    "archetype": "astrolabe",
+    "accent_hex": "#D4AF37",
+    "glb_ms": 530,
+    "flux_hero_ms": 7235,
+    "flux_og_ms": 6496,
+    "video_ms": 1584,
+    "qwen32b_ms": 4523,
+    "total_ms": 20370,
+    "glb_kb": 126.8,
+    "hero_kb": 794.9,
+    "og_kb": 502.7,
+    "qwen32b_spec": "Certpath Roadmap Studio: Astrolabe UI, #D4AF37 accent, celestial navigation theme, intuitive layout, dynamic shader effects.",
+    "hero_gallery_url": "/gallery/certpath-roadmap-studio_gpu-hero-4k.png",
+    "og_gallery_url": "/gallery/certpath-roadmap-studio_og-banner.jpg",
+    "glb_gallery_url": "/gallery/certpath-roadmap-studio.glb",
+    "vram_used_mb": 55829,
+    "vram_total_mb": 81152,
+    "timestamp": "03:27:21 UTC"
+  },
+  "timestamp": "2026-11-01T03:27:21Z"
+}

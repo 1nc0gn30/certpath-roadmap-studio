@@ -63,3 +63,13 @@ venv.bak/
 .DS_Store
 
 node_modules/
+
+.venv/
+.venv*/
+*.pth
+*.onnx
+data/minds/spool.jsonl
+release-artifacts/
+build/*.iso*
+build/live_workspace/
+build/release-*/

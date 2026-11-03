@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-SHOT_DIR = Path('/home/zoth/.gemini/antigravity-cli/brain/302ed169-2fc4-4fe5-98e4-ebd229505405/pod_shots/certpath_roadmap_studio')
+SHOT_DIR = Path('~/.gemini/antigravity-cli/brain/302ed169-2fc4-4fe5-98e4-ebd229505405/pod_shots/certpath_roadmap_studio')
 SHOT_DIR.mkdir(parents=True, exist_ok=True)
 
 PORT = 8879

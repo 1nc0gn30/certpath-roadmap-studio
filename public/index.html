@@ -2137,6 +2137,22 @@
       <a href="https://nullai.tech" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">1nc0gn30 • NullAI</a>
     </div>
   </footer>
-  <script src="/assets/sovereign-upgrade.js" defer></script>
+  
+
+  <script src="/sovereign_tutorial.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.createSovereignTutorial) {
+        window.createSovereignTutorial({
+          toolId: "certpath-roadmap-studio",
+          toolName: "CertPath Roadmap Studio",
+          tagline: "Interactive visual roadmaps for hacking, cybersecurity, and cloud certifications!",
+          accentColor: "#10B981",
+          steps: [{"icon": "\ud83d\uddfa\ufe0f", "title": "Certification Galaxy Map", "desc": "See exactly which certifications (CompTIA, AWS, CISSP, OSCP) you need to land your dream tech job."}, {"icon": "\ud83c\udfaf", "title": "Skill Dependency Trees", "desc": "Click any certificate node to see the prerequisites, study difficulty, and recommended practice labs."}, {"icon": "\ud83d\ude80", "title": "Track Your Personal Progress", "desc": "Mark credentials as complete and export your custom learning journey."}]
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

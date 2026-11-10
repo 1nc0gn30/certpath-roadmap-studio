@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 import math
 import random
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 from .catalog import Certification
 from .roadmap_planner import RoadmapPlan

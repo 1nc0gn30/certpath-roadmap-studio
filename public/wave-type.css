@@ -67,9 +67,6 @@
 .sales-banner-top strong,
 .sales-banner-top span,
 .sales-banner-top a,
-#certpathPaywallModal strong,
-#certpathPaywallModal a,
-#certpathPaywallModal button,
 #comparison-table-container td {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
@@ -91,11 +88,6 @@
 }
 
 .modal-header h2 {
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-#certpathPaywallModal h3 {
   letter-spacing: -0.02em;
   line-height: 1.25;
 }

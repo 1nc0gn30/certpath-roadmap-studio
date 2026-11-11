@@ -651,7 +651,7 @@ class StudioHTTPRequestHandler(BaseHTTPRequestHandler):
 
 def create_server(
     host: str = "127.0.0.1",
-    port: int = 8080,
+    port: int = 8093,
     catalog: Optional[CertificationCatalog] = None,
     dag: Optional[DAGEngine] = None,
     planner: Optional[RoadmapPlanner] = None,
@@ -673,7 +673,7 @@ def create_server(
 
 def run_server(
     host: str = "127.0.0.1",
-    port: int = 8080,
+    port: int = 8093,
     open_browser: bool = False,
     public_dir: Optional[Union[str, Path]] = None,
 ) -> None:
@@ -705,7 +705,7 @@ def main() -> None:
     """CLI entrypoint for standalone UI server."""
     parser = argparse.ArgumentParser(description="CertPath Roadmap Studio UI & REST Server")
     parser.add_argument("--host", default="127.0.0.1", help="Host interface to bind (default: 127.0.0.1)")
-    parser.add_argument("--port", "-p", type=int, default=8080, help="Port to listen on (default: 8080)")
+    parser.add_argument("--port", "-p", type=int, default=8093, help="Port to listen on (default: 8093)")
     parser.add_argument("--open", "-o", action="store_true", help="Automatically open studio in default browser")
     parser.add_argument("--public-dir", default=None, help="Custom public directory path")
 

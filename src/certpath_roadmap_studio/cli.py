@@ -948,7 +948,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     # 10. serve
     p_serve = subparsers.add_parser("serve", parents=[common_parser], help="Launch Google Material 3 Roadmap Studio Web UI")
-    p_serve.add_argument("--port", "-p", type=int, default=8080, help="HTTP server port (default: 8080)")
+    p_serve.add_argument("--port", "-p", type=int, default=8093, help="HTTP server port (default: 8093)")
     p_serve.add_argument("--host", default="127.0.0.1", help="HTTP server host (default: 127.0.0.1)")
     p_serve.add_argument("--no-browser", action="store_true", help="Do not automatically open web browser")
 

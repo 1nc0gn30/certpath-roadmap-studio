@@ -67,10 +67,10 @@
           },
           {
             "@type": "Question",
-            "name": "What payment methods are supported for Pro access?",
+            "name": "Is CertPath Roadmap Studio free and open-source?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "CertPath supports dual checkout rails: instant credit card, Apple Pay, and Google Pay via Stripe, and Web3 crypto checkout via Solana Tip (Free (100% Open Access) founding access)."
+              "text": "Yes. CertPath Roadmap Studio is 100% free and open-access under the MIT license. Optional community support is available via Stripe Buy Us a Coffee."
             }
           }
         ]
@@ -994,54 +994,20 @@
   <link rel="stylesheet" href="wave.css">
   <link rel="stylesheet" href="wave-states.css">
   <link rel="stylesheet" href="wave-type.css">
-
-  <!-- Zoth 100% Open-Access & Buy Us a Coffee Invariant -->
-  <script id="zoth-open-access-init">
-    (function() {
-      try {
-        var keys = ['agent_audiocipher_pro', 'agent_cyber_turtle_pro', 'agent_datamosh_pro', 'agent_nexus3d_pro', 'agent_policy_pro', 'audiocipher_license', 'audiocipher_pro_licensed', 'badge3d_pro_licensed', 'certpath_pro_key', 'certpath_pro_licensed', 'cron_rhythm_pro_key', 'cron_rhythm_pro_licensed', 'cwv-speed-engine_pro_licensed', 'cwv_pro_licensed', 'cyber_turtle_pro_licensed', 'datamosh_pro_licensed', 'deepsearch-research-agent_pro_licensed', 'deepsearch_pro_licensed', 'entropy_studio_licensed', 'envguard-secrets-vault_pro_licensed', 'envguard_pro_license', 'etsy_connector_pro', 'jwt_guard_licensed', 'mdg_pro_licensed', 'neuro_pro_licensed', 'nexus3d_pro_licensed', 'omnipost_pro_key', 'omnipost_pro_licensed', 'osint_pro_licensed', 'payload-entropy-studio_pro_licensed', 'polyglot_pro_licensed', 'pro_licensed', 'promptmaster_pro_licensed', 'promptmaster_pro_active', 'robots-txt-auditor_pro_licensed', 'robots_pro_licensed', 'schema_illustrator_pro_licensed', 'sovereign_pro_licensed', 'subsweep-lead-scanner_pro_licensed', 'subsweep_licensed', 'turtle_pro_licensed', 'ufo_sacred_licensed', 'vector-search-engine_pro_licensed', 'vector_studio_pro_licensed', 'web-security-guard_pro_licensed', 'web_security_guard_licensed', 'yourdigitalspace_pro', 'zela_guide_pro_licensed', 'zoth_ascii_magic_pro', 'zoth_audiocipher_licensed', 'zoth_badge3d_licensed', 'zoth_cyber_turtle_licensed', 'zoth_datamosh_licensed', 'zoth_etsy_licensed', 'zoth_nexus3d_licensed', 'zoth_osint_licensed', 'zoth_policy_licensed', 'zoth_sacred_licensed', 'zoth_ufo_licensed'];
-        for (var i = 0; i < keys.length; i++) {
-          localStorage.setItem(keys[i], 'true');
-        }
-        localStorage.setItem('pm_license_v2', JSON.stringify({ method: 'open_access', ref: 'free_forever', at: '2026-01-01T00:00:00Z' }));
-        window.isPro = true;
-        window.isProLicensed = true;
-      } catch (e) {}
-    })();
-  </script>
-  <style id="zoth-open-access-override">
-    .paywall-overlay, .output-paywall-overlay, #outputPaywallOverlay, #schemaPaywallOverlay,
-    #transformerPaywallOverlay, #proPaywallModal, #licenseModal, #salesBanner, #founding-offer-banner,
-    #funnelHeroBanner, [data-alias="paywallOverlay"], [data-alias="founding-offer-banner"] {
-      display: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    .paywall-wrap #outputPreview, .paywall-wrap #reportContentArea, .paywall-content,
-    .paywall-content.locked, .paywall-wrap.is-locked #outputPreview, .paywall-wrap.locked #outputPreview {
-      filter: none !important;
-      -webkit-filter: none !important;
-      user-select: auto !important;
-      pointer-events: auto !important;
-    }
-  </style>
-
 </head>
+<body>
   <!-- Support Bar Above Main Section -->
-  <aside class="sales-banner-top" id="salesBanner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
+  <aside class="sales-banner-top" id="supportBanner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
     <div style="display: flex; align-items: center; gap: 10px;">
       <span style="background: #10B981; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">100% FREE &amp; OPEN ACCESS</span>
       <span style="color: var(--text-primary); font-weight: 500;">
         <strong>Interactive Certification DAG &amp; Study Solver:</strong>
-        <strong style="color: #D4AF37; margin-left: 4px;">Zero Paywalls</strong> • 137 credentials, study plans &amp; career exports unlocked.
+        137 credentials, study plans &amp; career exports unlocked.
       </span>
     </div>
     <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
       <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" style="background: #1a73e8; color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
-        💳 ☕ Buy Us a Coffee (Stripe)
-      </a>
-      <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" style="background: #14F195; color: #000; text-decoration: none; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
-        ◎ Solana Tip
+        ☕ Buy Us a Coffee (Stripe)
       </a>
     </div>
   </aside>
@@ -1988,12 +1954,8 @@
       `;
     }
 
-    // --- 1-CLICK EXPORTS ---
+    // --- 1-CLICK EXPORTS (100% UNLOCKED) ---
     function copyMermaidExport() {
-      if (!isProLicensed) {
-        openPaywallModal('Mermaid DAG Architecture Export');
-        return;
-      }
       let mermaid = 'graph LR\n';
       allCerts.slice(0, 30).forEach(c => {
         const safeTitle = c.title.replace(/["\(\)]/g, '');
@@ -2006,10 +1968,6 @@
     }
 
     function downloadMarkdownGuide() {
-      if (!isProLicensed) {
-        openPaywallModal('Study Guide Markdown & Career PDF Export');
-        return;
-      }
       let md = `# Certification Roadmap Study Guide\n\nGenerated by CertPath Roadmap Studio.\n\n`;
       allCerts.forEach(c => {
         md += `## ${c.title} (${c.provider})\n`;
@@ -2026,10 +1984,6 @@
     }
 
     function exportJsonData() {
-      if (!isProLicensed) {
-        openPaywallModal('JSON Roadmap & Career Graph Data Export');
-        return;
-      }
       const blob = new Blob([JSON.stringify(allCerts, null, 2)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -2058,52 +2012,20 @@
 
     let isProLicensed = true;
 
-    function checkProLicense() { isProLicensed = true; try { updateProUI(); } catch(e){} return true;
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('licensed') === 'true' || urlParams.get('pro') === '1') {
-        localStorage.setItem('certpath_pro_licensed', 'true');
-        localStorage.setItem('certpath_pro_key', 'true');
-        try {
-          const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-          window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
-        } catch (e) {}
-      }
+    function checkProLicense() {
       isProLicensed = true;
-
       const badge = document.getElementById('licenseBadge') || document.getElementById('proStatusBadge');
       if (badge) {
         badge.textContent = '✦ 100% UNLOCKED';
-        badge.style.background = '#10B981';
-        badge.style.color = '#08080B';
+        badge.style.background = 'rgba(16,185,129,0.15)';
+        badge.style.color = '#10B981';
         badge.style.display = 'inline-block';
       }
+      return true;
     }
 
     function checkLicense() {
       checkProLicense();
-    }
-
-    function openPaywallModal() {
-      // 100% Free & Open Access - no modal needed
-    }
-
-    function closePaywallModal() {
-    }
-
-    function openLicenseModal() {
-    }
-
-    function closeLicenseModal() {
-    }
-
-    function verifyLicenseKey() {
-    }
-
-    function activateLicenseKey() {
-    }
-
-    function openSolanaTipCheckout() {
-      window.open('https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X', '_blank');
     }
 
     function planForSelectedCert() {

@@ -26,7 +26,6 @@
 .role-card:focus-visible,
 .resource-card:focus-visible,
 #drawer-official-link:focus-visible,
-#btn-paywall-key:focus-visible,
 #btnActivateKey:focus-visible {
   outline: 2px solid var(--zoth-gold, #D4AF37) !important;
   outline-offset: 2px !important;
@@ -70,7 +69,6 @@
 .skill-chip,
 .stat-chip,
 #drawer-official-link,
-#btn-paywall-key,
 #btnActivateKey {
   transition: all 140ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -167,11 +165,6 @@
   filter: brightness(1.12);
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
-}
-
-#btn-paywall-key:hover {
-  border-color: var(--zoth-gold, #D4AF37) !important;
-  color: var(--zoth-gold, #D4AF37) !important;
 }
 
 #btnActivateKey:hover {
@@ -310,7 +303,6 @@
   .skill-chip,
   .stat-chip,
   #drawer-official-link,
-  #btn-paywall-key,
   #btnActivateKey,
   .dag-node-group .dag-node-rect {
     transition: none !important;

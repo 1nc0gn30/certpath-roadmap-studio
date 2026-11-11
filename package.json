@@ -13,7 +13,7 @@
     "certpath-studio": "./bin/certpath.js"
   },
   "scripts": {
-    "start": "python3 -m http.server 8093 --directory public",
+    "start": "python3 -m certpath_roadmap_studio.cli serve --port 8093",
     "serve:public": "python3 -m http.server 8093 --directory public",
     "electron": "electron .",
     "app": "electron .",

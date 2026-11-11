@@ -1,318 +1,182 @@
-<div align="center">
-  <img src="assets/hero-banner.svg" alt="CertPath Roadmap Studio — Sovereign Architecture Banner" width="100%" />
-</div>
+<p align="center">
+  <img src="assets/hero-banner.svg" alt="CertPath Roadmap Studio — Certification Prerequisite DAG Solver, Velocity Simulator & ROI Calculator" width="100%" />
+</p>
 
-<br />
+# CertPath Roadmap Studio
 
-# 🗺️ CertPath Roadmap Studio
+**Zero-dependency Python 3.9+ IT, cloud, and cybersecurity certification prerequisite DAG solver, career roadmap planner, Monte Carlo study-velocity simulator, financial ROI & skill-overlap calculator, and MCP server.**
 
-> **Intelligent Certification Directed Acyclic Graph (DAG) Solver, Career Roadmap Planner & FastMCP Protocol Server** with Interactive Canvas UI (design influenced by Material 3). Built with **100% pure Python standard library** (zero runtime dependencies) and runs 100% in-browser on Netlify.
-
-[![Live App](https://img.shields.io/badge/Live%20App-certpath--roadmap--studio.netlify.app-00C7B7.svg?style=flat&logo=netlify)](https://certpath-roadmap-studio.netlify.app/)
-[![Support](https://img.shields.io/badge/☕%20Buy%20Us%20a%20Coffee-Stripe%20%2B%20Solana-14F195.svg)](#monetization--pro-access)
-[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/certpath-roadmap-studio)
-[![Verification](https://img.shields.io/badge/Headless%20Verification-100%25%20PASS-brightgreen.svg)](#verification)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![MCP 2024-11-05](https://img.shields.io/badge/MCP-2024--11--05-green.svg)](https://modelcontextprotocol.io/)
-[![Zero Runtime Dependencies](https://img.shields.io/badge/dependencies-0%20runtime-brightgreen.svg)](#architecture)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+- **Zoth Studio v2 Dossier**: [https://zoth.nullai.tech/tools/certpath-roadmap-studio](https://zoth.nullai.tech/tools/certpath-roadmap-studio)
+- **Default Loopback Endpoint**: `http://127.0.0.1:8093`
+- **Runtime Dependencies**: Zero external Python runtime packages (100% Python `stdlib`)
+- **License**: MIT (100% free and open-source)
 
 ---
 
-## 🌟 Highlights
+## Overview
 
-- **🎯 137+ Tracked Certifications**: Comprehensive certification graph spanning AWS, Azure, Google Cloud, CompTIA, Cisco, ISC2, Offensive Security, Linux Foundation, HashiCorp, Kubernetes, Docker, Python, and AI/ML ecosystems.
-- **⚡ Directed Acyclic Graph (DAG) Solver**: Recursive prerequisite resolution in topological order, downstream unlock calculations, critical path duration analysis, and difficulty scoring.
-- **🚀 Personalized Career Roadmapping**: Multi-stage learning paths for 8+ career roles (`cloud_security_architect`, `ai_ml_engineer`, `fullstack_devops_lead`, `penetration_tester`, `data_platform_architect`, `soc_analyst`, `cloud_solutions_architect`, `devops_platform_engineer`).
-- **🧠 Skill Gap Analyzer**: Computes match percentage between user-acquired competencies and target certifications or career archetypes with bridge credential recommendations.
-- **📊 Universal Matrix Exporters**: Real-time export to valid **Mermaid flowcharts (`flowchart LR`/`TD`)**, **Markdown study guides with milestone checklists**, **ASCII prerequisite trees**, and **Schema.org JSON-LD**.
-- **🌐 Interactive Web UI (Design influenced by Material 3)**: Crisp typography, subtle elevation cards, interactive SVG DAG roadmap canvas, career path wizard, and dark mode toggle.
-- **🤖 FastMCP Model Context Protocol Server**: Direct stdio JSON-RPC 2.0 integration for Claude Desktop, Cursor, and Cline.
-- **🛡️ 100% Pure Python Standard Library**: Zero third-party runtime dependencies. Compatible with Python 3.9–3.13 across Linux, macOS, Windows, and Termux.
+`certpath-roadmap-studio` models IT, cloud, DevOps, AI, and offensive/defensive security certifications as a verified directed acyclic graph (DAG). It computes topologically sorted prerequisite chains, identifies downstream credentials unlocked by completing an exam, generates phased career study roadmaps tailored to weekly study budgets, runs Monte Carlo completion-date simulations, calculates financial return on investment (exam cost + study-hour opportunity cost vs. salary uplift), and exports roadmaps to Mermaid `flowchart`, ASCII trees, Markdown, and JSON-LD.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
-```
-                                  ┌───────────────────────────────┐
-                                  │      Certification Catalog     │
-                                  │  (137+ Tracked Credentials)   │
-                                  └───────────────┬───────────────┘
-                                                  │
-                                                  ▼
-                                  ┌───────────────────────────────┐
-                                  │       DAG Graph Solver        │
-                                  │  • Topological Sorting        │
-                                  │  • Prerequisite Resolution    │
-                                  │  • Critical Path Analysis     │
-                                  └───────┬───────────────┬───────┘
-                                          │               │
-                     ┌────────────────────┴───┐       ┌───┴───────────────────┐
-                     ▼                        ▼       ▼                       ▼
-           ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
-           │ Roadmap Planner  │     │ Matrix Exporter  │     │  FastMCP Server  │
-           │ • 4-Phase Paths  │     │ • Mermaid DAG    │     │  • JSON-RPC 2.0  │
-           │ • Skill-Gap Calc │     │ • Markdown Guide │     │  • 8 Native Tools│
-           │ • Budget Tracker │     │ • ASCII Trees    │     │  • stdio Transp. │
-           └─────────┬────────┘     └────────┬─────────┘     └────────┬─────────┘
-                     │                       │                        │
-                     └───────────────────────┼────────────────────────┘
-                                             │
-                     ┌───────────────────────┴────────────────────────┐
-                     │                                                │
-                     ▼                                                ▼
-       ┌───────────────────────────┐                    ┌───────────────────────────┐
-       │   Multi-OS Terminal CLI   │                    │  Material 3 Studio Web UI │
-       │ • 13 Interactive Commands │                    │ • SVG DAG Visualizer      │
-       │ • --no-color Support      │                    │ • Career Planner Wizard   │
-       │ • Cross-Platform Native   │                    │ • 1-Click Code Exporter   │
-       └───────────────────────────┘                    └───────────────────────────┘
+```text
+src/certpath_roadmap_studio/
+├── catalog.py             # Structured certification catalog (providers, exam codes, levels, skills, hours)
+├── dag_engine.py          # Topological sort, transitive prerequisite closure, cycle detector & unlock graph
+├── roadmap_planner.py     # Role-based phased career planner (Cloud Architect, Red Team, DevSecOps, ML Eng, etc.)
+├── velocity_simulator.py  # Monte Carlo study-velocity and completion-window simulator
+├── roi_calculator.py      # Financial ROI, payback period, Jaccard skill overlap & portfolio valuation engine
+├── matrix_exporter.py     # Mermaid flowchart, ASCII tree, Markdown study guide & JSON-LD emitters
+├── mcp_server.py          # JSON-RPC 2.0 stdio MCP server exposing 12 roadmap & ROI tools
+├── ui_server.py           # Loopback HTTP API + browser workstation server (127.0.0.1:8093)
+└── cli.py                 # Unified CLI entrypoint (`certpath` / `certpath-roadmap-studio`)
 ```
 
 ---
 
-## 🚀 Quick Start
-
-### 1. Installation
+## Quickstart
 
 ```bash
-# Clone the repository
-git clone https://github.com/NullAITech/certpath-roadmap-studio.git
+git clone https://github.com/1nc0gn30/certpath-roadmap-studio.git
 cd certpath-roadmap-studio
+python3 -m pip install -e ".[dev]"
 
-# No external runtime dependencies required!
-python3 -m certpath_roadmap_studio.cli --version
+# Start the loopback web workstation on http://127.0.0.1:8093
+certpath serve --host 127.0.0.1 --port 8093
 ```
 
-### 2. Launch the Material 3 Studio Web UI
+Run directly from a source checkout without installing:
 
 ```bash
-python3 -m certpath_roadmap_studio.cli serve --port 8080
-```
-Open [http://localhost:8080](http://localhost:8080) to explore the visual DAG roadmap canvas, career wizard, and prerequisite trees.
-
----
-
-## 💻 CLI Command Guide
-
-```bash
-# Search certifications by keyword, category, or level
-python3 -m certpath_roadmap_studio.cli search "Kubernetes" --level Advanced
-
-# Calculate complete prerequisite chain in topological order
-python3 -m certpath_roadmap_studio.cli prereqs cloud-cks
-
-# View certifications unlocked by a foundational credential
-python3 -m certpath_roadmap_studio.cli unlocked soft-comptia-sec-plus
-
-# Generate a personalized career roadmap for a target role
-python3 -m certpath_roadmap_studio.cli plan --role cloud_security_architect --hours 15 --format text
-
-# Export a customized study guide to Markdown
-python3 -m certpath_roadmap_studio.cli plan --role ai_ml_engineer --format md > study_plan.md
-
-# Compare 2+ certifications side-by-side
-python3 -m certpath_roadmap_studio.cli compare cyber-sec-plus cyber-cysa-plus cyber-cissp
-
-# Output Mermaid flowchart syntax for a roadmap or category
-python3 -m certpath_roadmap_studio.cli mermaid cloud_security_architect
-
-# Output ASCII prerequisite tree
-python3 -m certpath_roadmap_studio.cli tree cyber-cissp
-
-# Calculate financial ROI and payback horizon for a certification
-python3 -m certpath_roadmap_studio.cli roi --cert cloud-aws-saa
-
-# Evaluate market power and earning potential for a portfolio or role
-python3 -m certpath_roadmap_studio.cli roi --role cloud_security_architect
-
-# Quantify skill overlap and study hours saved between two credentials
-python3 -m certpath_roadmap_studio.cli overlap cloud-aws-saa sec-aws-sec-spec
-
-# Simulate learning velocity & Monte Carlo timeline with burnout alerts
-python3 -m certpath_roadmap_studio.cli simulate --role devops_engineer --hours 12 --experience intermediate
-
-# View catalog telemetry and DAG diagnostics
-python3 -m certpath_roadmap_studio.cli stats
-python3 -m certpath_roadmap_studio.cli doctor
+PYTHONPATH=src python3 -m certpath_roadmap_studio.cli serve --port 8093
 ```
 
 ---
 
-## 🌐 REST API Endpoints
+## CLI & MCP Usage
 
-When running `python3 -m certpath_roadmap_studio.cli serve` or `ui_server.py`, the embedded HTTP server exposes full REST API endpoints:
+### CLI Subcommands
+
+Installed entrypoints: `certpath`, `certpath-roadmap-studio`, and `certpath-studio`.
+
+```bash
+# View CLI help
+certpath --help
+
+# Search certifications by keyword, provider, level, or category
+certpath search --query "kubernetes" --format json
+
+# Resolve topological prerequisite chain or downstream unlocked credentials
+certpath prereqs aws-solutions-architect-pro
+certpath unlocked comptia-security-plus
+
+# Generate a phased career roadmap for a target role and weekly study budget
+certpath plan --role cloud-architect --hours 10 --format json
+
+# Compare two or more certifications side-by-side
+certpath compare oscp cissp
+
+# Simulate completion timelines via Monte Carlo velocity modeling
+certpath simulate --role cybersecurity-analyst --hours 12
+
+# Calculate certification financial ROI and skill overlap
+certpath roi aws-solutions-architect-associate
+certpath overlap comptia-security-plus cissp
+
+# Export Mermaid DAG syntax or ASCII prerequisite tree
+certpath mermaid --category "Cyber Security"
+certpath tree oscp
+
+# Inspect catalog statistics and DAG acyclicity
+certpath stats
+certpath roles
+
+# Launch the stdio MCP server
+certpath mcp
+```
+
+### ZothOS v3.4.0 CLI Integration
+
+On ZothOS v3.4.0 workstations, `certpath` is symlinked in `/usr/local/bin/certpath`:
+
+```bash
+certpath stats
+certpath web                 # Starts http://127.0.0.1:8093
+certpath desktop             # Launches the Electron workstation shell
+```
+
+### Model Context Protocol (MCP) Tools
+
+```json
+{
+  "mcpServers": {
+    "certpath-roadmap-studio": {
+      "command": "certpath",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+| MCP Tool | Description |
+| :--- | :--- |
+| `certpath_search` | Filter certifications by query, provider, difficulty tier, category, or skill |
+| `certpath_resolve_prereqs` | Compute ordered prerequisite chains and unlocked downstream credentials |
+| `certpath_plan_career` | Build a phased study plan for a career archetype or target certification set |
+| `certpath_compare` | Compare exam cost, study hours, difficulty, and skills across certifications |
+| `certpath_export_dag` | Export roadmap subgraphs as Mermaid `flowchart`, ASCII tree, Markdown, or JSON-LD |
+| `certpath_roles` | List built-in career role blueprints and target credential stacks |
+| `certpath_catalog_stats` | Return catalog counts, provider distribution, and DAG cycle verification |
+| `certpath_simulate_velocity` | Run Monte Carlo study-velocity simulations with P10/P50/P90 completion dates |
+| `certpath_calculate_roi` | Compute net financial ROI, salary delta, and break-even payback months |
+| `certpath_skill_overlap` | Measure competency overlap and study-hour savings between two certifications |
+| `certpath_portfolio_valuation` | Evaluate combined market value and domain coverage of an existing cert stack |
+| `certpath_diagnostics` | Return host runtime health and DAG verification status |
+
+---
+
+## HTTP API Reference
+
+When running on `http://127.0.0.1:8093`:
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `GET` | `/api/catalog` | Filter and list certifications (`?q=`, `?category=`, `?provider=`, `?level=`, `?limit=`) |
-| `GET` | `/api/cert/<id>` | Retrieve full certification details with resolved prerequisites and difficulty score |
-| `GET` | `/api/prereqs/<id>` | Return complete prerequisite dependency chain in topological order |
-| `GET` | `/api/unlocked/<id>` | Return all downstream certifications unlocked directly or transitively |
-| `GET`/`POST` | `/api/plan` | Generate personalized career roadmap (`?role=`, `?target=`, `?hours=`, `?current=`) |
-| `GET`/`POST` | `/api/compare` | Compare 2+ certifications side-by-side (`?ids=id1,id2`) |
-| `GET` | `/api/roles` | List all built-in career role templates |
-| `GET`/`POST` | `/api/simulate-velocity` | Monte Carlo timeline simulation & cognitive fatigue modeling |
-| `GET`/`POST` | `/api/roi` | Certification ROI, salary premium, payback horizon, and 5-year net return |
-| `GET`/`POST` | `/api/overlap` | Skill overlap index, shared competencies, and synergistic study hours saved |
-| `GET`/`POST` | `/api/valuation` | Credential portfolio market valuation, diversification (HHI), and salary ceiling |
-| `GET` | `/api/mermaid` | Generate live Mermaid flowchart syntax for a role or target cert |
-| `GET` | `/api/stats` | Telemetry, category distribution, and DAG validation metrics |
-| `GET` | `/api/diagnostics` | System health check and toolchain diagnostics |
+| `GET` | `/health`, `/api/health`, `/api/diagnostics` | Service health status, catalog size, and DAG cycle check |
+| `GET` | `/api/catalog` | Query and filter certifications (`q`, `provider`, `level`, `category`) |
+| `GET` | `/api/stats` | Catalog summary statistics and provider counts |
+| `GET` | `/api/roles` | Career role templates |
+| `GET` | `/api/mermaid` | Export Mermaid DAG diagram (`category`, `direction`) |
+| `GET` / `POST` | `/api/plan` | Generate phased study roadmap |
+| `GET` / `POST` | `/api/compare` | Side-by-side certification comparison |
+| `POST` | `/api/search` | Structured certification search |
+| `GET` / `POST` | `/api/simulate-velocity` | Monte Carlo study timeline simulation |
+| `GET` / `POST` | `/api/roi` | Financial ROI and payback analysis |
+| `GET` / `POST` | `/api/overlap` | Pairwise certification skill-transfer calculation |
+| `GET` / `POST` | `/api/valuation` | Multi-certification portfolio valuation |
 
 ---
 
-## 🤖 MCP Server Setup
-
-Add **CertPath Roadmap Studio** to your AI client configuration:
-
-### Claude Desktop (`claude_desktop_config.json`)
-```json
-{
-  "mcpServers": {
-    "certpath-roadmap": {
-      "command": "python3",
-      "args": [
-        "-m",
-        "certpath_roadmap_studio.cli",
-        "mcp"
-      ],
-      "cwd": "/path/to/certpath-roadmap-studio"
-    }
-  }
-}
-```
-
-### Cursor (`.cursor/mcp.json`)
-```json
-{
-  "mcpServers": {
-    "certpath-roadmap": {
-      "command": "python3",
-      "args": ["-m", "certpath_roadmap_studio.cli", "mcp"],
-      "cwd": "/path/to/certpath-roadmap-studio"
-    }
-  }
-}
-```
-
-### Cline (`cline_mcp_settings.json`)
-```json
-{
-  "mcpServers": {
-    "certpath-roadmap": {
-      "command": "python3",
-      "args": ["-m", "certpath_roadmap_studio.cli", "mcp"]
-    }
-  }
-}
-```
-
-### Registered FastMCP Tools
-
-| Tool | Description |
-| :--- | :--- |
-| `certpath_search` | Search 137+ certifications by keyword, provider, level, or skill. |
-| `certpath_resolve_prereqs` | Return complete prerequisite dependency chain in topological order. |
-| `certpath_plan_career` | Generate customized 4-phase learning journey for a career role or target credential. |
-| `certpath_compare` | Side-by-side comparison matrix across difficulty, domains, fees, and study hours. |
-| `certpath_export_dag` | Export roadmap DAG to Mermaid, ASCII tree, or JSON-LD format. |
-| `certpath_roles` | List all built-in career role templates. |
-| `certpath_catalog_stats` | Retrieve catalog telemetry, domain distribution, and DAG validation metrics. |
-| `certpath_diagnostics` | Check toolchain health, filesystem integrity, and OS compatibility. |
-| `certpath_simulate_velocity` | Monte Carlo timeline simulation (P50, P80, P95) with burnout & cognitive fatigue risk analysis. |
-| `certpath_calculate_roi` | Financial ROI, annual salary premium, payback horizon, and 5-year net return. |
-| `certpath_skill_overlap` | Quantify knowledge transfer, shared skills, and study hours saved between certifications. |
-| `certpath_portfolio_valuation` | Aggregate market power score, vendor diversification (HHI), and salary range. |
-
----
-
-## 🧪 Running Tests
+## Testing & Verification
 
 ```bash
-pytest -v
+# Run the pytest test suite
+python3 -m pytest -q
+
+# Run internal CLI self-verification
+certpath test
+
+# Scan repository with gitleaks
+gitleaks detect --source . --no-banner --redact
 ```
 
-87/87 tests passing with 100% standard library compliance across Linux, macOS, and Windows.
-
 ---
 
-## 💰 100% Free & Open Access (Zero Paywalls)
+## Support
 
-CertPath Roadmap Studio is 100% free and open-access with zero paywalls, zero license keys, and zero locked features. All 137 certifications, prerequisite graphs, custom study roadmaps, and matrix exporters are fully unlocked by default.
+CertPath Roadmap Studio is 100% free and open-source software. Optional community support is available via [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X).
 
-- **☕ Buy Us a Coffee (Stripe)**: [Support via Stripe](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) (Credit Cards, Apple Pay, Google Pay)
-- **◎ Solana Community Tip Address**: `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`
-- **Zoth Studio Enclave**: Also integrated as a native God Mode workstation at [https://zoth.nullai.tech/tools/certpath-roadmap-studio](https://zoth.nullai.tech/tools/certpath-roadmap-studio).
+## License
 
----
-
-## 🛡️ Verification & Headless Validation
-
-- **Triple-Viewport Responsiveness**: Automated headless Chrome verification across Mobile (390x844), Tablet (820x1180), and Desktop (1425x900). 0px horizontal overflow guaranteed.
-- **Pure Client Execution**: 100% in-browser AST & DAG traversal with zero broken cloud APIs or external backend requirements.
-- **Console Errors**: 0 console errors across all test paths.
-
----
-
-## 📜 License & Attribution
-
-MIT License &copy; 2026 **1nc0gn30** ([@1nc0gn30](https://github.com/1nc0gn30)) • **1nc0gn30 • NullAI** • [NullAI Platform](https://nullai.tech)
-
----
-
-## 🏛️ ZothOS v3.4, Zoth Studio v2 & Obsidian Second Brain Ecosystem
-
-```mermaid
-flowchart LR
-    subgraph ZothOS["🐧 ZothOS v3.4 CLI & Braille TUI"]
-        CLI["certpath-roadmap-studio --help / --json"]
-        TUI["certpath-roadmap-studio-tui<br/>Unicode U+2800 2x4 Braille"]
-    end
-
-    subgraph Workstation["⚡ Sovereign Workstation"]
-        WEB["http://127.0.0.1:8093<br/>REST API & /health"]
-    end
-
-    subgraph Studio["🌌 Zoth Studio v2 & ZothOS-Lite"]
-        GODMODE["http://127.0.0.1:3000/tools/certpath-roadmap-studio<br/>God-Mode Workstation"]
-        LITE["http://127.0.0.1:8145<br/>ZothOS-Lite Web Desktop"]
-    end
-
-    subgraph SecondBrain["💎 Obsidian Second Brain & STDP"]
-        TRACKER["http://127.0.0.1:8151<br/>Zoth Obsidian Tracker"]
-        NEURO["http://127.0.0.1:8094<br/>Neuro-Memory STDP Cortex"]
-        NOTE["Studio/Tools/Studio certpath-roadmap-studio.md"]
-    end
-
-    CLI --> WEB
-    TUI --> WEB
-    WEB <--> GODMODE
-    WEB <--> LITE
-    WEB --> TRACKER
-    TRACKER <--> NOTE
-    NOTE <--> NEURO
-```
-
-### Cross-Surface Integration Matrix
-
-| Surface | Endpoint / Binary | Capabilities |
-| :--- | :--- | :--- |
-| **Standalone Workstation** | `http://127.0.0.1:8093` | 100% Free & Open-Access Web Deck, live `/health` & REST telemetry |
-| **Zoth Studio v2 Route** | `http://127.0.0.1:3000/tools/certpath-roadmap-studio` | Interactive God-Mode component inside Zoth Studio (`https://zoth.nullai.tech`) |
-| **ZothOS v3.4 CLI & TUI** | `certpath-roadmap-studio` / `certpath-roadmap-studio-tui` | Global binary in `/usr/local/bin/` with Unicode `U+2800` Braille TUI & `--json` output |
-| **ZothOS-Lite Web Desktop** | `http://127.0.0.1:8145` | Browser-native KDE-style window manager & terminal launcher |
-| **Zoth Obsidian Tracker** | `http://127.0.0.1:8151` | Interactive Obsidian Second Brain vault explorer (`~/Documents/Obsidian Vault/Studio/Tools/Studio certpath-roadmap-studio.md`) |
-| **Neuro-Memory STDP Cortex** | `http://127.0.0.1:8094` | 3-Factor STDP synaptic memory daemon & 21-tool MCP server |
-
-```bash
-# Inspect CLI & Unicode U+2800 Braille TUI on ZothOS v3.4
-certpath-roadmap-studio --help
-certpath-roadmap-studio-tui --status
-certpath-roadmap-studio-tui --json
-
-# Verify Second Brain Vault & 12-Step Verification Gallery on :8151
-zoth-obsidian-tracker --verify
-```
-
+MIT License — Copyright (c) 2026 [1nc0gn30](https://1nc0gn30.si) (`@1nc0gn30`) & [NullAI](https://nullai.tech). See [LICENSE](LICENSE) for full text.

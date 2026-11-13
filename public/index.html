@@ -983,10 +983,11 @@
       .detail-drawer {
         position: fixed;
         right: 0;
-        top: 64px;
+        top: 0;
         bottom: 0;
         width: 100%;
         max-width: 100%;
+        z-index: 250;
       }
     }
   </style>
@@ -2064,6 +2065,9 @@
   <script src="/sovereign_tutorial.js"></script>
   <script>
     window.addEventListener("DOMContentLoaded", function() {
+      if (window.innerWidth <= 1024) {
+        document.getElementById("detail-drawer")?.classList.add("collapsed");
+      }
       if (window.createSovereignTutorial) {
         window.createSovereignTutorial({
           toolId: "certpath-roadmap-studio",

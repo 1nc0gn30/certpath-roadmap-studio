@@ -26,7 +26,7 @@
 
     const bar = document.createElement('div');
     bar.id = 'zoth-sovereign-a100-bar';
-    bar.style.cssText = 'position:fixed;bottom:14px;right:14px;z-index:9990;display:flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:rgba(8,9,15,0.94);border:1px solid ' + META.accent + '77;box-shadow:0 12px 34px rgba(0,0,0,0.75);backdrop-filter:blur(14px);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#F3F4F6;flex-wrap:wrap;max-width:calc(100vw - 28px);';
+    bar.style.cssText = 'margin:12px auto;z-index:40;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(8,9,15,0.94);border:1px solid ' + META.accent + '77;box-shadow:0 8px 24px rgba(0,0,0,0.45);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#F3F4F6;flex-wrap:wrap;width:fit-content;max-width:calc(100vw - 28px);';
     bar.innerHTML = `
       <span id="zoth-braille-ticker" style="color:${META.accent};font-weight:700;letter-spacing:1px;">⠋⠙⠹⠸⠼⠴⠦⠧</span>
       <span style="opacity:0.85;font-weight:700;">A100×HERMES</span>
@@ -35,7 +35,12 @@
       <button id="zoth-btn-3d" type="button" style="cursor:pointer;background:rgba(255,255,255,0.09);color:#F3F4F6;border:1px solid rgba(255,255,255,0.22);border-radius:999px;padding:4px 10px;font-size:11px;">🧊 3D Totem</button>
       <button id="zoth-btn-presets" type="button" style="cursor:pointer;background:rgba(255,255,255,0.09);color:#F3F4F6;border:1px solid rgba(255,255,255,0.22);border-radius:999px;padding:4px 10px;font-size:11px;">⚡ Presets & TUI</button>
     `;
-    document.body.appendChild(bar);
+    const footer = document.querySelector('footer');
+    if (footer && footer.parentNode) {
+      footer.parentNode.insertBefore(bar, footer);
+    } else {
+      document.body.appendChild(bar);
+    }
 
     let tick = 0;
     const tickerEl = document.getElementById('zoth-braille-ticker');

@@ -25,16 +25,14 @@
 .search-clear-btn:focus-visible,
 .role-card:focus-visible,
 .resource-card:focus-visible,
-#drawer-official-link:focus-visible,
-#btnActivateKey:focus-visible {
+#drawer-official-link:focus-visible {
   outline: 2px solid var(--zoth-gold, #D4AF37) !important;
   outline-offset: 2px !important;
 }
 
 .search-input:focus-visible,
 .select-input:focus-visible,
-.text-input:focus-visible,
-#license-input:focus-visible {
+.text-input:focus-visible {
   outline: 2px solid var(--zoth-gold, #D4AF37) !important;
   outline-offset: 0 !important;
   border-color: var(--zoth-gold, #D4AF37) !important;
@@ -272,8 +270,7 @@
 
 .search-input:invalid,
 .select-input:invalid,
-.text-input:invalid,
-#license-input:invalid {
+.text-input:invalid {
   border-color: var(--md-error, #F97066) !important;
   box-shadow: 0 0 0 3px rgba(249, 112, 102, 0.2) !important;
 }

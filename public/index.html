@@ -32,7 +32,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebApplication",
+        "@type": ["WebApplication", "SoftwareApplication"],
         "@id": "https://certpath-roadmap-studio.netlify.app/#app",
         "name": "CertPath Roadmap Studio",
         "url": "https://certpath-roadmap-studio.netlify.app/",
@@ -41,7 +41,7 @@
         "description": "Interactive cybersecurity, cloud, and software engineering certification roadmap DAG solver.",
         "creator": {
           "@type": "Person",
-          "name": "1nc0gn30",
+          "name": "Neal Frazier (@1nc0gn30)",
           "url": "https://nullai.tech",
           "sameAs": "https://github.com/1nc0gn30"
         },
@@ -977,7 +977,7 @@
       .export-actions-group::-webkit-scrollbar {
         display: none;
       }
-      .sales-banner-top {
+      .support-banner-top {
         padding: 8px 12px !important;
       }
       .detail-drawer {
@@ -998,7 +998,7 @@
 </head>
 <body>
   <!-- Support Bar Above Main Section -->
-  <aside class="sales-banner-top" id="supportBanner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
+  <aside class="support-banner-top" id="supportBanner" style="background: linear-gradient(90deg, rgba(26,115,232,0.12) 0%, rgba(212,175,55,0.14) 100%); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-sans); font-size: 13px;">
     <div style="display: flex; align-items: center; gap: 10px;">
       <span style="background: #10B981; color: #08080B; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">100% FREE &amp; OPEN ACCESS</span>
       <span style="color: var(--text-primary); font-weight: 500;">
@@ -1029,7 +1029,7 @@
       <div class="brand-title">
         CertPath Roadmap Studio
         <span class="brand-badge">v2.5 SOVEREIGN</span>
-        <span id="licenseBadge" class="brand-badge" style="background: rgba(16,185,129,0.15); color: #10B981; font-weight: 800; border: 1px solid #10B981;">✦ 100% UNLOCKED</span>
+        <span id="openAccessBadge" class="brand-badge" style="background: rgba(16,185,129,0.15); color: #10B981; font-weight: 800; border: 1px solid #10B981;">✦ 100% OPEN ACCESS</span>
       </div>
     </div>
 
@@ -2014,24 +2014,6 @@
       }, 3500);
     }
 
-    let isProLicensed = true;
-
-    function checkProLicense() {
-      isProLicensed = true;
-      const badge = document.getElementById('licenseBadge') || document.getElementById('proStatusBadge');
-      if (badge) {
-        badge.textContent = '✦ 100% UNLOCKED';
-        badge.style.background = 'rgba(16,185,129,0.15)';
-        badge.style.color = '#10B981';
-        badge.style.display = 'inline-block';
-      }
-      return true;
-    }
-
-    function checkLicense() {
-      checkProLicense();
-    }
-
     function planForSelectedCert() {
       if (selectedCertId) {
         showToast(`Generating custom study plan for ${selectedCertId}...`);
@@ -2048,10 +2030,6 @@
         }
       }
     }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      checkProLicense();
-    });
   </script>
 
   <!-- Professional Footer Attribution -->

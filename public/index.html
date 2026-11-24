@@ -1967,8 +1967,26 @@
           mermaid += `  ${p} --> ${c.id}["${safeTitle}"]\n`;
         });
       });
-      navigator.clipboard.writeText(mermaid);
-      showToast('✓ Mermaid diagram copied to clipboard!');
+      const fallbackCopy = () => {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = mermaid;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        } catch (_) {}
+        showToast('✓ Mermaid diagram copied to clipboard!');
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(mermaid).then(() => {
+          showToast('✓ Mermaid diagram copied to clipboard!');
+        }).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
     }
 
     function downloadMarkdownGuide() {

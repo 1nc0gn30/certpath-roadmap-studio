@@ -1,6 +1,6 @@
 /**
  * Sovereign Reusable Kid-Friendly Tutorial & Braille/ASCII Magic Engine
- * Author: 1nc0gn30 (@1nc0gn30) • NullAI Platform
+ * Author: Neal Frazier Tech (@1nc0gn30) • NullAI Platform
  */
 (function() {
   if (window.__SOVEREIGN_TUTORIAL_ATTACHED__) return;
@@ -31,7 +31,7 @@
       <div style="display:flex; gap:14px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; align-items:flex-start;">
         <span style="font-size:26px; line-height:1;">${s.icon}</span>
         <div>
-          <h4 style="margin:0 0 4px; color:${idx === 0 ? accentColor : '#38BDF8'}; font-size:14px; font-weight:700;">Step ${idx + 1}: ${s.title}</h4>
+          <h3 style="margin:0 0 4px; color:${idx === 0 ? accentColor : '#38BDF8'}; font-size:14px; font-weight:700;">Step ${idx + 1}: ${s.title}</h3>
           <p style="margin:0; color:#CBD5E1; font-size:12px; line-height:1.5;">${s.desc}</p>
         </div>
       </div>

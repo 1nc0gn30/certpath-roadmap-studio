@@ -30,7 +30,7 @@ def test_cli_version():
     """Verify -v and --version output."""
     code, out, _ = run_cli_capture(["--version"])
     assert code == 0
-    assert "0.1.0" in out
+    assert "2.6.0" in out
 
 
 def test_cli_stats_and_json():

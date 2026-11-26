@@ -9,10 +9,10 @@ Zero third-party runtime dependencies (100% Python Standard Library).
 
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "2.6.0"
 __title__ = "certpath-roadmap-studio"
 __description__ = "Intelligent Certification DAG & Career Pathing System with MCP Server & CLI"
-__author__ = "CertPath Roadmap Studio Team"
+__author__ = "Neal Frazier Tech (@1nc0gn30) • NullAI Platform"
 __license__ = "MIT"
 
 # Core Models & Catalog
@@ -74,11 +74,12 @@ from .roi_calculator import (
     format_roi_scorecard,
 )
 
-# Protocol & CLI (conditional for concurrent subagent initialization)
-try:
-    from .mcp_server import MCPServer
-except ImportError:
-    MCPServer = None  # type: ignore
+# Protocol & CLI (lazy-loaded via PEP 562 to avoid RuntimeWarning on `python3 -m certpath_roadmap_studio.mcp_server`)
+def __getattr__(name: str):
+    if name == "MCPServer":
+        from .mcp_server import MCPServer
+        return MCPServer
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
 def cli_main(argv=None):

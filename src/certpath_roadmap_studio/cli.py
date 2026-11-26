@@ -34,7 +34,7 @@ from .matrix_exporter import (
 from .mcp_server import MCPServer
 from .roadmap_planner import BUILTIN_ROLES, CareerRole, RoadmapPlan, RoadmapPlanner
 
-__version__ = "0.1.0"
+__version__ = "2.6.0"
 
 
 # -----------------------------------------------------------------------------
@@ -541,7 +541,7 @@ def cmd_overlap(args: argparse.Namespace, catalog: CertificationCatalog) -> int:
 
 def cmd_mermaid(args: argparse.Namespace, catalog: CertificationCatalog, dag: DAGEngine) -> int:
     """Output Mermaid flowchart syntax."""
-    target_str = args.target
+    target_str = getattr(args, "role", None) or getattr(args, "category", None) or getattr(args, "cert_id", None) or args.target
     direction = args.direction.upper()
 
     if args.full:
@@ -851,11 +851,17 @@ def cmd_test() -> int:
     # 9. ROI & Skill Overlap Matrix Engine
     def t_roi():
         from .roi_calculator import calculate_cert_roi, calculate_skill_overlap, evaluate_portfolio
-        cert_aws = catalog.get("cloud-aws-saa") or catalog.get_all()[0]
+        cert_aws = catalog.get("cloud-aws-solutions-arch") or next((c for c in catalog.get_all() if c.cost_usd > 0), catalog.get_all()[0])
         roi = calculate_cert_roi(cert_aws)
         assert roi.annual_salary_premium_usd > 0
         assert roi.payback_period_months > 0
-        cert_sec = catalog.get("sec-aws-sec-spec") or catalog.get_all()[1]
+        assert roi.five_year_roi_pct is not None and roi.five_year_roi_pct > 0
+        free_cert = catalog.get("web-html-css")
+        if free_cert:
+            free_roi = calculate_cert_roi(free_cert)
+            assert free_roi.five_year_roi_pct is None
+            assert free_roi.payback_period_months == 0.0
+        cert_sec = catalog.get("cyber-sec-plus") or catalog.get_all()[1]
         ov = calculate_skill_overlap(cert_aws, cert_sec)
         assert ov.overlap_ratio >= 0
         val = evaluate_portfolio([cert_aws.id, cert_sec.id], catalog=catalog)
@@ -928,6 +934,9 @@ def build_parser() -> argparse.ArgumentParser:
     # 6. mermaid
     p_mermaid = subparsers.add_parser("mermaid", parents=[common_parser], help="Export Mermaid flowchart syntax")
     p_mermaid.add_argument("target", nargs="?", default=None, help="Certification ID, category, or role ID")
+    p_mermaid.add_argument("--role", "-r", default=None, help="Career role archetype ID")
+    p_mermaid.add_argument("--category", "-c", default=None, help="Category name")
+    p_mermaid.add_argument("--cert", "--cert-id", dest="cert_id", default=None, help="Certification ID")
     p_mermaid.add_argument("--direction", "-d", choices=["LR", "TD"], default="LR", help="Flowchart layout (default: LR)")
     p_mermaid.add_argument("--full", action="store_true", help="Export complete catalog graph")
 

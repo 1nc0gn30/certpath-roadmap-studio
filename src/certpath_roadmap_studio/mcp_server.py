@@ -10,6 +10,7 @@ Zero third-party runtime dependencies (100% Python Standard Library).
 from __future__ import annotations
 
 import json
+import math
 import os
 import platform
 import signal
@@ -30,7 +31,93 @@ from .roadmap_planner import BUILTIN_ROLES, CareerRole, RoadmapPlan, RoadmapPlan
 
 PROTOCOL_VERSION = "2024-11-05"
 SERVER_NAME = "certpath-roadmap-studio"
-SERVER_VERSION = "0.1.0"
+SERVER_VERSION = "2.6.0"
+
+
+class InvalidParamsError(ValueError):
+    """Raised when an MCP tool receives invalid or malformed parameters."""
+
+
+def _req_str(args: Dict[str, Any], key: str) -> str:
+    val = args.get(key)
+    if not isinstance(val, str) or not val.strip():
+        raise InvalidParamsError(f"Parameter '{key}' must be a non-empty string")
+    return val.strip()
+
+
+def _opt_str(args: Dict[str, Any], key: str, default: Optional[str] = None) -> Optional[str]:
+    val = args.get(key)
+    if val is None:
+        return default
+    if not isinstance(val, str):
+        raise InvalidParamsError(f"Parameter '{key}' must be a string")
+    s = val.strip()
+    return s if s else default
+
+
+def _opt_int(args: Dict[str, Any], key: str, default: int, min_val: int, max_val: int) -> int:
+    val = args.get(key)
+    if val is None:
+        return default
+    if isinstance(val, bool):
+        raise InvalidParamsError(f"Parameter '{key}' must be an integer")
+    if isinstance(val, float):
+        if not math.isfinite(val) or not val.is_integer():
+            raise InvalidParamsError(f"Parameter '{key}' must be a finite integer")
+        iv = int(val)
+    elif isinstance(val, int):
+        iv = val
+    elif isinstance(val, str):
+        try:
+            iv = int(val.strip())
+        except ValueError as exc:
+            raise InvalidParamsError(f"Parameter '{key}' must be an integer") from exc
+    else:
+        raise InvalidParamsError(f"Parameter '{key}' must be an integer")
+    if iv < min_val or iv > max_val:
+        raise InvalidParamsError(f"Parameter '{key}' must be between {min_val} and {max_val}")
+    return iv
+
+
+def _opt_float(
+    args: Dict[str, Any],
+    key: str,
+    default: Optional[float],
+    min_val: float,
+    max_val: float,
+) -> Optional[float]:
+    val = args.get(key)
+    if val is None:
+        return default
+    if isinstance(val, bool):
+        raise InvalidParamsError(f"Parameter '{key}' must be a number")
+    try:
+        fv = float(val)
+    except (ValueError, TypeError) as exc:
+        raise InvalidParamsError(f"Parameter '{key}' must be a finite number") from exc
+    if not math.isfinite(fv):
+        raise InvalidParamsError(f"Parameter '{key}' must be finite")
+    if fv < min_val or fv > max_val:
+        raise InvalidParamsError(f"Parameter '{key}' must be between {min_val} and {max_val}")
+    return fv
+
+
+def _opt_str_list(args: Dict[str, Any], key: str) -> List[str]:
+    val = args.get(key)
+    if val is None:
+        return []
+    if isinstance(val, str):
+        return [x.strip() for x in val.split(",") if x.strip()]
+    if isinstance(val, list):
+        out: List[str] = []
+        for item in val:
+            if not isinstance(item, str):
+                raise InvalidParamsError(f"All items in '{key}' must be strings")
+            s = item.strip()
+            if s:
+                out.append(s)
+        return out
+    raise InvalidParamsError(f"Parameter '{key}' must be a list of strings")
 
 
 def _log_stderr(message: str) -> None:
@@ -453,13 +540,13 @@ class MCPServer:
 
     def _tool_search(self, args: Dict[str, Any]) -> str:
         """Handler for certpath_search."""
-        query = args.get("query")
-        provider = args.get("provider")
-        level = args.get("level")
-        category = args.get("category")
-        skill = args.get("skill")
-        limit = max(1, int(args.get("limit", 20)))
-        output_format = str(args.get("format", "markdown")).lower()
+        query = _opt_str(args, "query")
+        provider = _opt_str(args, "provider")
+        level = _opt_str(args, "level")
+        category = _opt_str(args, "category")
+        skill = _opt_str(args, "skill")
+        limit = _opt_int(args, "limit", default=20, min_val=1, max_val=500)
+        output_format = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         results = self.catalog.search(
             query=query,
@@ -512,9 +599,9 @@ class MCPServer:
 
     def _tool_resolve_prereqs(self, args: Dict[str, Any]) -> str:
         """Handler for certpath_resolve_prereqs."""
-        cert_id = str(args.get("cert_id", "")).strip()
+        cert_id = _req_str(args, "cert_id")
         include_target = bool(args.get("include_target", True))
-        output_format = str(args.get("format", "markdown")).lower()
+        output_format = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         target_cert = self.catalog.get_by_id(cert_id)
         if not target_cert:
@@ -578,17 +665,13 @@ class MCPServer:
 
     def _tool_plan_career(self, args: Dict[str, Any]) -> str:
         """Handler for certpath_plan_career."""
-        role_id = args.get("role")
-        target_id = args.get("target")
-        current_certs = args.get("current") or []
-        hours_per_week = int(args.get("hours_per_week", 10))
-        max_budget = args.get("max_budget")
-        if max_budget is not None:
-            max_budget = float(max_budget)
-        output_format = str(args.get("format", "markdown")).lower()
-
-        if isinstance(current_certs, str):
-            current_certs = [c.strip() for c in current_certs.split(",") if c.strip()]
+        role_id = _opt_str(args, "role")
+        target_id = _opt_str(args, "target")
+        current_certs = _opt_str_list(args, "current") if "current" in args else _opt_str_list(args, "current_certs")
+        hours_key = "hours_per_week" if "hours_per_week" in args else "weekly_hours"
+        hours_per_week = _opt_int(args, hours_key, default=10, min_val=1, max_val=168)
+        max_budget = _opt_float(args, "max_budget", default=None, min_val=0.0, max_val=1_000_000.0)
+        output_format = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         target_identifier = role_id or target_id
         if not target_identifier:
@@ -602,11 +685,11 @@ class MCPServer:
                 weekly_hours=hours_per_week,
                 max_budget=max_budget,
             )
-        except Exception as err:
+        except ValueError as err:
             return f"Error generating roadmap plan: {err}"
 
         if output_format == "json":
-            return json.dumps(plan.to_dict(), indent=2)
+            return json.dumps(plan.to_dict(), indent=2, allow_nan=False)
         elif output_format == "mermaid":
             return export_mermaid(plan, direction="LR", group_by="phase")
 
@@ -615,15 +698,10 @@ class MCPServer:
 
     def _tool_compare(self, args: Dict[str, Any]) -> str:
         """Handler for certpath_compare."""
-        raw_ids = args.get("cert_ids", [])
-        output_format = str(args.get("format", "markdown")).lower()
-
-        if isinstance(raw_ids, str):
-            raw_ids = [i.strip() for i in raw_ids.split(",") if i.strip()]
-
-        cert_ids = [str(i).strip() for i in raw_ids if str(i).strip()]
+        cert_ids = _opt_str_list(args, "cert_ids")
+        output_format = (_opt_str(args, "format", "markdown") or "markdown").lower()
         if len(cert_ids) < 2:
-            return "Error: Please provide at least 2 certification IDs to compare."
+            raise InvalidParamsError("Parameter 'cert_ids' must contain at least 2 certification IDs")
 
         certs: List[Certification] = []
         missing: List[str] = []
@@ -696,19 +774,24 @@ class MCPServer:
 
     def _tool_export_dag(self, args: Dict[str, Any]) -> str:
         """Handler for certpath_export_dag."""
-        cert_id = args.get("cert_id")
-        category = args.get("category")
-        export_fmt = str(args.get("format", "mermaid")).lower()
-        direction = str(args.get("direction", "LR")).upper()
+        cert_id = _opt_str(args, "cert_id")
+        role_id = _opt_str(args, "role")
+        category = _opt_str(args, "category")
+        export_fmt = (_opt_str(args, "format", "mermaid") or "mermaid").lower()
+        direction = (_opt_str(args, "direction", "LR") or "LR").upper()
+        if direction not in ("LR", "TD", "TB", "RL"):
+            raise InvalidParamsError("Parameter 'direction' must be LR, TD, TB, or RL")
 
         if export_fmt == "ascii_tree":
             if not cert_id:
-                # Default to an iconic anchor cert
                 cert_id = "cloud-aws-pro" if "cloud-aws-pro" in self.catalog else (self.catalog.get_all()[0].id if self.catalog.get_all() else "")
             return export_ascii_tree(cert_id, self.catalog, self.dag_engine)
 
         elif export_fmt == "mermaid":
-            if cert_id:
+            if role_id:
+                plan = self.planner.generate_roadmap(role_id)
+                return export_mermaid(plan, direction=direction, group_by="phase")
+            elif cert_id:
                 chain = self.dag_engine.resolve_prerequisites(cert_id, include_target=True)
                 return export_mermaid(chain, direction=direction, group_by="category")
             elif category:
@@ -864,21 +947,20 @@ class MCPServer:
         """Handler for certpath_simulate_velocity."""
         from .velocity_simulator import simulate_velocity
 
-        target = args.get("target")
-        if not target:
-            return "Error: Parameter 'target' (role ID or certification ID) is required."
-
-        weekly_hours = float(args.get("weekly_hours", 10.0))
-        experience_level = str(args.get("experience_level", "intermediate"))
-        current_certs = args.get("current_certs") or []
-        trials = int(args.get("trials", 500))
-        output_format = str(args.get("format", "markdown")).lower()
+        target = _req_str(args, "target")
+        weekly_hours = _opt_float(args, "weekly_hours", default=10.0, min_val=1.0, max_val=168.0) or 10.0
+        experience_level = (_opt_str(args, "experience_level", "intermediate") or "intermediate").lower()
+        if experience_level not in ("beginner", "intermediate", "advanced", "expert"):
+            raise InvalidParamsError("Parameter 'experience_level' must be beginner, intermediate, advanced, or expert")
+        current_certs = _opt_str_list(args, "current_certs")
+        trials = _opt_int(args, "trials", default=500, min_val=10, max_val=5000)
+        output_format = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         try:
             plan = self.planner.generate_roadmap(
                 target_role_or_cert=target,
                 current_certs=current_certs,
-                weekly_hours=int(weekly_hours),
+                weekly_hours=max(1, int(weekly_hours)),
             )
             report = simulate_velocity(
                 plan_or_certs=plan,
@@ -886,11 +968,11 @@ class MCPServer:
                 experience_level=experience_level,
                 simulation_trials=trials,
             )
-        except Exception as e:
+        except ValueError as e:
             return f"Error simulating learning velocity for target '{target}': {e}"
 
         if output_format == "json":
-            return json.dumps(report.to_dict(), indent=2)
+            return json.dumps(report.to_dict(), indent=2, allow_nan=False)
 
         mc = report.monte_carlo
         lines: List[str] = [
@@ -935,13 +1017,10 @@ class MCPServer:
         """Handler for certpath_calculate_roi."""
         from .roi_calculator import calculate_cert_roi, format_roi_scorecard
 
-        cert_id = args.get("cert_id", "").strip()
-        if not cert_id:
-            return "Error: Parameter 'cert_id' is required."
+        cert_id = _req_str(args, "cert_id")
 
         cert = self.catalog.get(cert_id)
         if not cert:
-            # Fallback search by title or exam code
             matches = self.catalog.search(query=cert_id)
             if matches:
                 cert = matches[0]
@@ -950,11 +1029,16 @@ class MCPServer:
             return f"Error: Certification '{cert_id}' not found in catalog."
 
         analysis = calculate_cert_roi(cert)
-        out_fmt = str(args.get("format", "markdown")).lower()
+        out_fmt = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         if out_fmt == "json":
-            return json.dumps(analysis.to_dict(), indent=2)
+            return json.dumps(analysis.to_dict(), indent=2, allow_nan=False)
 
+        roi_str = (
+            f"{analysis.five_year_roi_pct:,.0f}%"
+            if analysis.five_year_roi_pct is not None
+            else analysis.roi_label
+        )
         return (
             f"### 💰 Certification ROI & Value Analysis: {analysis.title}\n\n"
             f"- **Provider / Level:** `{analysis.provider}` ({analysis.level})\n"
@@ -963,7 +1047,7 @@ class MCPServer:
             f"- **Projected Annual Salary Premium:** `${analysis.annual_salary_premium_usd:,.2f}/year`\n"
             f"- **Payback Horizon:** `{analysis.payback_period_months:.1f} months`\n"
             f"- **Study Hourly Return:** `${analysis.hourly_study_value_usd:.2f}/hour`\n"
-            f"- **5-Year Net ROI:** `${analysis.five_year_net_gain_usd:,.2f}` (`{analysis.five_year_roi_pct:,.0f}%`)\n"
+            f"- **5-Year Net ROI:** `${analysis.five_year_net_gain_usd:,.2f}` (`{roi_str}`)\n"
             f"- **Market Demand Rating:** **{analysis.market_demand_rating}**\n\n"
             f"```text\n{format_roi_scorecard(analysis)}\n```"
         )
@@ -972,10 +1056,8 @@ class MCPServer:
         """Handler for certpath_skill_overlap."""
         from .roi_calculator import calculate_skill_overlap
 
-        cert_a_id = args.get("cert_a_id", "").strip()
-        cert_b_id = args.get("cert_b_id", "").strip()
-        if not cert_a_id or not cert_b_id:
-            return "Error: Parameters 'cert_a_id' and 'cert_b_id' are both required."
+        cert_a_id = _req_str(args, "cert_a_id")
+        cert_b_id = _req_str(args, "cert_b_id")
 
         cert_a = self.catalog.get(cert_a_id) or (self.catalog.search(query=cert_a_id) or [None])[0]
         cert_b = self.catalog.get(cert_b_id) or (self.catalog.search(query=cert_b_id) or [None])[0]
@@ -986,10 +1068,10 @@ class MCPServer:
             return f"Error: Certification '{cert_b_id}' not found in catalog."
 
         overlap = calculate_skill_overlap(cert_a, cert_b)
-        out_fmt = str(args.get("format", "markdown")).lower()
+        out_fmt = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         if out_fmt == "json":
-            return json.dumps(overlap.to_dict(), indent=2)
+            return json.dumps(overlap.to_dict(), indent=2, allow_nan=False)
 
         lines = [
             f"### 🔀 Skill & Competency Overlap: {cert_a.title} ⟷ {cert_b.title}",
@@ -1021,15 +1103,15 @@ class MCPServer:
         """Handler for certpath_portfolio_valuation."""
         from .roi_calculator import evaluate_portfolio, format_portfolio_scorecard
 
-        cert_ids = args.get("cert_ids", [])
-        if not isinstance(cert_ids, list) or not cert_ids:
-            return "Error: Parameter 'cert_ids' must be a non-empty list of certification IDs."
+        cert_ids = _opt_str_list(args, "cert_ids")
+        if not cert_ids:
+            raise InvalidParamsError("Parameter 'cert_ids' must be a non-empty list of certification IDs")
 
         val = evaluate_portfolio(cert_ids, catalog=self.catalog)
-        out_fmt = str(args.get("format", "markdown")).lower()
+        out_fmt = (_opt_str(args, "format", "markdown") or "markdown").lower()
 
         if out_fmt == "json":
-            return json.dumps(val.to_dict(), indent=2)
+            return json.dumps(val.to_dict(), indent=2, allow_nan=False)
 
         min_sal, max_sal = val.estimated_salary_range_usd
         lines = [
@@ -1053,20 +1135,35 @@ class MCPServer:
     # JSON-RPC 2.0 Protocol Dispatcher
     # -------------------------------------------------------------------------
 
-    def handle_request(self, request: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def handle_request(self, request: Any) -> Optional[Dict[str, Any]]:
         """Process a single JSON-RPC 2.0 request or notification and return response."""
+        if not isinstance(request, dict):
+            return {
+                "jsonrpc": "2.0",
+                "id": None,
+                "error": {"code": -32600, "message": "Invalid Request: expected JSON-RPC object"},
+            }
+
         req_id = request.get("id")
         method = request.get("method")
-        params = request.get("params", {})
 
         if not method or not isinstance(method, str):
-            if req_id is not None:
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "error": {"code": -32600, "message": "Invalid Request: method must be a non-empty string"},
+            }
+
+        if "params" in request:
+            params = request["params"]
+            if not isinstance(params, dict):
                 return {
                     "jsonrpc": "2.0",
                     "id": req_id,
-                    "error": {"code": -32600, "message": "Invalid Request: method is required"},
+                    "error": {"code": -32602, "message": "Invalid params: 'params' must be an object"},
                 }
-            return None
+        else:
+            params = {}
 
         # 1. MCP initialize handshake
         if method == "initialize":
@@ -1105,9 +1202,25 @@ class MCPServer:
         # 5. tools/call
         if method == "tools/call":
             tool_name = params.get("name")
-            tool_args = params.get("arguments", {})
+            if not isinstance(tool_name, str) or not tool_name.strip():
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {"code": -32602, "message": "Invalid params: 'name' must be a non-empty string"},
+                }
 
-            if not tool_name or tool_name not in self._handlers:
+            if "arguments" in params:
+                tool_args = params["arguments"]
+                if not isinstance(tool_args, dict):
+                    return {
+                        "jsonrpc": "2.0",
+                        "id": req_id,
+                        "error": {"code": -32602, "message": "Invalid params: 'arguments' must be an object"},
+                    }
+            else:
+                tool_args = {}
+
+            if tool_name not in self._handlers:
                 return {
                     "jsonrpc": "2.0",
                     "id": req_id,
@@ -1133,6 +1246,15 @@ class MCPServer:
                         "isError": False,
                     },
                 }
+            except InvalidParamsError as param_err:
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {
+                        "code": -32602,
+                        "message": f"Invalid params: {param_err}",
+                    },
+                }
             except Exception as err:
                 tb = traceback.format_exc()
                 _log_stderr(f"Error executing tool '{tool_name}': {err}\n{tb}")
@@ -1143,7 +1265,7 @@ class MCPServer:
                         "content": [
                             {
                                 "type": "text",
-                                "text": f"Execution Error in '{tool_name}': {str(err)}",
+                                "text": f"Execution Error in '{tool_name}': internal tool error (see server stderr log)",
                             }
                         ],
                         "isError": True,
@@ -1218,19 +1340,34 @@ class MCPServer:
                 if isinstance(data, dict):
                     response = self.handle_request(data)
                     if response is not None:
-                        sys.stdout.write(json.dumps(response, ensure_ascii=False) + "\n")
+                        sys.stdout.write(json.dumps(response, ensure_ascii=False, allow_nan=False) + "\n")
                         sys.stdout.flush()
                 elif isinstance(data, list):
-                    # Batch request handling
-                    batch_responses = []
-                    for single_req in data:
-                        if isinstance(single_req, dict):
+                    if not data:
+                        err_response = {
+                            "jsonrpc": "2.0",
+                            "id": None,
+                            "error": {"code": -32600, "message": "Invalid Request: empty batch"},
+                        }
+                        sys.stdout.write(json.dumps(err_response) + "\n")
+                        sys.stdout.flush()
+                    else:
+                        batch_responses = []
+                        for single_req in data:
                             res = self.handle_request(single_req)
                             if res is not None:
                                 batch_responses.append(res)
-                    if batch_responses:
-                        sys.stdout.write(json.dumps(batch_responses, ensure_ascii=False) + "\n")
-                        sys.stdout.flush()
+                        if batch_responses:
+                            sys.stdout.write(json.dumps(batch_responses, ensure_ascii=False, allow_nan=False) + "\n")
+                            sys.stdout.flush()
+                else:
+                    err_response = {
+                        "jsonrpc": "2.0",
+                        "id": None,
+                        "error": {"code": -32600, "message": "Invalid Request: expected JSON-RPC object"},
+                    }
+                    sys.stdout.write(json.dumps(err_response) + "\n")
+                    sys.stdout.flush()
 
             except (IOError, KeyboardInterrupt):
                 break

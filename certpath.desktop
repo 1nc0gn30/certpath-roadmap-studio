@@ -2,19 +2,11 @@
 Version=1.0
 Type=Application
 Name=CertPath Roadmap Studio
-GenericName=Certification Roadmap DAG Solver & ROI Calculator
-Comment=Interactive Cybersecurity & Cloud Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator
-Exec=/usr/local/bin/certpath desktop
-Icon=certpath
+GenericName=Certification DAG & Career Planner
+Comment=137-credential certification DAG solver, Monte Carlo velocity simulator, and financial ROI studio (v2.6.0)
+Exec=zoth-konsole -- /usr/local/bin/certpath-roadmap-studio-tui
+Icon=/opt/certpath-roadmap-studio/public/assets/icon.png
 Terminal=false
-Categories=Education;Development;System;Utility;
+Categories=Development;Education;Utility;
+Keywords=certification;roadmap;dag;cybersecurity;aws;oscp;roi;zothos;
 StartupNotify=true
-Actions=CLI;Web;
-
-[Desktop Action CLI]
-Name=Open CertPath CLI
-Exec=x-terminal-emulator -e "/usr/local/bin/certpath --help"
-
-[Desktop Action Web]
-Name=Open Web UI (Port 8093)
-Exec=/usr/local/bin/certpath web

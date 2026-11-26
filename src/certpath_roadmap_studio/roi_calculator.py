@@ -98,8 +98,16 @@ class CertROIAnalysis:
     payback_period_months: float
     hourly_study_value_usd: float  # Salary premium / study hours
     five_year_net_gain_usd: float  # (5 * annual_premium) - exam_cost
-    five_year_roi_pct: float  # (net_gain / exam_cost) * 100
+    five_year_roi_pct: Optional[float]  # (net_gain / exam_cost) * 100, or None when exam_cost <= 0
     market_demand_rating: str  # Very High, High, Moderate
+    roi_label: str = ""
+
+    def __post_init__(self) -> None:
+        if not self.roi_label:
+            if self.five_year_roi_pct is None:
+                self.roi_label = "Free Credential ($0 Exam Cost)"
+            else:
+                self.roi_label = f"{self.five_year_roi_pct:,.1f}%"
 
     def to_dict(self) -> Dict[str, Any]:
         """Serialize ROI analysis to dictionary."""
@@ -114,7 +122,8 @@ class CertROIAnalysis:
             "payback_period_months": round(self.payback_period_months, 2),
             "hourly_study_value_usd": round(self.hourly_study_value_usd, 2),
             "five_year_net_gain_usd": round(self.five_year_net_gain_usd, 2),
-            "five_year_roi_pct": round(self.five_year_roi_pct, 1),
+            "five_year_roi_pct": round(self.five_year_roi_pct, 1) if self.five_year_roi_pct is not None else None,
+            "roi_label": self.roi_label,
             "market_demand_rating": self.market_demand_rating,
         }
 
@@ -247,13 +256,20 @@ def calculate_cert_roi(cert: Certification) -> CertROIAnalysis:
             break
 
     salary_premium = base_premium * cat_mult * prov_mult
-    cost = max(1.0, cert.cost_usd)  # avoid division by zero
     hours = max(1, cert.estimated_hours)
-
-    payback_months = (cost / salary_premium) * 12.0
     hourly_value = salary_premium / hours
-    five_year_net = (salary_premium * 5.0) - cost
-    five_year_roi = (five_year_net / cost) * 100.0
+
+    if cert.cost_usd <= 0.0:
+        payback_months = 0.0
+        five_year_net = salary_premium * 5.0
+        five_year_roi: Optional[float] = None
+        roi_label = "Free Credential ($0 Exam Cost)"
+    else:
+        cost = float(cert.cost_usd)
+        payback_months = (cost / salary_premium) * 12.0
+        five_year_net = (salary_premium * 5.0) - cost
+        five_year_roi = (five_year_net / cost) * 100.0
+        roi_label = f"{five_year_roi:,.1f}%"
 
     # Market demand rating
     if salary_premium >= 18000.0:
@@ -276,6 +292,7 @@ def calculate_cert_roi(cert: Certification) -> CertROIAnalysis:
         five_year_net_gain_usd=five_year_net,
         five_year_roi_pct=five_year_roi,
         market_demand_rating=demand,
+        roi_label=roi_label,
     )
 
 
@@ -396,6 +413,11 @@ def evaluate_portfolio(
 
 def format_roi_scorecard(analysis: CertROIAnalysis) -> str:
     """Format single certification ROI scorecard in terminal box."""
+    roi_pct_str = (
+        f"{analysis.five_year_roi_pct:.0f}%"
+        if analysis.five_year_roi_pct is not None
+        else "Free ($0 Exam)"
+    )
     lines = [
         f"╔══════════════════════════════════════════════════════════════════════════╗",
         f"║  ✦ CERTIFICATION ROI & COMPENSATION ANALYSIS                             ║",
@@ -408,7 +430,7 @@ def format_roi_scorecard(analysis: CertROIAnalysis) -> str:
         f"║  • Projected Annual Premium:    ${analysis.annual_salary_premium_usd:<12.2f}/year                      ║",
         f"║  • Investment Payback Horizon:  {analysis.payback_period_months:<4.1f} months                            ║",
         f"║  • Study Hour Return Rate:      ${analysis.hourly_study_value_usd:<6.2f}/hour                           ║",
-        f"║  • 5-Year Cumulative Net ROI:   ${analysis.five_year_net_gain_usd:<12.2f} ({analysis.five_year_roi_pct:<5.0f}%)        ║",
+        f"║  • 5-Year Cumulative Net ROI:   ${analysis.five_year_net_gain_usd:<12.2f} ({roi_pct_str:<14}) ║",
         f"║  • Market Demand Index:         {analysis.market_demand_rating:<39} ║",
         f"╚══════════════════════════════════════════════════════════════════════════╝",
     ]

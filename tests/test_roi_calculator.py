@@ -41,8 +41,8 @@ def mcp_server(catalog) -> MCPServer:
 
 
 def test_calculate_cert_roi(catalog):
-    """Test ROI calculations for a known certification."""
-    cert = catalog.get("cloud-aws-saa") or catalog.get_all()[0]
+    """Test ROI calculations for paid and free certifications."""
+    cert = catalog.get("cloud-aws-solutions-arch") or next(c for c in catalog.get_all() if c.cost_usd > 0)
     analysis = calculate_cert_roi(cert)
 
     assert analysis.cert_id == cert.id
@@ -52,13 +52,26 @@ def test_calculate_cert_roi(catalog):
     assert analysis.payback_period_months < 12.0  # Typically pays back within a year
     assert analysis.hourly_study_value_usd > 0.0
     assert analysis.five_year_net_gain_usd > 0.0
-    assert analysis.five_year_roi_pct > 100.0
+    assert analysis.five_year_roi_pct is not None and analysis.five_year_roi_pct > 100.0
     assert analysis.market_demand_rating in ("Very High", "High", "Moderate")
 
     # Verify serialization
     data = analysis.to_dict()
     assert data["cert_id"] == cert.id
     assert "five_year_roi_pct" in data
+    assert "roi_label" in data
+
+    # Free credential ($0 exam cost) must not divide by $1.00
+    free_cert = catalog.get("web-html-css")
+    if free_cert:
+        free_roi = calculate_cert_roi(free_cert)
+        assert free_roi.exam_cost_usd == 0.0
+        assert free_roi.payback_period_months == 0.0
+        assert free_roi.five_year_roi_pct is None
+        assert "Free" in free_roi.roi_label
+        free_dict = free_roi.to_dict()
+        assert free_dict["five_year_roi_pct"] is None
+        assert "Free" in format_roi_scorecard(free_roi)
 
 
 def test_calculate_skill_overlap(catalog):

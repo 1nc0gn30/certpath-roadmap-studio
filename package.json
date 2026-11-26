@@ -1,6 +1,6 @@
 {
   "name": "certpath-roadmap-studio",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Interactive Cybersecurity Certification Roadmap Studio, Career Path DAG Solver & ROI Calculator — Desktop & Web Workstation",
   "main": "electron/main.cjs",
   "homepage": "https://certpath-roadmap-studio.netlify.app",
@@ -32,7 +32,7 @@
     "electron",
     "nullai"
   ],
-  "author": "1nc0gn30 (@1nc0gn30) • NullAI Platform",
+  "author": "Neal Frazier Tech (@1nc0gn30) • NullAI Platform",
   "license": "MIT",
   "devDependencies": {
     "electron": "^34.5.8"
